@@ -83,6 +83,18 @@ GOOGLE_API_KEY=...
 - Calls to LLM APIs may incur costs. Use short clips and enable lower-cost models in flags when exploring.
 - Do not upload sensitive content.
 
+### 6) 커밋 규칙
+브랜치 이름에 규칙성
+- impl: 구현함
+- file: 파일 올림 
+- ref: 리팩토링함
+- fix: 버그 고침
+- etc: 기타
+
+예: `impl:api-test` 브랜치 생성 후 메인에 merge
+
+### 7) 기타
+
 샘플 영상 출처 (BigBuckBunny): https://gist.github.com/jsturgis/3b19447b304616f18657
 
 conda activate vea_api
