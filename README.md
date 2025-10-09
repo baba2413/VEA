@@ -1,1 +1,81 @@
-# VEA
+## VEA
+
+### API Test
+
+### 1) 셋업
+
+1. venv/conda 가상환경 python 3.10
+2. pip install -r requirements.txt
+3. .env 만들고 키 채워넣기
+```bash
+copy .env.example .env  # Windows
+```
+4. ffmpeg 설치 방법
+      Windows: winget install ffmpeg
+      Mac: brew install ffmpeg
+      Linux: sudo apt install ffmpeg (Ubuntu/Debian)
+
+
+### 2) 사용법
+
+기본 사용방법은 `cli.py`.
+
+```bash
+python cli.py --help
+```
+
+Common flows:
+
+- Gemini:
+
+```bash
+python cli.py --video sample_videos\sample(1).mp4 --gemini
+```
+
+- OpenAI vision (sample frames from video):
+
+```bash
+python cli.py --video path\to\sample.mp4 --openai-vision --num-frames 8
+```
+
+- OpenAI audio transcription by extracting from video (requires FFmpeg):
+
+```bash
+python cli.py --video path\to\sample.mp4 --openai-audio
+```
+
+- 오디오파일도 가능은 함:
+```bash
+python cli.py --audio path\to\audio.mp3 --openai-audio
+```
+
+- Run all:
+
+```bash
+python cli.py --video path\to\sample.mp4 --all
+```
+
+### 3) Notes
+
+- Gemini video upload accepts common formats like MP4/MOV; larger files may take time to process.
+- OpenAI vision is exercised by sampling a handful of frames from the video and sending them as images in a multimodal prompt; it is not true full-video upload.
+- For audio transcription, the tool prefers `gpt-4o-mini-transcribe` and falls back to `whisper-1` if desired.
+
+### 4) Environment Variables
+
+Create `.env` with:
+
+```
+OPENAI_API_KEY=sk-...
+GOOGLE_API_KEY=...
+```
+
+### 5) Safety & Costs
+
+- Calls to LLM APIs may incur costs. Use short clips and enable lower-cost models in flags when exploring.
+- Do not upload sensitive content.
+
+샘플 영상 출처 (BigBuckBunny): https://gist.github.com/jsturgis/3b19447b304616f18657
+
+conda activate vea_api
+python cli.py --video sample_videos\sample(1).mp4 --gemini
