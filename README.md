@@ -55,6 +55,14 @@ python cli.py --audio path\to\audio.mp3 --openai-audio
 python cli.py --video path\to\sample.mp4 --all
 ```
 
+video_clipper.py 사용법
+
+```bash
+python video_clipper.py input_video.mp4 -o ./clips
+```
+
+입력된 비디오를 30초단위로 잘라서 지정 폴더에 저장.
+
 ### 3) Notes
 
 - Gemini video upload accepts common formats like MP4/MOV; larger files may take time to process.
@@ -78,4 +86,5 @@ GOOGLE_API_KEY=...
 샘플 영상 출처 (BigBuckBunny): https://gist.github.com/jsturgis/3b19447b304616f18657
 
 conda activate vea_api
+
 python cli.py --video sample_videos\sample(1).mp4 --gemini
