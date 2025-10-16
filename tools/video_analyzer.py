@@ -11,7 +11,8 @@
     {
         "url": "https://www.youtube.com/watch?v=...",
         "tag": "주제",
-        "remarks": "중요함"
+        "remarks": "중요함",
+        "human_comments": "사람이 작성한 코멘트"
     },
     ...
 ]
@@ -21,7 +22,8 @@
     {
         "url": "https://www.youtube.com/watch?v=...",
         "gemini_response": "분석 결과...",
-        "remarks": "중요함"
+        "remarks": "중요함",
+        "human_comments": "사람이 작성한 코멘트"
     },
     ...
 ]
@@ -150,7 +152,8 @@ def process_video(item: Dict, temp_dir: Path) -> Dict:
         return {
             "url": url,
             "gemini_response": "ERROR: 영상 다운로드 실패",
-            "remarks": item.get("remarks", "")
+            "remarks": item.get("remarks", ""),
+            "human_comments": item.get("human_comments", "")
         }
     
     print(f"   다운로드 완료: {video_path}")
@@ -168,7 +171,8 @@ def process_video(item: Dict, temp_dir: Path) -> Dict:
     result = {
         "url": url,
         "gemini_response": gemini_response,
-        "remarks": item.get("remarks", "")
+        "remarks": item.get("remarks", ""),
+        "human_comments": item.get("human_comments", "")
     }
     
     return result
@@ -205,7 +209,7 @@ def main():
     )
     parser.add_argument(
         "input_json",
-        help="입력 JSON 파일 경로 (url, tag, remarks 포함된 리스트)"
+        help="입력 JSON 파일 경로 (url, tag, remarks, human_comments 포함된 리스트)"
     )
     parser.add_argument(
         "--output",
