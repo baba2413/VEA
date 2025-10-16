@@ -57,7 +57,7 @@ tools 폴더에 있음
 
 input.json과 results.json 형식은 video_analyzer.py 에 주석으로 있음.
 
-# url에서 "shorts"는 "watch"로 바꿀 것
+url에서 "shorts"는 "watch"로 바꿀 것
 
 
 ### 3) Notes
