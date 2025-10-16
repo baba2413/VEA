@@ -32,22 +32,6 @@ Common flows:
 python cli.py --video sample_videos\sample(1).mp4 --gemini
 ```
 
-- OpenAI vision (sample frames from video):
-
-```bash
-python cli.py --video path\to\sample.mp4 --openai-vision --num-frames 8
-```
-
-- OpenAI audio transcription by extracting from video (requires FFmpeg):
-
-```bash
-python cli.py --video path\to\sample.mp4 --openai-audio
-```
-
-- 오디오파일도 가능은 함:
-```bash
-python cli.py --audio path\to\audio.mp3 --openai-audio
-```
 
 - Run all:
 
@@ -62,6 +46,17 @@ python video_clipper.py input_video.mp4 -o ./clips
 ```
 
 입력된 비디오를 30초단위로 잘라서 지정 폴더에 저장.
+
+### video_analyzer.py
+
+tools 폴더에 있음
+
+같은 폴더의 input.json을 읽고 다운로드->Gemini API 이후 결과를 results.json에 씀.
+
+영상은 yt_shorts 폴더에 다운로드됨.
+
+input.json과 results.json 형식은 video_analyzer.py 에 주석으로 있음.
+
 
 ### 3) Notes
 
