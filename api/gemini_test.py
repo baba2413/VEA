@@ -7,7 +7,7 @@ from google import genai
 def analyze_video_with_gemini(
     video_path: str, 
     prompt: Optional[str] = None, 
-    model: str = "gemini-2.0-flash-exp"
+    model: str = "gemini-2.5-flash"
     ) -> str:
 
     client = genai.Client()
