@@ -1,5 +1,19 @@
 ## VEA
 
+### Interface
+
+### 1) Flask
+
+`http://localhost:5000/`
+
+  ```cmd
+  python -m api.server
+  ```
+
+  - 기본 포트: `http://localhost:5000/`
+
+  - 루트(`/`)는 `web/index.html`을 서빙합니다.
+
 ### API Test
 
 ### 1) 셋업
