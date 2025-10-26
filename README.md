@@ -94,4 +94,4 @@ GOOGLE_API_KEY=...
 
 conda activate vea_api
 
-python cli.py --video sample_videos\sample(1).mp4 --gemini
+python cli.py --video sample_videos\sample(2).mp4 --gemini
