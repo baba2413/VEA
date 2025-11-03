@@ -104,7 +104,9 @@ def analyze_summary() -> Response:
         prompt_to_use = requirements if requirements else None
         result_text = analyze_video_with_gemini(tmp_path, prompt=prompt_to_use)
 
-        return Response(result_text, mimetype='text/plain; charset=utf-8')
+        parsed = parse_gemini_analysis(result_text)
+
+        return jsonify(parsed), 200
 
     except Exception as e:  # pragma: no cover - simple error surface
         return jsonify({

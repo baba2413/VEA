@@ -1,67 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>영상 심의 보조 인터페이스 (Prototype)</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>영상 심의</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="data:," />
 </head>
 <body>
-  <main class="container">
-    <!-- 0: Video input + preview -->
-    <section class="video-section">
-      <div class="video-input-row">
-        <label for="video-file">비디오 파일 선택</label>
-        <input type="file" id="video-file" accept="video/*" />
+  <header class="app-header">
+    <h1>영상 심의</h1>
+  </header>
+
+  <main class="app">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <strong>영상 목록</strong>
+
+        <button id="loadBtn" class="btn mini">불러오기</button>
+        <input id="fileInput" type="file" accept="video/*" multiple hidden />
+
+        <span id="videoCount" class="muted right-count">0개</span>
       </div>
-      <div class="box video-preview" aria-label="비디오 미리보기">
-        <video id="video-player" controls preload="metadata"></video>
+
+      <ul id="videoList" class="video-list"></ul>
+    </aside>
+
+    <!-- 비디오 플레이어 -->
+    <section class="workspace">
+      <div id="emptyGuide" class="empty-state">
+        <p>왼쪽에서 영상을 선택하면 여기에서 재생됩니다.</p>
+      </div>
+
+      <video id="player" class="video-player" controls></video>
+
+      <!-- 영상 제목 -->
+      <div id="videoTitle" class="video-title"></div>
+
+      <!-- 영상 설명(빈칸, 나중에 Gemini API 결과 들어갈 곳) -->
+      <div id="videoDesc" class="video-desc">
       </div>
     </section>
 
-    <!-- 1: Requirements input (used to adjust predefined prompts later) -->
-    <section id="prompt-box" class="box prompt" aria-label="요구사항 입력">
-      <label for="requirements-input" class="sr-only">요구사항 입력</label>
-      <textarea id="requirements-input" placeholder="요구사항을 입력하세요. 입력이 없으면 기본 프롬프트가 사용됩니다" spellcheck="false"></textarea>
-    </section>
+    <!-- 오른쪽 절반 영역 -->
+    <section class="result-panel">
 
-    <!-- 2~8: Category boxes -->
-    <section class="categories" aria-label="심의 카테고리">
-      <button class="box category" data-key="summary" id="cat-1" aria-label="요약">
-        <span>요약</span>
-      </button>
-      <button class="box category" data-key="topic" id="cat-2" aria-label="주제">
-        <span>주제</span>
-      </button>
-      <button class="box category" data-key="sexuality" id="cat-3" aria-label="선정성">
-        <span>선정성</span>
-      </button>
-      <button class="box category" data-key="violence" id="cat-4" aria-label="폭력성">
-        <span>폭력성</span>
-      </button>
-      <button class="box category" data-key="dialogue" id="cat-5" aria-label="대사">
-        <span>대사</span>
-      </button>
-      <button class="box category" data-key="horror" id="cat-6" aria-label="공포">
-        <span>공포</span>
-      </button>
-      <button class="box category" data-key="drugs" id="cat-7" aria-label="약물">
-        <span>약물</span>
-      </button>
-      <button class="box category" data-key="imitable" id="cat-8" aria-label="모방위험">
-        <span>모방위험</span>
-      </button>
-    </section>
+      <!-- 평가결과 -->
+      <div class="eval-result">
+        <h2 class="panel-title">평가결과</h2>
 
-    <!-- 9: Output area -->
-    <section id="output-box" class="box output" aria-live="polite" aria-label="AI 응답 영역">
-      <div id="output-content">카테고리를 선택하면 이 영역에 AI 응답이 표시됩니다.</div>
+        <table id="resultTable" class="eval-table">
+          <colgroup>
+            <col style="width: 10%;">
+            <col style="width: 10%;">
+            <col style="width: 60%;">
+            <col style="width: 20%;">
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th>기준</th>
+              <th>점수</th>
+              <th>근거</th>
+              <th>피드백</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- 2~8행 (Gemini API가 채워줄 자리) -->
+            <!-- 총 7행 -->
+            <tr><td>주제</td><td></td><td></td><td></td></tr>
+            <tr><td>선정성</td><td></td><td></td><td></td></tr>
+            <tr><td>폭력성</td><td></td><td></td><td></td></tr>
+            <tr><td>공포</td><td></td><td></td><td></td></tr>
+            <tr><td>약물</td><td></td><td></td><td></td></tr>
+            <tr><td>언어</td><td></td><td></td><td></td></tr>
+            <tr><td>모방위험</td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 평가기준 -->
+      <div class="eval-standard">
+        <h2 class="panel-title">평가기준</h2>
+
+        <!-- 지금은 빈 칸만 보여주기 -->
+        <div class="standard-box">
+          <!-- 나중에 내용 들어감 -->
+        </div>
+      </div>
+
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
-
-
