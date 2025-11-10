@@ -1,9 +1,12 @@
 import base64
+import json
 import os
+import re
 import shutil
 import subprocess
 import tempfile
-from typing import List, Tuple, Optional
+from datetime import datetime
+from typing import List, Tuple, Optional, Dict, Any
 
 import cv2
 import numpy as np
@@ -98,5 +101,115 @@ def extract_audio_from_video(video_path: str, out_ext: str = ".mp3") -> Optional
         except OSError:
             pass
         return None
+
+
+def parse_gemini_analysis(response_text: str) -> Dict[str, Any]:
+    """Parse Gemini's structured Korean analysis response.
+
+    Expected format:
+    내용 요약: [summary]
+
+    1. 주제 및 내용: [점수(0~4)], [description]
+    2. 선정성: ...
+    3. 폭력성: ...
+    4. 공포: ...
+    5. 약물: ...
+    6. 언어: ...
+    7. 모방 위험성: ...
+
+    - 종합의견: [overall opinion]
+
+    Returns a structured dict with scores, details, summary, and overall_opinion.
+    """
+    result: Dict[str, Any] = {
+        "content_summary": "",
+        "scores": {},
+        "details": {},
+        "overall_opinion": "",
+        "raw_text": response_text
+    }
+
+    # Extract content summary
+    summary_match = re.search(r'내용 요약:\s*(.+?)(?=\n\d+\.|\n-|\Z)', response_text, re.DOTALL)
+    if summary_match:
+        result["content_summary"] = summary_match.group(1).strip()
+
+    # Define category mapping (Korean name -> English key)
+    categories = {
+        "주제 및 내용": "topic",
+        "주제": "topic",
+        "선정성": "sexuality",
+        "폭력성": "violence",
+        "공포": "horror",
+        "약물": "drugs",
+        "언어": "language",
+        "모방 위험성": "imitable",
+        "모방위험성": "imitable"
+    }
+
+    # Extract scores and details for each category
+    for korean_name, eng_key in categories.items():
+        # Pattern: "N. 카테고리명: [점수(0~4)] or 점수(숫자), 설명"
+        pattern = rf'\d+\.\s*{re.escape(korean_name)}:\s*(?:\[)?점?수?\(?(\d+)\)?(?:\])?[,\s]+(.+?)(?=\n\d+\.|\n-|\Z)'
+        match = re.search(pattern, response_text, re.DOTALL)
+
+        if match:
+            score_str = match.group(1)
+            description = match.group(2).strip()
+
+            try:
+                score = int(score_str)
+                result["scores"][eng_key] = max(0, min(4, score))  # Clamp to 0-4
+            except (ValueError, TypeError):
+                result["scores"][eng_key] = 0
+
+            result["details"][eng_key] = description
+
+    # Extract overall opinion
+    opinion_match = re.search(r'-?\s*종합\s*의견:\s*(.+?)(?=\n\n|\Z)', response_text, re.DOTALL)
+    if opinion_match:
+        result["overall_opinion"] = opinion_match.group(1).strip()
+
+    return result
+
+
+def get_results_file_path() -> str:
+    """Get the path to the analysis results JSON file."""
+    api_dir = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(api_dir, "analysis_results.json")
+
+
+def load_analysis_results() -> Dict[str, Any]:
+    """Load all analysis results from JSON file."""
+    results_path = get_results_file_path()
+    if not os.path.exists(results_path):
+        return {}
+
+    try:
+        with open(results_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except (json.JSONDecodeError, IOError):
+        return {}
+
+
+def save_analysis_result(filename: str, analysis_data: Dict[str, Any]) -> None:
+    """Save analysis result for a specific video file."""
+    results = load_analysis_results()
+
+    # Add timestamp
+    analysis_data["analyzed_at"] = datetime.utcnow().isoformat() + "Z"
+    analysis_data["video_filename"] = filename
+
+    results[filename] = analysis_data
+
+    results_path = get_results_file_path()
+    with open(results_path, 'w', encoding='utf-8') as f:
+        json.dump(results, f, ensure_ascii=False, indent=2)
+
+
+def get_analysis_result(filename: str) -> Optional[Dict[str, Any]]:
+    """Get analysis result for a specific video file."""
+    results = load_analysis_results()
+    return results.get(filename)
 
 

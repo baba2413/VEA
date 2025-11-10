@@ -4,13 +4,13 @@
 
 ### 1) Flask
 
-`http://localhost:5000/`
+`http://localhost:5001/`
 
   ```cmd
   python -m api.server
   ```
 
-  - 기본 포트: `http://localhost:5000/`
+  - 기본 포트: `http://localhost:5001/` (http://127.0.0.1:5001/)
 
   - 루트(`/`)는 `web/index.html`을 서빙합니다.
 
