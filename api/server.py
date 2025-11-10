@@ -3,7 +3,7 @@ import tempfile
 from flask import Flask, request, send_from_directory, jsonify, Response
 from werkzeug.utils import secure_filename
 
-from .gemini_test import analyze_video_with_gemini
+from .gemini_test import analyze_video_with_gemini, analyze_video_with_category_prompts
 from .utils import (
     parse_gemini_analysis,
     save_analysis_result,
@@ -121,6 +121,61 @@ def analyze_summary() -> Response:
                 pass
 
 
+@app.post('/api/analyze/multipass')
+def analyze_multipass() -> Response:
+    """Analyze a video 7 times with category-specific prompts and aggregate.
+
+    Accepts multipart/form-data with fields:
+      - video: the uploaded video file
+    Optional query param:
+      - filename: used for saving result under a friendly name
+    """
+    if 'video' not in request.files:
+        return jsonify({
+            'error': 'missing_video',
+            'message': '비디오 파일이 필요합니다.'
+        }), 400
+
+    video_file = request.files['video']
+    if video_file.filename == '':
+        return jsonify({
+            'error': 'empty_filename',
+            'message': '파일명을 확인하세요.'
+        }), 400
+
+    # original filename for persistence key
+    original_name = request.args.get('filename') or video_file.filename
+    safe_output_name = secure_filename(original_name)
+
+    filename = secure_filename(video_file.filename)
+    suffix = os.path.splitext(filename)[1] or '.mp4'
+
+    tmp_path = None
+    try:
+        with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
+            video_file.save(tmp)
+            tmp_path = tmp.name
+
+        aggregated = analyze_video_with_category_prompts(tmp_path)
+
+        # Save immediately for caching
+        save_analysis_result(safe_output_name, aggregated)
+
+        return jsonify(aggregated), 200
+
+    except Exception as e:
+        return jsonify({
+            'error': 'analysis_failed',
+            'message': str(e)
+        }), 500
+    finally:
+        if tmp_path and os.path.exists(tmp_path):
+            try:
+                os.remove(tmp_path)
+            except Exception:
+                pass
+
+
 @app.get('/api/videos')
 def list_videos() -> Response:
     """List all videos in the sample_videos directory."""
@@ -223,6 +278,105 @@ def analyze_video_by_filename(filename: str) -> Response:
     except Exception as e:
         return jsonify({
             'error': 'analysis_failed',
+            'message': str(e)
+        }), 500
+
+
+@app.post('/api/analyze/videos')
+def analyze_videos_batch() -> Response:
+    """Analyze all videos in a designated folder on the server.
+
+    Optional JSON body:
+      - requirements: optional text applied to all analyses
+      - skip_existing: bool (default True) - skip if result already exists
+      - subdir: optional sub-directory under SAMPLE_VIDEOS_DIR to scan
+    """
+    try:
+        # Parse options
+        requirements = ''
+        skip_existing = True
+        subdir = ''
+        if request.is_json:
+            data = request.get_json(silent=True) or {}
+            requirements = (data.get('requirements') or '').strip()
+            skip_existing = bool(data.get('skip_existing', True))
+            subdir = (data.get('subdir') or '').strip()
+
+        # Resolve target directory (restrict to SAMPLE_VIDEOS_DIR)
+        target_dir = SAMPLE_VIDEOS_DIR
+        if subdir:
+            # Prevent traversal and join safely
+            if '..' in subdir or subdir.startswith(('/', '\\')):
+                return jsonify({
+                    'error': 'invalid_subdir',
+                    'message': '허용되지 않는 하위 경로입니다.'
+                }), 400
+            target_dir = os.path.join(SAMPLE_VIDEOS_DIR, subdir)
+
+        if not os.path.isdir(target_dir):
+            return jsonify({
+                'error': 'not_found',
+                'message': '대상 폴더를 찾을 수 없습니다.'
+            }), 404
+
+        # Collect video files
+        allowed_exts = ('.mp4', '.mov', '.avi', '.webm')
+        entries = []
+        for name in os.listdir(target_dir):
+            if name.startswith('.'):
+                continue
+            path = os.path.join(target_dir, name)
+            if os.path.isfile(path) and name.lower().endswith(allowed_exts):
+                entries.append((name, path))
+
+        # Sort for deterministic processing
+        entries.sort(key=lambda x: x[0])
+
+        prompt_to_use = requirements if requirements else None
+        items = []
+        stats = {'processed': 0, 'skipped': 0, 'errors': 0, 'total': len(entries)}
+
+        for filename, filepath in entries:
+            try:
+                # Optionally skip if result exists
+                if skip_existing:
+                    existing = get_analysis_result(filename)
+                    if existing is not None:
+                        items.append({
+                            'filename': filename,
+                            'status': 'skipped'
+                        })
+                        stats['skipped'] += 1
+                        continue
+
+                # Analyze
+                result_text = analyze_video_with_gemini(filepath, prompt=prompt_to_use)
+                parsed = parse_gemini_analysis(result_text)
+
+                # Persist
+                save_analysis_result(filename, parsed)
+
+                items.append({
+                    'filename': filename,
+                    'status': 'ok'
+                })
+                stats['processed'] += 1
+            except Exception as e:
+                items.append({
+                    'filename': filename,
+                    'status': 'error',
+                    'message': str(e)
+                })
+                stats['errors'] += 1
+
+        return jsonify({
+            'stats': stats,
+            'items': items
+        }), 200
+
+    except Exception as e:
+        return jsonify({
+            'error': 'batch_failed',
             'message': str(e)
         }), 500
 

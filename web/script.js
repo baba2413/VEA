@@ -19,20 +19,39 @@ function formatTime(secs) {
 
 const els = {
   loadBtn: document.getElementById("loadBtn"),
+  folderBtn: document.getElementById("folderBtn"),
   fileInput: document.getElementById("fileInput"),
+  folderInput: document.getElementById("folderInput"),
+  useMultipassToggle: document.getElementById("useMultipassToggle"),
   videoList: document.getElementById("videoList"),
   videoCount: document.getElementById("videoCount"),
 };
 
 const state = {
   items: [],
+  selectedId: null,
+  batchQueue: [],
+  batchRunning: false,
+  useMultipass: true,
 };
 
 els.loadBtn.addEventListener("click", () => els.fileInput.click());
 
-els.fileInput.addEventListener("change", (e) => {
-  const files = Array.from(e.target.files || []);
-  const videos = files.filter(f => f.type.startsWith("video/"));
+if (els.useMultipassToggle) {
+  state.useMultipass = !!els.useMultipassToggle.checked;
+  els.useMultipassToggle.addEventListener("change", () => {
+    state.useMultipass = !!els.useMultipassToggle.checked;
+  });
+}
+
+function addFiles(files) {
+  const list = Array.from(files || []);
+  if (!list.length) return;
+  const videos = list.filter(f => {
+    const byType = typeof f.type === "string" && f.type.startsWith("video/");
+    const byExt = /\.(mp4|mov|avi|webm)$/i.test(f.name || "");
+    return byType || byExt;
+  });
   if (!videos.length) return;
 
   const existingKey = new Set(state.items.map(i => `${i.file.name}-${i.file.size}`));
@@ -47,10 +66,31 @@ els.fileInput.addEventListener("change", (e) => {
     state.items.push(item);
     renderItem(item);
     probeDuration(item);
+
+    // enqueue for background batch analysis
+    state.batchQueue.push(file);
   }
 
   updateCount();
+
+  // kick off batch processing if not already running
+  if (!state.batchRunning) {
+    runBatchAnalysis();
+  }
+}
+
+els.fileInput.addEventListener("change", (e) => {
+  const files = e.target.files;
+  addFiles(files);
   els.fileInput.value = "";
+});
+
+els.folderBtn.addEventListener("click", () => els.folderInput.click());
+
+els.folderInput.addEventListener("change", (e) => {
+  const files = e.target.files;
+  addFiles(files);
+  els.folderInput.value = "";
 });
 
 function probeDuration(item) {
@@ -127,6 +167,7 @@ function renderItem(item) {
 
   //항목 클릭하면 재생 및 분석
   li.addEventListener("click", () => {
+    state.selectedId = item.id;
     player.src = item.url;
     player.style.display = "block";
     player.play();
@@ -137,7 +178,8 @@ function renderItem(item) {
     //설명칸 초기화(요약 가져오기)
     document.getElementById("videoDesc").textContent = "";
 
-    analyzeVideo(item.file);
+    // 이미 캐시에 있으면 화면만 갱신 (분석 트리거 X)
+    showCachedResultIfAvailable(item.file);
   });
 
 
@@ -158,18 +200,22 @@ function buildCacheKey(file) {
 }
 
 /*영상 전송 및 분석*/
-async function analyzeVideo(file) {
+async function analyzeVideo(file, silent = false) {
   const filename = file.name;
   const cacheKey = buildCacheKey(file);
 
   const descEl = document.getElementById("videoDesc");
-  descEl.textContent = "🔍 분석 중…";
+  if (!silent) {
+    descEl.textContent = "🔍 분석 중…";
+  }
 
   //프론트 캐시 먼저 확인
   if (summaryCache.has(cacheKey)) {
     const data = summaryCache.get(cacheKey);
-    descEl.textContent = data.content_summary || "(설명 없음)";
-    fillResultTable(data);
+    if (!silent || isCurrentlySelected(filename)) {
+      descEl.textContent = data.content_summary || "(설명 없음)";
+      fillResultTable(data);
+    }
     return;
   }
 
@@ -178,8 +224,10 @@ async function analyzeVideo(file) {
   if (cached.ok) {
     const data = await cached.json();
     summaryCache.set(cacheKey, data);
-    descEl.textContent = data.content_summary || "(설명 없음)";
-    fillResultTable(data);
+    if (!silent || isCurrentlySelected(filename)) {
+      descEl.textContent = data.content_summary || "(설명 없음)";
+      fillResultTable(data);
+    }
     return; 
   }
 
@@ -187,18 +235,86 @@ async function analyzeVideo(file) {
   const form = new FormData();
   form.append("video", file, filename);
 
-  const res = await fetch("http://127.0.0.1:5001/api/analyze/summary?filename=" + encodeURIComponent(filename), {
+  const endpoint = state.useMultipass
+    ? "http://127.0.0.1:5001/api/analyze/multipass?filename=" + encodeURIComponent(filename)
+    : "http://127.0.0.1:5001/api/analyze/summary?filename=" + encodeURIComponent(filename);
+
+  const res = await fetch(endpoint, {
     method: "POST",
     body: form
   });
 
   const data = await res.json();
 
+  // When using single-pass summary endpoint, persist the result as well
+  if (!state.useMultipass) {
+    try {
+      await fetch(`http://127.0.0.1:5001/api/results/${encodeURIComponent(filename)}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+    } catch (_) {
+      // non-fatal
+    }
+  }
+
   //프론트 캐시에 저장
   summaryCache.set(cacheKey, data);
 
-  descEl.textContent = data.content_summary || "(설명 없음)";
-  fillResultTable(data);
+  if (!silent || isCurrentlySelected(filename)) {
+    descEl.textContent = data.content_summary || "(설명 없음)";
+    fillResultTable(data);
+  }
+}
+
+function isCurrentlySelected(filename) {
+  return (document.getElementById("videoTitle").textContent || "") === filename;
+}
+
+async function showCachedResultIfAvailable(file) {
+  const filename = file.name;
+  const cacheKey = buildCacheKey(file);
+  const descEl = document.getElementById("videoDesc");
+
+  if (summaryCache.has(cacheKey)) {
+    const data = summaryCache.get(cacheKey);
+    descEl.textContent = data.content_summary || "(설명 없음)";
+    fillResultTable(data);
+    return;
+  }
+
+  // 서버 저장본만 조회 (분석 트리거 X)
+  try {
+    const resp = await fetch(`http://127.0.0.1:5001/api/results/${encodeURIComponent(filename)}`);
+    if (resp.ok) {
+      const data = await resp.json();
+      summaryCache.set(cacheKey, data);
+      descEl.textContent = data.content_summary || "(설명 없음)";
+      fillResultTable(data);
+    }
+  } catch (_) {
+    // ignore
+  }
+}
+
+async function runBatchAnalysis() {
+  if (state.batchRunning) return;
+  state.batchRunning = true;
+  try {
+    while (state.batchQueue.length > 0) {
+      const file = state.batchQueue.shift();
+      try {
+        await analyzeVideo(file, true); // silent batch
+      } catch (_) {
+        // continue to next
+      }
+      // brief delay to avoid overloading the server
+      await new Promise(r => setTimeout(r, 300));
+    }
+  } finally {
+    state.batchRunning = false;
+  }
 }
 
 

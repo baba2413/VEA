@@ -7,6 +7,7 @@ import subprocess
 import tempfile
 from datetime import datetime
 from typing import List, Tuple, Optional, Dict, Any
+import ast
 
 import cv2
 import numpy as np
@@ -211,5 +212,61 @@ def get_analysis_result(filename: str) -> Optional[Dict[str, Any]]:
     """Get analysis result for a specific video file."""
     results = load_analysis_results()
     return results.get(filename)
+
+
+def load_category_prompts(file_path: Optional[str] = None) -> Dict[str, str]:
+    """
+    Load category-specific prompts from a local file.
+
+    Note: The file is named prompts.json but contains a Python dict literal
+    of the form { "키": \"\"\" ... \"\"\", ... }. We therefore use
+    ast.literal_eval for safe parsing instead of json.load.
+    """
+    api_dir = os.path.dirname(os.path.abspath(__file__))
+    path = file_path or os.path.join(api_dir, "prompts.json")
+
+    if not os.path.exists(path):
+        return {}
+
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            content = f.read()
+        data = ast.literal_eval(content)
+        if isinstance(data, dict):
+            # Ensure all values are strings
+            return {str(k): str(v) for k, v in data.items()}
+    except Exception:
+        pass
+    return {}
+
+
+def parse_category_prompt_response(text: str) -> Tuple[Optional[int], str]:
+    """
+    Parse a single-category prompt response of the form:
+      폭력성 점수: {0~3}점
+      근거: {서술}
+
+    Returns (score_or_none, reason_text).
+    If a score cannot be found, returns (None, full_text).
+    """
+    if not isinstance(text, str):
+        return None, ""
+
+    score: Optional[int] = None
+    # find first integer 0-4 after "점수" token (allow variations)
+    m = re.search(r'점\s*수?\s*[:：]?\s*([0-4])', text)
+    if m:
+        try:
+            score = int(m.group(1))
+        except ValueError:
+            score = None
+
+    # extract reason after "근거:" if present, else fallback to whole text
+    reason = text.strip()
+    rm = re.search(r'근거\s*[:：]\s*(.+)$', text, re.DOTALL)
+    if rm:
+        reason = rm.group(1).strip()
+
+    return score, reason
 
 

@@ -3,6 +3,8 @@ from typing import Optional
 
 from google import genai
 
+from .utils import load_category_prompts, parse_category_prompt_response
+
 
 def analyze_video_with_gemini(
     video_path: str, 
@@ -68,5 +70,63 @@ def analyze_video_with_gemini(
         return "\n".join(p.text for p in resp.candidates[0].content.parts if getattr(p, "text", None))
     except Exception:
         return str(resp)
+
+
+def analyze_video_with_category_prompts(
+    video_path: str,
+    model: str = "gemini-2.5-flash"
+    ) -> dict:
+    """
+    Run analysis 7 times using category-specific prompts from prompts.json.
+    Aggregate into the existing result schema expected by the web UI.
+    """
+    # Load prompts once
+    prompts = load_category_prompts()
+
+    # Map Korean category names to the schema keys used by the web
+    categories = [
+        ("주제", "topic"),
+        ("선정성", "sexuality"),
+        ("폭력성", "violence"),
+        ("공포", "horror"),
+        ("약물", "drugs"),
+        ("언어", "language"),
+        ("모방 위험성", "imitable"),
+    ]
+
+    aggregated = {
+        "content_summary": "",
+        "scores": {},
+        "details": {},
+        "overall_opinion": "",
+        # keep a combined raw for reference/debug
+        "raw_text": ""
+    }
+
+    raw_parts = []
+
+    for kr_name, key in categories:
+        prompt = prompts.get(kr_name, "")
+        if not prompt:
+            # Skip missing prompts; leave fields empty
+            continue
+
+        text = analyze_video_with_gemini(video_path, prompt=prompt, model=model)
+        raw_parts.append(f"[{kr_name}]\n{text.strip()}")
+
+        score, reason = parse_category_prompt_response(text)
+        if score is not None:
+            # Clamp score 0..4 to match existing schema
+            try:
+                score = max(0, min(4, int(score)))
+            except Exception:
+                score = None
+        if score is not None:
+            aggregated["scores"][key] = score
+        if reason:
+            aggregated["details"][key] = reason
+
+    aggregated["raw_text"] = "\n\n".join(raw_parts).strip()
+    return aggregated
 
 

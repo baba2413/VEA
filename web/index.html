@@ -16,8 +16,17 @@
       <div class="sidebar-header">
         <strong>영상 목록</strong>
 
-        <button id="loadBtn" class="btn mini">불러오기</button>
+        <button id="loadBtn" class="btn mini">파일 불러오기</button>
+        <button id="folderBtn" class="btn mini">폴더 불러오기</button>
         <input id="fileInput" type="file" accept="video/*" multiple hidden />
+        <input id="folderInput" type="file" accept="video/*" webkitdirectory directory multiple hidden />
+
+        <div class="toggle-row" style="margin-top:8px;">
+          <label style="font-size:12px; cursor:pointer;">
+            <input id="useMultipassToggle" type="checkbox" />
+            multi
+          </label>
+        </div>
 
         <span id="videoCount" class="muted right-count">0개</span>
       </div>
