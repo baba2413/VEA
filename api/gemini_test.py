@@ -246,16 +246,16 @@ def is_result_changed():
     with open("is_prompt_changed.json", "w", encoding="utf-8") as f:
         json.dump(is_prompt_changed, f, indent=2, ensure_ascii=False)
 
-# Test
-def main():
-    # feedback_with_llm("sample (1).mp4","violence","담배를 피우는건 폭력성 관련 내용이 아님.")
-    re_analyze()
-    is_result_changed()
-from pathlib import Path
-import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
-from api.utils import load_environment, ensure_env
-if __name__ == "__main__":
-    load_environment()
-    ensure_env("GOOGLE_API_KEY")
-    main()
+# # Test
+# def main():
+#     # feedback_with_llm("sample (1).mp4","violence","담배를 피우는건 폭력성 관련 내용이 아님.")
+#     re_analyze()
+#     is_result_changed()
+# from pathlib import Path
+# import sys
+# sys.path.insert(0, str(Path(__file__).parent.parent))
+# from api.utils import load_environment, ensure_env
+# if __name__ == "__main__":
+#     load_environment()
+#     ensure_env("GOOGLE_API_KEY")
+#     main()
