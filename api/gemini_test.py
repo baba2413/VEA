@@ -174,7 +174,48 @@ def feedback_with_llm(file_name:str, criteria:str, feedback:str):
 
 
 def feedback_to_consideration(criteria:str):
-    pass
+    """
+    Summarize accumulated feedbacks for a given criteria into considerations.
+
+    Args:
+        criteria: The criteria name (e.g., "violence", "sexuality", etc.)
+    """
+    feedbacks = DATA["feedbacks"]
+    considerations = DATA["considerations"]
+
+    # Get the list of feedbacks for this criteria
+    feedback_list = feedbacks.get(criteria, [])
+
+    # If no feedbacks, keep existing consideration
+    if not feedback_list:
+        return
+
+    # Create prompt to summarize all feedbacks into a concise consideration
+    feedback_text = "\n".join([f"- {fb}" for fb in feedback_list])
+
+    prompt = f"""
+        영상 심의 시스템에서 '{criteria}' 기준에 대해 누적된 유저 피드백들이 있다.
+        이 피드백들을 종합하여 앞으로 심의 시 참고할 간결한 고려사항을 작성한다.
+
+        누적된 피드백 목록:
+        {feedback_text}
+
+        위 피드백들의 핵심 내용을 반영하여, '{criteria}' 기준 심의 시 적용할 고려사항을 100자 이내로 작성한다.
+        심의자가 참고할 명확한 지침 형태로 작성한다.
+    """
+
+    # Get summarized consideration from Gemini
+    result = analyze_with_gemini(prompt=prompt)
+
+    # Update considerations
+    considerations[criteria] = result.strip()
+
+    # Save to file
+    with open(JSON_PATHS["considerations"], "w", encoding="utf-8") as f:
+        json.dump(considerations, f, ensure_ascii=False, indent=2)
+
+    # Refresh cache
+    refresh("considerations")
 
 def re_analyze():
     analysis_results = DATA["analysis_results"]
