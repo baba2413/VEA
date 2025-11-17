@@ -80,37 +80,35 @@ function probeDuration(item) {
 }
 
 function renderItem(item) {
-  const li = document.createElement("li");
-  li.className = "video-item";
-  li.dataset.id = item.id;
+  const tbody = document.getElementById("videoListBody");
 
-  const thumb = document.createElement("div");
-  thumb.className = "video-thumb";
+  const tr = document.createElement("tr");
+  tr.dataset.id = item.id;
 
-  //썸네일 이미지 element 준비
+  //썸네일 준비
+  const thumbTd = document.createElement("td");
   const img = document.createElement("img");
-  img.style.display = "none"; // 로딩 전까지 숨김
-  thumb.appendChild(img);
+  img.className = "video-thumb-small";
+  thumbTd.appendChild(img);
 
-  const meta = document.createElement("div");
-  meta.className = "video-meta";
+  //썸네일 생성되면 넣어줌
+  generateThumbnail(item.file, item.url, (dataURL) => {
+    img.src = dataURL;
+  });
 
-  const name = document.createElement("div");
-  name.className = "video-name";
-  name.title = item.file.name;
-  name.textContent = item.file.name;
+  //점수 7개 열
+  const fields = ["topic","sexuality","violence","horror","drugs","language","imitable"];
+  const scoreTds = {};
 
-  const info = document.createElement("div");
-  info.className = "video-info";
-  info.textContent = `${formatBytes(item.file.size)}`;
-
-  meta.append(name, info);
-
-  const badge = document.createElement("span");
-  badge.className = "badge";
-  badge.textContent = item.file.type.replace("video/", "") || "video";
+  fields.forEach(key => {
+    const td = document.createElement("td");
+    td.textContent = "";
+    scoreTds[key] = td;
+    tr.appendChild(td);
+  });
 
   //삭제 버튼
+  const delTd = document.createElement("td");
   const delBtn = document.createElement("button");
   delBtn.className = "delete-btn";
   delBtn.innerHTML = "🗑️";
@@ -118,34 +116,31 @@ function renderItem(item) {
   delBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     state.items = state.items.filter(v => v.id !== item.id);
-    li.remove();
+    tr.remove();
     updateCount();
   });
+  delTd.appendChild(delBtn);
 
-  li.append(thumb, meta, badge, delBtn);
-  els.videoList.appendChild(li);
+  tr.appendChild(thumbTd);
+  fields.forEach(k => tr.appendChild(scoreTds[k]));
+  tr.appendChild(delTd);
 
   //항목 클릭하면 재생 및 분석
-  li.addEventListener("click", () => {
+  tr.addEventListener("click", () => {
     player.src = item.url;
     player.style.display = "block";
     player.play();
 
-    //영상 제목 표시
     document.getElementById("videoTitle").textContent = item.file.name;
-
-    //설명칸 초기화(요약 가져오기)
     document.getElementById("videoDesc").textContent = "";
 
-    analyzeVideo(item.file);
+    analyzeVideo(item.file); 
   });
 
+  tbody.appendChild(tr);
 
-  //썸네일 불러오기
-  generateThumbnail(item.file, item.url, (dataURL) => {
-    img.src = dataURL;
-    img.style.display = "block";
-  });
+  //테이블용 점수 셀들을 item에 저장
+  item.scoreCells = scoreTds;
 }
 
 //캐시 생성
@@ -199,9 +194,24 @@ async function analyzeVideo(file) {
 
   descEl.textContent = data.content_summary || "(설명 없음)";
   fillResultTable(data);
+
+  const item = state.items.find(i => i.file.name === file.name && i.file.size === file.size);
+  if (item) {
+    applyScoresToList(item, data);
+  }
 }
 
+function applyScoresToList(item, data) {
+  if (!item.scoreCells) return;
 
+  Object.entries(data.scores).forEach(([key, val]) => {
+    if (item.scoreCells[key]) {
+      item.scoreCells[key].textContent = val;
+    }
+  });
+}
+
+/* 각 표 점수 채우기 */
 function fillResultTable(data) {
   const scoreKeys = [
     "topic", 
@@ -217,15 +227,25 @@ function fillResultTable(data) {
   const rows = table.querySelectorAll("tbody tr");
 
   scoreKeys.forEach((key, index) => {
-    const row = rows[index]; // 0~6행
+    const row = rows[index];
+    row.children[1].textContent = data.scores[key] ?? "";
+    row.children[2].textContent = data.details[key] ?? "";
 
-    //점수는 2열
-    const scoreCell = row.children[1];
-    scoreCell.textContent = data.scores[key] ?? "";
+    //피드백 버튼
+    const feedbackTd = row.children[3];
+    feedbackTd.innerHTML = ""; 
 
-    //근거(details)는 3열
-    const detailCell = row.children[2];
-    detailCell.textContent = data.details[key] ?? "";
+    const btn = document.createElement("button");
+    btn.textContent = "작성하기";
+    btn.className = "btn mini";
+    btn.style.padding = "4px 8px";
+    btn.style.fontSize = "11px";
+
+    btn.addEventListener("click", () => {
+      openFeedbackEditor(btn, key);
+    });
+
+    feedbackTd.appendChild(btn);
   });
 }
 
@@ -262,4 +282,77 @@ function generateThumbnail(file, url, callback) {
     const dataURL = canvas.toDataURL("image/jpeg", 0.8);
     callback(dataURL);
   }, { once: true });
+}
+
+/* 피드백 상호작용 버튼 */
+let activeEditor = null;
+
+function openFeedbackEditor(button, categoryKey) {
+  if (activeEditor) {
+    activeEditor.remove();
+    activeEditor = null;
+  }
+
+  const editor = document.createElement("div");
+  editor.className = "feedback-editor";
+
+  editor.innerHTML = `
+    <textarea placeholder="피드백을 입력하세요"></textarea>
+    <div class="actions">
+      <button class="confirm">확인</button>
+      <button class="cancel">취소</button>
+    </div>
+  `;
+
+  document.body.appendChild(editor);
+
+  //기본 위치 버튼 바로 아래
+  const rect = button.getBoundingClientRect();
+  let x = rect.left + window.scrollX;
+  let y = rect.bottom + window.scrollY;
+
+  //에디터 크기 계산
+  const editorWidth = editor.offsetWidth;
+  const editorHeight = editor.offsetHeight;
+
+  const screenWidth = window.innerWidth;
+  const screenHeight = window.innerHeight;
+
+  //오른쪽 넘치면 왼쪽으로 이동
+  if (x + editorWidth > screenWidth - 10) {
+    x = screenWidth - editorWidth - 10;
+  }
+
+  //아래 넘치면 위로 이동
+  if (y + editorHeight > screenHeight - 10) {
+    y = rect.top + window.scrollY - editorHeight - 10;
+  }
+
+  //완전히 화면 밖으로 못나가게 최소값 지정
+  if (x < 10) x = 10;
+  if (y < 10) y = 10;
+
+  editor.style.left = x + "px";
+  editor.style.top = y + "px";
+
+  activeEditor = editor;
+
+  // 버튼 기능
+  const textarea = editor.querySelector("textarea");
+  const confirmBtn = editor.querySelector(".confirm");
+  const cancelBtn = editor.querySelector(".cancel");
+
+  confirmBtn.addEventListener("click", () => {
+    const text = textarea.value.trim();
+    if (text) {
+      console.log(`피드백 저장됨 (${categoryKey}):`, text);
+      editor.remove();
+      activeEditor = null;
+    }
+  });
+
+  cancelBtn.addEventListener("click", () => {
+    editor.remove();
+    activeEditor = null;
+  });
 }

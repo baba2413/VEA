@@ -22,7 +22,33 @@
         <span id="videoCount" class="muted right-count">0개</span>
       </div>
 
-      <ul id="videoList" class="video-list"></ul>
+      <table id="videoList" class="video-table">
+        <thead>
+          <tr>
+            <th>썸네일</th>
+            <th>주제</th>
+            <th>선정성</th>
+            <th>폭력성</th>
+            <th>공포</th>
+            <th>약물</th>
+            <th>언어</th>
+            <th>모방위험</th>
+            <th>삭제</th>
+          </tr>
+        </thead>
+        <colgroup>
+          <col style="width: 10%;">
+          <col style="width: 7%;">
+          <col style="width: 7%;">
+          <col style="width: 7%;">
+          <col style="width: 7%;">
+          <col style="width: 7%;">
+          <col style="width: 7%;">
+          <col style="width: 7%;">
+          <col style="width: 5%;">
+        </colgroup>
+        <tbody id="videoListBody"></tbody>
+      </table>
     </aside>
 
     <!-- 비디오 플레이어 -->
