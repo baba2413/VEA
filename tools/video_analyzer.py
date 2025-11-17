@@ -38,6 +38,8 @@ import sys
 import time
 from pathlib import Path
 from typing import Dict, List, Optional
+import os
+import re
 
 try:
     import yt_dlp as ytdlp
@@ -47,7 +49,7 @@ except ImportError:
 # Import Gemini analyzer from api module
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from api.utils import load_environment, ensure_env
-from api.gemini_test import analyze_video_with_gemini
+from api.gemini_test import analyze_video_with_gemini, make_prompt, analyze_with_gemini
 
 
 def load_input_json(json_path: Path) -> List[Dict]:
@@ -177,6 +179,69 @@ def process_video(item: Dict, temp_dir: Path) -> Dict:
     
     return result
 
+def video_to_text(folder_path:str = "yt_shorts"):
+
+    prompt="""
+    제공되는 영상에 대해 최대한 자세히 구체적으로 텍스트로 묘사한다. 
+    영상에서의 인물, 대사, 행동, 맥락 등을 하나도 남김없이 텍스트화하며, 그 텍스트만 보고도 영상을 본 것과 같은 효과를 얻어야 한다. 
+    단순 묘사 뿐만 아니라 대사나 행동의 강도, 뉘앙스 등까지 상세 묘사한다.
+    """
+    results: Dict[str,str] = {}
+
+    for f in os.listdir(folder_path):
+        if f.endswith((".mp4",".avi")):
+            video_path = os.path.join(folder_path, f)
+
+            result = analyze_video_with_gemini(
+                video_path=video_path,
+                prompt=prompt
+            )
+
+            results[f] = result
+            print(f"{f} 처리 완료.")
+
+    output_dir = "video_text.json"
+    with open(output_dir, "w", encoding="utf-8") as f:
+        json.dump(results, f, ensure_ascii=False, indent=2)
+
+    print(f"분석 결과 JSON 저장 완료 → {output_dir}")
+
+    return result
+
+def analyze_with_text():
+    criteria = ["violence","sexuality","horror","drugs","language"]
+    output_dir = Path("analysis_results.json")
+    results:Dict[str,str] = {}
+    with open("video_text.json", "r", encoding="utf-8") as f:
+        dict = json.load(f)
+
+    first = True
+    try:
+        for key,value in dict.items():
+
+            ox:Dict[str,int] = {}
+            details:Dict[str,str] = {}
+            for c in criteria:
+                msg = make_prompt(file_name=key,criteria=c)
+                result = analyze_with_gemini(prompt=msg)
+                m1 = re.search(rf"{c}\s*:\s*(0|1)", result)
+                ox[c] = int(m1.group(1)) if m1 else -1
+                m2 = re.search(r"근거\s*:\s*(.*)", result, re.DOTALL)
+                details[c] = m2.group(1).strip() if m2 else "error"
+                print(f"{key} {c} 작업 완료")
+
+            results[key] = {
+                "ox": ox,
+                "details": details
+            }
+            if first:
+                save_results_to_file(results=results, output_path=Path("sample_results.json"))
+                first = False
+    finally:
+        save_results_to_file(results=results, output_path=output_dir)
+
+
+
 
 def save_results_to_file(results: List[Dict], output_path: Path):
     """결과를 JSON 파일에 저장합니다."""
@@ -203,6 +268,9 @@ def main():
 
     load_environment()
     ensure_env("GOOGLE_API_KEY")
+
+    # video_to_text()
+    # analyze_with_text()
 
     parser = argparse.ArgumentParser(
         description="유튜브 영상을 다운로드하고 Gemini API로 내용 분석"
