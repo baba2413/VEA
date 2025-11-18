@@ -121,7 +121,7 @@ refresh_all()
 
 
 def make_prompt(file_name:str, criteria:str)->str:
-    with open(os.path.join(BASE_DIR, "..", "tools", "video_text.json"), encoding="utf-8") as f:
+    with open(os.path.join(BASE_DIR, "..", "video_text.json"), encoding="utf-8") as f:
         video_text = json.load(f)
     with open(os.path.join(BASE_DIR, "..", "api", "prompts.json"), encoding="utf-8") as f:
         prompts = json.load(f)

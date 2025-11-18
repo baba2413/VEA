@@ -9,6 +9,13 @@ function formatBytes(bytes) {
   return `${n.toFixed(n >= 100 ? 0 : n >= 10 ? 1 : 2)} ${u[i]}`;
 }
 
+// Convert 0/1 to O/X for display
+function toOX(value) {
+  if (value === 0) return "O";
+  if (value === 1) return "X";
+  return "-"; // For undefined or other values
+}
+
 function formatTime(secs) {
   if (!Number.isFinite(secs)) return "길이 계산 중…";
   const s = Math.floor(secs % 60).toString().padStart(2, "0");
@@ -22,11 +29,20 @@ const els = {
   fileInput: document.getElementById("fileInput"),
   videoList: document.getElementById("videoList"),
   videoCount: document.getElementById("videoCount"),
+  player: document.getElementById("player"),
 };
 
 const state = {
   items: [],
 };
+
+// Add error handler for video player
+els.player.addEventListener("error", (e) => {
+  console.error("Video playback error:", e);
+  console.error("Error code:", els.player.error?.code);
+  console.error("Error message:", els.player.error?.message);
+  console.error("Current src:", els.player.src);
+});
 
 els.loadBtn.addEventListener("click", () => els.fileInput.click());
 
@@ -96,8 +112,8 @@ function renderItem(item) {
     img.src = dataURL;
   });
 
-  //점수 7개 열
-  const fields = ["topic","sexuality","violence","horror","drugs","language","imitable"];
+  //점수 5개 열
+  const fields = ["sexuality","violence","horror","drugs","language"];
   const scoreTds = {};
 
   fields.forEach(key => {
@@ -127,14 +143,16 @@ function renderItem(item) {
 
   //항목 클릭하면 재생 및 분석
   tr.addEventListener("click", () => {
-    player.src = item.url;
-    player.style.display = "block";
-    player.play();
+    els.player.src = item.url;
+    els.player.style.display = "block";
+    els.player.play().catch(err => {
+      console.error("Play error:", err);
+    });
 
     document.getElementById("videoTitle").textContent = item.file.name;
     document.getElementById("videoDesc").textContent = "";
 
-    analyzeVideo(item.file); 
+    analyzeVideo(item.file);
   });
 
   tbody.appendChild(tr);
@@ -157,14 +175,26 @@ async function analyzeVideo(file) {
   const filename = file.name;
   const cacheKey = buildCacheKey(file);
 
+  // Store current filename for feedback submission
+  state.currentFilename = filename;
+
   const descEl = document.getElementById("videoDesc");
   descEl.textContent = "🔍 분석 중…";
+
+  // Clear result table while waiting for analysis
+  clearResultTable();
 
   //프론트 캐시 먼저 확인
   if (summaryCache.has(cacheKey)) {
     const data = summaryCache.get(cacheKey);
     descEl.textContent = data.content_summary || "(설명 없음)";
     fillResultTable(data);
+
+    // Update table scores
+    const item = state.items.find(i => i.file.name === file.name && i.file.size === file.size);
+    if (item) {
+      applyScoresToList(item, data);
+    }
     return;
   }
 
@@ -175,14 +205,20 @@ async function analyzeVideo(file) {
     summaryCache.set(cacheKey, data);
     descEl.textContent = data.content_summary || "(설명 없음)";
     fillResultTable(data);
-    return; 
+
+    // Update table scores
+    const item = state.items.find(i => i.file.name === file.name && i.file.size === file.size);
+    if (item) {
+      applyScoresToList(item, data);
+    }
+    return;
   }
 
-  //서버에 새로운 분석 요청
+  //서버에 새로운 분석 요청 (NEW O/X system)
   const form = new FormData();
   form.append("video", file, filename);
 
-  const res = await fetch("http://127.0.0.1:5001/api/analyze/summary?filename=" + encodeURIComponent(filename), {
+  const res = await fetch("http://127.0.0.1:5001/api/analyze/ox", {
     method: "POST",
     body: form
   });
@@ -204,36 +240,54 @@ async function analyzeVideo(file) {
 function applyScoresToList(item, data) {
   if (!item.scoreCells) return;
 
-  Object.entries(data.scores).forEach(([key, val]) => {
+  // Use ox field instead of scores, and convert to O/X
+  const oxData = data.ox || data.scores; // Fallback for compatibility
+  Object.entries(oxData).forEach(([key, val]) => {
     if (item.scoreCells[key]) {
-      item.scoreCells[key].textContent = val;
+      item.scoreCells[key].textContent = toOX(val);
     }
+  });
+}
+
+/* 평가결과 테이블 초기화 */
+function clearResultTable() {
+  const table = document.getElementById("resultTable");
+  const rows = table.querySelectorAll("tbody tr");
+
+  rows.forEach(row => {
+    row.children[1].textContent = ""; // O/X column
+    row.children[2].textContent = ""; // 근거 column
+    row.children[3].innerHTML = "";   // 피드백 column
   });
 }
 
 /* 각 표 점수 채우기 */
 function fillResultTable(data) {
   const scoreKeys = [
-    "topic", 
-    "sexuality", 
-    "violence", 
-    "horror", 
-    "drugs", 
-    "language", 
-    "imitable"
+    "sexuality",
+    "violence",
+    "horror",
+    "drugs",
+    "language"
   ];
 
   const table = document.getElementById("resultTable");
   const rows = table.querySelectorAll("tbody tr");
 
+  // Use ox field instead of scores, with fallback for compatibility
+  const oxData = data.ox || data.scores;
+
   scoreKeys.forEach((key, index) => {
     const row = rows[index];
-    row.children[1].textContent = data.scores[key] ?? "";
+
+    // Display O/X instead of 0/1
+    const oxValue = oxData[key];
+    row.children[1].textContent = oxValue !== undefined ? toOX(oxValue) : "";
     row.children[2].textContent = data.details[key] ?? "";
 
     //피드백 버튼
     const feedbackTd = row.children[3];
-    feedbackTd.innerHTML = ""; 
+    feedbackTd.innerHTML = "";
 
     const btn = document.createElement("button");
     btn.textContent = "작성하기";
@@ -342,12 +396,48 @@ function openFeedbackEditor(button, categoryKey) {
   const confirmBtn = editor.querySelector(".confirm");
   const cancelBtn = editor.querySelector(".cancel");
 
-  confirmBtn.addEventListener("click", () => {
+  confirmBtn.addEventListener("click", async () => {
     const text = textarea.value.trim();
-    if (text) {
-      console.log(`피드백 저장됨 (${categoryKey}):`, text);
-      editor.remove();
-      activeEditor = null;
+    if (!text) return;
+
+    if (!state.currentFilename) {
+      alert("영상을 먼저 선택해주세요.");
+      return;
+    }
+
+    // Disable button during submission
+    confirmBtn.disabled = true;
+    confirmBtn.textContent = "전송 중...";
+
+    try {
+      const response = await fetch("http://127.0.0.1:5001/api/feedback", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          filename: state.currentFilename,
+          criteria: categoryKey,
+          feedback: text
+        })
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert("✅ " + result.message);
+        editor.remove();
+        activeEditor = null;
+      } else {
+        alert("❌ 오류: " + (result.message || "피드백 저장 실패"));
+        confirmBtn.disabled = false;
+        confirmBtn.textContent = "확인";
+      }
+    } catch (error) {
+      console.error("Feedback submission error:", error);
+      alert("❌ 네트워크 오류가 발생했습니다.");
+      confirmBtn.disabled = false;
+      confirmBtn.textContent = "확인";
     }
   });
 
@@ -356,3 +446,60 @@ function openFeedbackEditor(button, categoryKey) {
     activeEditor = null;
   });
 }
+
+/* 피드백 반영 버튼 */
+const reanalyzeBtn = document.getElementById("reanalyzeBtn");
+
+if (reanalyzeBtn) {
+  reanalyzeBtn.addEventListener("click", async () => {
+    if (!confirm("누적된 피드백을 반영하여 재심의를 진행하시겠습니까?\n시간이 다소 걸릴 수 있습니다.")) {
+      return;
+    }
+
+    // Disable button and show loading state
+    reanalyzeBtn.disabled = true;
+    reanalyzeBtn.textContent = "재심의 중...";
+
+    try {
+      const response = await fetch("http://127.0.0.1:5001/api/reanalyze", {
+        method: "POST"
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert("✅ " + result.message);
+
+        // Show what changed
+        if (result.changes && Object.keys(result.changes).length > 0) {
+          let changeMsg = "\n변경된 항목:\n";
+          for (const [filename, changedCriteria] of Object.entries(result.changes)) {
+            if (changedCriteria.length > 0) {
+              changeMsg += `\n📹 ${filename}\n`;
+              changedCriteria.forEach(c => {
+                changeMsg += `  - ${c}\n`;
+              });
+            }
+          }
+          alert(changeMsg);
+        } else {
+          alert("변경된 항목이 없습니다.");
+        }
+
+        // Reload the page to show updated results
+        location.reload();
+      } else {
+        alert("❌ 오류: " + (result.message || "재심의 실패"));
+      }
+    } catch (error) {
+      console.error("Re-analyze error:", error);
+      alert("❌ 네트워크 오류가 발생했습니다.");
+    } finally {
+      reanalyzeBtn.disabled = false;
+      reanalyzeBtn.textContent = "피드백 반영";
+    }
+  });
+}
+
+// Clear result table on page load
+clearResultTable();
