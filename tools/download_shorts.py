@@ -14,7 +14,6 @@
 import argparse
 import concurrent.futures as futures
 import json
-import re
 from pathlib import Path
 from typing import Iterable, List, Union
 
@@ -22,8 +21,6 @@ try:
     import yt_dlp as ytdlp
 except ImportError:
     raise SystemExit("yt-dlp가 필요합니다. 먼저 `pip install yt-dlp` 를 실행하세요.")
-
-SHORTS_RX = re.compile(r"(https?://)?(www\.)?(youtube\.com/shorts/[^?\s]+)")
 
 def load_links(json_path: Union[str, Path], json_key: str = "videos") -> List[str]:
     p = Path(json_path)

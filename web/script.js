@@ -11,8 +11,8 @@ function formatBytes(bytes) {
 
 // Convert 0/1 to O/X for display
 function toOX(value) {
-  if (value === 0) return "O";
-  if (value === 1) return "X";
+  if (value === 0) return "X";
+  if (value === 1) return "O";
   return "-"; // For undefined or other values
 }
 
@@ -34,6 +34,7 @@ const els = {
 
 const state = {
   items: [],
+  oxChanges: {}
 };
 
 // Add error handler for video player
@@ -249,6 +250,39 @@ function applyScoresToList(item, data) {
   });
 }
 
+// 공통: 변경점 표시용 빨간 점 추가
+function addChangedDotToCell(td) {
+  if (!td) return;
+  if (td.style.position !== "relative") {
+    td.style.position = "relative";
+  }
+  if (td.querySelector(".ox-changed-dot")) return;
+
+  const dot = document.createElement("span");
+  dot.className = "ox-changed-dot";
+  dot.style.position = "absolute";
+  dot.style.top = "10px";
+  dot.style.right = "10px";
+  dot.style.width = "6px";
+  dot.style.height = "6px";
+  dot.style.background = "#e00";
+  dot.style.borderRadius = "50%";
+  dot.style.pointerEvents = "none";
+  td.appendChild(dot);
+}
+
+// 변경된 O/X 표시 (오른쪽 위 작은 빨간 점)
+function markChangedOx(item, changedKeys) {
+  if (!item?.scoreCells || !Array.isArray(changedKeys) || changedKeys.length === 0) return;
+
+  changedKeys.forEach((key) => {
+    const td = item.scoreCells[key];
+    if (!td) return;
+
+    addChangedDotToCell(td);
+  });
+}
+
 /* 평가결과 테이블 초기화 */
 function clearResultTable() {
   const table = document.getElementById("resultTable");
@@ -277,13 +311,26 @@ function fillResultTable(data) {
   // Use ox field instead of scores, with fallback for compatibility
   const oxData = data.ox || data.scores;
 
+  // 현재 선택된 파일의 변경 키
+  const changedKeys = Array.isArray(state.oxChanges?.[state.currentFilename])
+    ? state.oxChanges[state.currentFilename]
+    : [];
+
   scoreKeys.forEach((key, index) => {
     const row = rows[index];
 
     // Display O/X instead of 0/1
     const oxValue = oxData[key];
-    row.children[1].textContent = oxValue !== undefined ? toOX(oxValue) : "";
+    const oxTd = row.children[1];
+    oxTd.textContent = oxValue !== undefined ? toOX(oxValue) : "";
     row.children[2].textContent = data.details[key] ?? "";
+
+    // 기존 dot 제거 후 필요 시 dot 추가
+    const prevDot = oxTd.querySelector(".ox-changed-dot");
+    if (prevDot) prevDot.remove();
+    if (changedKeys.includes(key)) {
+      addChangedDotToCell(oxTd);
+    }
 
     //피드백 버튼
     const feedbackTd = row.children[3];
@@ -471,25 +518,60 @@ if (reanalyzeBtn) {
         alert("✅ " + result.message);
 
         // Show what changed
-        if (result.changes && Object.keys(result.changes).length > 0) {
-          let changeMsg = "\n변경된 항목:\n";
-          for (const [filename, changedCriteria] of Object.entries(result.changes)) {
-            if (changedCriteria.length > 0) {
-              changeMsg += `\n📹 ${filename}\n`;
-              changedCriteria.forEach(c => {
-                changeMsg += `  - ${c}\n`;
-              });
-            }
-          }
-          alert(changeMsg);
-        } else {
-          alert("변경된 항목이 없습니다.");
-        }
+        // let changeMsg = "\n변경된 항목:\n";
+        // for (const [filename, changedCriteria] of Object.entries(result.changes)) {
+        //   if (changedCriteria.length > 0) {
+        //     changeMsg += `\n📹 ${filename}\n`;
+        //     changedCriteria.forEach(c => {
+        //       changeMsg += `  - ${c}\n`;
+        //     });
+        //   }
+        // }
+        // alert(changeMsg);
+
 
         // Reload the page to show updated results
         location.reload();
       } else {
-        alert("❌ 오류: " + (result.message || "재심의 실패"));
+        // Debug logs (강화)
+        try {
+          console.groupCollapsed("[Reanalyze] 실패 상세 로그");
+          console.error("서버가 OK가 아닌 상태코드로 응답");
+          console.log("status:", response.status, response.statusText);
+          console.log("url:", response.url);
+          console.log("ok:", response.ok, "redirected:", response.redirected, "type:", response.type);
+          try {
+            console.log("headers:", Array.from(response.headers.entries()));
+          } catch (e) {
+            console.warn("헤더 로깅 중 오류:", e);
+          }
+          console.log("parsed result:", result);
+          console.log("result.message:", result?.message);
+          console.log("result.errors:", result?.errors);
+          console.log("result.changes:", result?.changes);
+          console.log("UI 상태 - 버튼 disabled:", reanalyzeBtn.disabled, "text:", reanalyzeBtn.textContent);
+          console.log("현재 파일명(state.currentFilename):", state.currentFilename);
+          // 전역 스냅샷 저장 (필요 시 콘솔에서 확인 가능)
+          window.__reanalyzeLastError = {
+            at: new Date().toISOString(),
+            responseMeta: {
+              status: response.status,
+              statusText: response.statusText,
+              url: response.url,
+              ok: response.ok,
+              redirected: response.redirected,
+              type: response.type,
+              headers: (() => {
+                try { return Array.from(response.headers.entries()); } catch { return null; }
+              })()
+            },
+            result
+          };
+          console.groupEnd();
+        } catch (logError) {
+          console.error("재심의 실패 로깅 중 오류:", logError);
+        }
+        alert("❌ 오류: " + (result?.message || `재심의 실패 (status ${response.status})`));
       }
     } catch (error) {
       console.error("Re-analyze error:", error);
@@ -503,3 +585,111 @@ if (reanalyzeBtn) {
 
 // Clear result table on page load
 clearResultTable();
+
+// 초기 데이터 로드: 서버의 분석 결과와 실제 존재하는 영상 목록을 교집합으로 렌더링
+window.addEventListener("DOMContentLoaded", async () => {
+  try {
+    // 동시 요청: 사용 가능한 파일 목록과 분석 결과
+    const [videosRes, resultsRes, changesRes, consRes] = await Promise.all([
+      fetch("http://127.0.0.1:5001/api/videos"),
+      fetch("http://127.0.0.1:5001/api/results"),
+      fetch("http://127.0.0.1:5001/api/changes"),
+      fetch("http://127.0.0.1:5001/api/considerations")
+    ]);
+
+    if (!videosRes.ok || !resultsRes.ok) {
+      return;
+    }
+
+    const [videos, results] = await Promise.all([videosRes.json(), resultsRes.json()]);
+
+    // 변경된 O/X 정보 로드 (실패해도 무시)
+    try {
+      state.oxChanges = changesRes.ok ? await changesRes.json() : {};
+    } catch {
+      state.oxChanges = {};
+    }
+
+    // 평가 기준 설명 로드 및 툴팁 적용 (실패해도 무시)
+    let considerations = {};
+    try {
+      considerations = consRes.ok ? await consRes.json() : {};
+    } catch {
+      considerations = {};
+    }
+    try {
+      const labelToKey = {
+        "선정성": "sexuality",
+        "폭력성": "violence",
+        "공포": "horror",
+        "약물": "drugs",
+        "언어": "language"
+      };
+      const rows = document.querySelectorAll("#resultTable tbody tr");
+      rows.forEach((row) => {
+        const nameCell = row.children?.[0];
+        if (!nameCell) return;
+        const key = labelToKey[(nameCell.textContent || "").trim()];
+        const text = key ? considerations?.[key] : null;
+        if (text) {
+          nameCell.setAttribute("title", text);
+        }
+      });
+    } catch {}
+
+    // filename -> path 매핑
+    const availableMap = new Map();
+    (videos || []).forEach(v => {
+      if (v && v.filename && v.path) availableMap.set(v.filename, v.path);
+    });
+
+    // 리스트 렌더링: 실제 있는 파일 중 분석 결과가 있는 것만
+    const filenames = (videos || []).map(v => v.filename).filter(name => !!results[name]);
+
+    filenames.forEach(filename => {
+      const id = crypto.randomUUID();
+      const url = availableMap.get(filename); // e.g. /api/videos/<filename>
+
+      const item = {
+        id,
+        file: { name: filename, size: 0, lastModified: 0 },
+        url,
+        duration: undefined
+      };
+
+      state.items.push(item);
+      renderItem(item);
+
+      // 캐시에 저장(초기 클릭 시 서버 캐시 조회 생략 가능)
+      const data = results[filename];
+      const cacheKey = buildCacheKey(item.file);
+      summaryCache.set(cacheKey, data);
+
+      // 리스트 O/X 반영
+      applyScoresToList(item, data);
+
+      // 변경된 항목 표시
+      const changedKeys = state.oxChanges?.[filename] || [];
+      if (Array.isArray(changedKeys) && changedKeys.length > 0) {
+        markChangedOx(item, changedKeys);
+      }
+    });
+
+    updateCount();
+
+    // 첫 항목 자동 선택: 상세 표시 및 플레이어 준비
+    if (state.items.length > 0) {
+      const first = state.items[0];
+      state.currentFilename = first.file.name;
+      els.player.src = first.url;
+      els.player.style.display = "block";
+
+      const firstData = summaryCache.get(buildCacheKey(first.file));
+      document.getElementById("videoTitle").textContent = first.file.name;
+      document.getElementById("videoDesc").textContent = firstData?.content_summary || "";
+      if (firstData) fillResultTable(firstData);
+    }
+  } catch (err) {
+    console.error("Initial load failed:", err);
+  }
+});

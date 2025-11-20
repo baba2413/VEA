@@ -27,7 +27,7 @@ from tools.video_analyzer import video_to_text, analyze_with_text
 
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 WEB_DIR = os.path.join(ROOT_DIR, 'web')
-SAMPLE_VIDEOS_DIR = os.path.join(ROOT_DIR, 'sample_videos')
+SAMPLE_VIDEOS_DIR = os.path.join(ROOT_DIR, 'tools', 'yt_shorts')
 
 
 def validate_filename(filename: str) -> str:
@@ -414,12 +414,31 @@ def reanalyze_videos() -> Response:
     try:
         refresh_all()
         re_analyze()
-        changes = is_result_changed()
+        is_result_changed()
+
+        # Build message from considerations.json
+        import json
+        considerations_path = os.path.join(ROOT_DIR, 'api', 'considerations.json')
+        try:
+            with open(considerations_path, 'r', encoding='utf-8') as f:
+                cons = json.load(f)
+        except Exception:
+            cons = {}
+
+        message_lines = [
+            '바뀐 기준은 다음과 같습니다:',
+            '',
+            f"선정성: {cons.get('sexuality', '')}",
+            f"폭력성: {cons.get('violence', '')}",
+            f"공포: {cons.get('horror', '')}",
+            f"약물: {cons.get('drugs', '')}",
+            f"언어: {cons.get('language', '')}",
+        ]
+        message_text = '\n'.join(message_lines)
 
         return jsonify({
             'success': True,
-            'message': '재심의가 완료되었습니다.',
-            'changes': changes if changes else {}
+            'message': message_text,
         }), 200
 
     except Exception as e:
@@ -444,6 +463,24 @@ def get_changes() -> Response:
 
         return jsonify(changes), 200
 
+    except Exception as e:
+        return jsonify({
+            'error': 'load_failed',
+            'message': str(e)
+        }), 500
+
+
+@app.get('/api/considerations')
+def get_considerations() -> Response:
+    """Serve the evaluation considerations text per criteria."""
+    try:
+        import json
+        considerations_path = os.path.join(ROOT_DIR, 'api', 'considerations.json')
+        if not os.path.exists(considerations_path):
+            return jsonify({}), 200
+        with open(considerations_path, 'r', encoding='utf-8') as f:
+            cons = json.load(f)
+        return jsonify(cons), 200
     except Exception as e:
         return jsonify({
             'error': 'load_failed',
