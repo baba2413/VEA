@@ -40,6 +40,7 @@ from pathlib import Path
 from typing import Dict, List, Optional
 import os
 import re
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 try:
     import yt_dlp as ytdlp
@@ -234,7 +235,7 @@ def analyze_with_text():
     # Use absolute paths
     script_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.dirname(script_dir)
-    video_text_path = os.path.join(project_root, "video_text.json")
+    video_text_path = os.path.join(project_root, "tools", "video_text.json")
     output_dir = Path(os.path.join(project_root, "api", "analysis_results.json"))
 
     # Load existing analysis results to avoid reprocessing
@@ -252,31 +253,39 @@ def analyze_with_text():
     first = True
     processed_count = 0
     try:
-        for key,value in dict.items():
-            # Skip if already analyzed
+        # Build processing list and report already analyzed items
+        to_process = []
+        for key, value in dict.items():
             if key in results:
                 print(f"{key} 이미 분석됨. 스킵.")
-                continue
+            else:
+                to_process.append((key, value))
 
-            ox:Dict[str,int] = {}
-            details:Dict[str,str] = {}
+        def analyze_one(item):
+            key, value = item
+            ox: Dict[str, int] = {}
+            details: Dict[str, str] = {}
             for c in criteria:
-                msg = make_prompt(file_name=key,criteria=c)
+                msg = make_prompt(file_name=key, criteria=c)
                 result = analyze_with_gemini(prompt=msg)
                 m1 = re.search(rf"{c}\s*:\s*(0|1)", result)
                 ox[c] = int(m1.group(1)) if m1 else -1
                 m2 = re.search(r"근거\s*:\s*(.*)", result, re.DOTALL)
                 details[c] = m2.group(1).strip() if m2 else "error"
                 print(f"{key} {c} 작업 완료")
+            return key, {"ox": ox, "details": details}
 
-            results[key] = {
-                "ox": ox,
-                "details": details
-            }
-            processed_count += 1
-            if first:
-                save_results_to_file(results=results, output_path=Path("sample_results.json"))
-                first = False
+        if to_process:
+            max_workers = min(8, len(to_process))
+            with ThreadPoolExecutor(max_workers=max_workers) as executor:
+                future_to_key = {executor.submit(analyze_one, item): item[0] for item in to_process}
+                for future in as_completed(future_to_key):
+                    key, value = future.result()
+                    results[key] = value
+                    processed_count += 1
+                    if first:
+                        save_results_to_file(results=results, output_path=Path("sample_results.json"))
+                        first = False
     finally:
         save_results_to_file(results=results, output_path=output_dir)
         print(f"분석 완료 (새로 분석: {processed_count}개)")
@@ -311,71 +320,71 @@ def main():
     ensure_env("GOOGLE_API_KEY")
 
     # video_to_text()
-    # analyze_with_text()
+    analyze_with_text()
 
-    parser = argparse.ArgumentParser(
-        description="유튜브 영상을 다운로드하고 Gemini API로 내용 분석"
-    )
-    parser.add_argument(
-        "input_json",
-        help="입력 JSON 파일 경로 (url, tag, remarks, human_comments 포함된 리스트)"
-    )
-    parser.add_argument(
-        "--output",
-        default="analysis_results.json",
-        help="출력 JSON 파일 경로 (기본: analysis_results.json)"
-    )
-    parser.add_argument(
-        "--temp-dir",
-        default="temp_videos",
-        help="임시 다운로드 폴더 (기본: temp_videos)"
-    )
-    parser.add_argument(
-        "--delay",
-        type=float,
-        default=4.0,
-        help="각 영상 처리 사이 대기 시간(초) (기본: 4.0)"
-    )
+    # parser = argparse.ArgumentParser(
+    #     description="유튜브 영상을 다운로드하고 Gemini API로 내용 분석"
+    # )
+    # parser.add_argument(
+    #     "input_json",
+    #     help="입력 JSON 파일 경로 (url, tag, remarks, human_comments 포함된 리스트)"
+    # )
+    # parser.add_argument(
+    #     "--output",
+    #     default="analysis_results.json",
+    #     help="출력 JSON 파일 경로 (기본: analysis_results.json)"
+    # )
+    # parser.add_argument(
+    #     "--temp-dir",
+    #     default="temp_videos",
+    #     help="임시 다운로드 폴더 (기본: temp_videos)"
+    # )
+    # parser.add_argument(
+    #     "--delay",
+    #     type=float,
+    #     default=4.0,
+    #     help="각 영상 처리 사이 대기 시간(초) (기본: 4.0)"
+    # )
     
-    args = parser.parse_args()
+    # args = parser.parse_args()
     
-    # 입력 로드
-    input_path = Path(args.input_json)
-    print(f"입력 파일 로딩: {input_path}")
-    items = load_input_json(input_path)
-    print(f"총 {len(items)}개 영상을 처리합니다.\n")
+    # # 입력 로드
+    # input_path = Path(args.input_json)
+    # print(f"입력 파일 로딩: {input_path}")
+    # items = load_input_json(input_path)
+    # print(f"총 {len(items)}개 영상을 처리합니다.\n")
     
-    # 출력 파일 준비 - 기존 결과 로드
-    output_path = Path(args.output)
-    results = load_existing_results(output_path)
+    # # 출력 파일 준비 - 기존 결과 로드
+    # output_path = Path(args.output)
+    # results = load_existing_results(output_path)
     
-    # 임시 폴더 준비
-    # temp_dir = Path(args.temp_dir)
+    # # 임시 폴더 준비
+    # # temp_dir = Path(args.temp_dir)
+    # # temp_dir.mkdir(parents=True, exist_ok=True)
+    # script_dir = Path(__file__).parent
+    # temp_dir = script_dir / "yt_shorts"
     # temp_dir.mkdir(parents=True, exist_ok=True)
-    script_dir = Path(__file__).parent
-    temp_dir = script_dir / "yt_shorts"
-    temp_dir.mkdir(parents=True, exist_ok=True)
     
-    # 각 영상 처리
-    for idx, item in enumerate(items, 1):
-        print(f"\n[{idx}/{len(items)}]")
-        result = process_video(item, temp_dir)
-        results.append(result)
+    # # 각 영상 처리
+    # for idx, item in enumerate(items, 1):
+    #     print(f"\n[{idx}/{len(items)}]")
+    #     result = process_video(item, temp_dir)
+    #     results.append(result)
         
-        # 실시간으로 결과 저장
-        print(f"결과 저장 중... (현재 {len(results)}개 항목)")
-        save_results_to_file(results, output_path)
-        print(f"✓ {output_path}에 저장 완료")
+    #     # 실시간으로 결과 저장
+    #     print(f"결과 저장 중... (현재 {len(results)}개 항목)")
+    #     save_results_to_file(results, output_path)
+    #     print(f"✓ {output_path}에 저장 완료")
         
-        # 다음 처리 전 대기 (API rate limit 고려)
-        if idx < len(items) and args.delay > 0:
-            print(f"대기 중... ({args.delay}초)")
-            time.sleep(args.delay)
+    #     # 다음 처리 전 대기 (API rate limit 고려)
+    #     if idx < len(items) and args.delay > 0:
+    #         print(f"대기 중... ({args.delay}초)")
+    #         time.sleep(args.delay)
     
-    # 최종 완료 메시지
-    print(f"\n{'='*60}")
-    print(f"모든 작업 완료! 총 {len(results)}개 항목이 {output_path}에 저장되었습니다.")
-    print(f"{'='*60}")
+    # # 최종 완료 메시지
+    # print(f"\n{'='*60}")
+    # print(f"모든 작업 완료! 총 {len(results)}개 항목이 {output_path}에 저장되었습니다.")
+    # print(f"{'='*60}")
     
 if __name__ == "__main__":
     main()
