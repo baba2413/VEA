@@ -9,6 +9,7 @@
 <body>
   <header class="app-header">
     <h1>영상 심의</h1>
+    <button id="reanalyzeBtn" class="btn">피드백 반영</button>
   </header>
 
   <main class="app">
@@ -22,7 +23,29 @@
         <span id="videoCount" class="muted right-count">0개</span>
       </div>
 
-      <ul id="videoList" class="video-list"></ul>
+      <table id="videoList" class="video-table">
+        <thead>
+          <tr>
+            <th>썸네일</th>
+            <th>선정성</th>
+            <th>폭력성</th>
+            <th>공포</th>
+            <th>약물</th>
+            <th>언어</th>
+            <th>삭제</th>
+          </tr>
+        </thead>
+        <colgroup>
+          <col style="width: 15%;">
+          <col style="width: 10%;">
+          <col style="width: 10%;">
+          <col style="width: 10%;">
+          <col style="width: 10%;">
+          <col style="width: 10%;">
+          <col style="width: 8%;">
+        </colgroup>
+        <tbody id="videoListBody"></tbody>
+      </table>
     </aside>
 
     <!-- 비디오 플레이어 -->
@@ -59,22 +82,20 @@
           <thead>
             <tr>
               <th>기준</th>
-              <th>점수</th>
+              <th>O/X</th> <!-- O: 위반 없음(0), X: 위반(1) -->
               <th>근거</th>
               <th>피드백</th>
             </tr>
           </thead>
 
           <tbody>
-            <!-- 2~8행 (Gemini API가 채워줄 자리) -->
-            <!-- 총 7행 -->
-            <tr><td>주제</td><td></td><td></td><td></td></tr>
+            <!-- O: 위반 없음, X: 위반 -->
+            <!-- 총 5행 -->
             <tr><td>선정성</td><td></td><td></td><td></td></tr>
             <tr><td>폭력성</td><td></td><td></td><td></td></tr>
             <tr><td>공포</td><td></td><td></td><td></td></tr>
             <tr><td>약물</td><td></td><td></td><td></td></tr>
             <tr><td>언어</td><td></td><td></td><td></td></tr>
-            <tr><td>모방위험</td><td></td><td></td><td></td></tr>
           </tbody>
         </table>
       </div>

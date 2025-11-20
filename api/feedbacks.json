@@ -1,7 +1,10 @@
 {
-    "violence" : [],
-    "sexuality" : [],
-    "horror" : [],
-    "drugs" : [],
-    "language" : []
+  "violence": [
+    "장전된 총기 다수와 경찰과의 긴장 상황에도 실제 물리적 폭력은 없어 폭력성 기준에 부합하지 않습니다.",
+    "여성의 반복된 혐오 발언과 언어적 공격성이 분명하나, 실제 물리적 폭력이 없어 'violence' 기준 위반으로 보기 어렵다."
+  ],
+  "sexuality": [],
+  "horror": [],
+  "drugs": [],
+  "language": []
 }

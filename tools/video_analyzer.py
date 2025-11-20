@@ -182,14 +182,33 @@ def process_video(item: Dict, temp_dir: Path) -> Dict:
 def video_to_text(folder_path:str = "yt_shorts"):
 
     prompt="""
-    제공되는 영상에 대해 최대한 자세히 구체적으로 텍스트로 묘사한다. 
-    영상에서의 인물, 대사, 행동, 맥락 등을 하나도 남김없이 텍스트화하며, 그 텍스트만 보고도 영상을 본 것과 같은 효과를 얻어야 한다. 
+    제공되는 영상에 대해 최대한 자세히 구체적으로 텍스트로 묘사한다.
+    영상에서의 인물, 대사, 행동, 맥락 등을 하나도 남김없이 텍스트화하며, 그 텍스트만 보고도 영상을 본 것과 같은 효과를 얻어야 한다.
     단순 묘사 뿐만 아니라 대사나 행동의 강도, 뉘앙스 등까지 상세 묘사한다.
     """
-    results: Dict[str,str] = {}
 
+    # Load existing results to avoid reprocessing
+    # Use absolute path to root/video_text.json
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
+    output_dir = os.path.join(project_root, "video_text.json")
+
+    try:
+        with open(output_dir, "r", encoding="utf-8") as f:
+            results: Dict[str,str] = json.load(f)
+        print(f"기존 video_text.json 로드 완료 ({len(results)}개 항목)")
+    except (FileNotFoundError, json.JSONDecodeError):
+        results: Dict[str,str] = {}
+        print("video_text.json 없음. 새로 생성합니다.")
+
+    processed_count = 0
     for f in os.listdir(folder_path):
         if f.endswith((".mp4",".avi")):
+            # Skip if already processed
+            if f in results:
+                print(f"{f} 이미 처리됨. 스킵.")
+                continue
+
             video_path = os.path.join(folder_path, f)
 
             result = analyze_video_with_gemini(
@@ -198,26 +217,46 @@ def video_to_text(folder_path:str = "yt_shorts"):
             )
 
             results[f] = result
+            processed_count += 1
             print(f"{f} 처리 완료.")
 
-    output_dir = "video_text.json"
+    # Save updated results
     with open(output_dir, "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
 
-    print(f"분석 결과 JSON 저장 완료 → {output_dir}")
+    print(f"분석 결과 JSON 저장 완료 → {output_dir} (새로 처리: {processed_count}개)")
 
-    return result
+    return results
 
 def analyze_with_text():
     criteria = ["violence","sexuality","horror","drugs","language"]
-    output_dir = Path("analysis_results.json")
-    results:Dict[str,str] = {}
-    with open("video_text.json", "r", encoding="utf-8") as f:
+
+    # Use absolute paths
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
+    video_text_path = os.path.join(project_root, "video_text.json")
+    output_dir = Path(os.path.join(project_root, "api", "analysis_results.json"))
+
+    # Load existing analysis results to avoid reprocessing
+    try:
+        with open(output_dir, "r", encoding="utf-8") as f:
+            results:Dict[str,str] = json.load(f)
+        print(f"기존 analysis_results.json 로드 완료 ({len(results)}개 항목)")
+    except (FileNotFoundError, json.JSONDecodeError):
+        results:Dict[str,str] = {}
+        print("analysis_results.json 없음. 새로 생성합니다.")
+
+    with open(video_text_path, "r", encoding="utf-8") as f:
         dict = json.load(f)
 
     first = True
+    processed_count = 0
     try:
         for key,value in dict.items():
+            # Skip if already analyzed
+            if key in results:
+                print(f"{key} 이미 분석됨. 스킵.")
+                continue
 
             ox:Dict[str,int] = {}
             details:Dict[str,str] = {}
@@ -234,11 +273,13 @@ def analyze_with_text():
                 "ox": ox,
                 "details": details
             }
+            processed_count += 1
             if first:
                 save_results_to_file(results=results, output_path=Path("sample_results.json"))
                 first = False
     finally:
         save_results_to_file(results=results, output_path=output_dir)
+        print(f"분석 완료 (새로 분석: {processed_count}개)")
 
 
 

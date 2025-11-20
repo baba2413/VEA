@@ -2,10 +2,12 @@ import time
 import json
 import os
 import re
+import copy
 from pathlib import Path
 from typing import Optional
 from datetime import datetime
 from google import genai
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
 def analyze_video_with_gemini(
@@ -121,12 +123,9 @@ refresh_all()
 
 
 def make_prompt(file_name:str, criteria:str)->str:
-    with open(os.path.join(BASE_DIR, "..", "tools", "video_text.json"), encoding="utf-8") as f:
-        video_text = json.load(f)
-    with open(os.path.join(BASE_DIR, "..", "api", "prompts.json"), encoding="utf-8") as f:
-        prompts = json.load(f)
-    with open(os.path.join(BASE_DIR, "..", "api", "considerations.json"), encoding="utf-8") as f:
-        considerations = json.load(f)
+    video_text = DATA["video_text"]
+    prompts = DATA["prompts"]
+    considerations = DATA["considerations"]
 
     prompt = f"""
         {video_text[file_name]}\n\n
@@ -136,7 +135,7 @@ def make_prompt(file_name:str, criteria:str)->str:
         반드시 출력 양식의 형태 그대로 출력한다.\n
         출력 양식은 다은과 같다.\n
         {criteria} : 0 or 1, 반드시 0 혹은 1의 값을 출력한다.\n
-        근거: 감지된 민감 요소 및 근거 서술. 단, 텍스트가 아닌 영상 원본을 본 것처럼 서술한다.
+        근거: 감지된 민감 요소 및 근거 서술. 단, 텍스트가 아닌 영상 원본을 본 것처럼 서술한다. 영상 요약은 하지 않으며, 2문장 내외로 서술한다.
     """
 
     return prompt
@@ -227,30 +226,42 @@ def re_analyze():
             criteria.append(key)
             feedback_to_consideration(key)
 
-    for file_name in analysis_results:
+    # Build all (file_name, criteria) tasks to process
+    tasks = []
+    if criteria:
+        for file_name in analysis_results:
+            for c in criteria:
+                tasks.append((file_name, c))
 
-        for c in criteria:
-            msg = make_prompt(file_name=file_name, criteria=c)
-            new_result = analyze_with_gemini(msg)
+    def analyze_one(file_name: str, c: str):
+        msg = make_prompt(file_name=file_name, criteria=c)
+        new_result = analyze_with_gemini(msg)
+        m1 = re.search(rf"{c}\s*:\s*(0|1)", new_result)
+        new_ox = int(m1.group(1)) if m1 else -1
+        m2 = re.search(r"근거\s*:\s*(.*)", new_result, re.DOTALL)
+        new_detail = m2.group(1).strip() if m2 else "error"
+        return file_name, c, new_ox, new_detail
 
-            m1 = re.search(rf"{c}\s*:\s*(0|1)", new_result)
-            new_ox = int(m1.group(1)) if m1 else -1
-            m2 = re.search(r"근거\s*:\s*(.*)", new_result, re.DOTALL)
-            new_detail = m2.group(1).strip() if m2 else "error"
-
-            analysis_results[file_name]["ox"][c] = new_ox
-            analysis_results[file_name]["details"][c] = new_detail
-
-    output_path = Path("analysis_results_new.json")
+    if tasks:
+        max_workers = min(8, len(tasks))
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = {executor.submit(analyze_one, fn, c): (fn, c) for fn, c in tasks}
+            for future in as_completed(futures):
+                file_name, c, new_ox, new_detail = future.result()
+                analysis_results[file_name]["ox"][c] = new_ox
+                analysis_results[file_name]["details"][c] = new_detail
+            
+    output_path = Path(BASE_DIR) / "analysis_results_new.json"
     output_path.write_text(
         json.dumps(analysis_results, ensure_ascii=False, indent=2),
         encoding="utf-8"
     )
 
 def is_result_changed():
-    analysis_results = DATA["analysis_results"]
+    with open(Path(BASE_DIR) / "analysis_results.json", encoding="utf-8") as f:
+        analysis_results_old = json.load(f)
     is_prompt_changed = DATA["is_prompt_changed"]
-    with open(os.path.join(BASE_DIR, "..", "api", "analysis_results_new.json"), encoding="utf-8") as f:
+    with open(Path(BASE_DIR) / "analysis_results_new.json", encoding="utf-8") as f:
         analysis_results_new = json.load(f)
 
     criteria = []
@@ -260,7 +271,7 @@ def is_result_changed():
 
     is_ox_changed = {}
     
-    for key,value in analysis_results.items():
+    for key,value in analysis_results_old.items():
         is_changed = []
         for c in criteria:
             ox_old = value["ox"][c]
@@ -269,22 +280,30 @@ def is_result_changed():
                 is_changed.append(c)
         is_ox_changed[key] = is_changed
 
-    Path("is_ox_changed.json").write_text(
+    (Path(BASE_DIR) / "is_ox_changed.json").write_text(
         json.dumps(is_ox_changed, ensure_ascii=False, indent=2),
         encoding="utf-8"
     )
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log = os.path.join(os.getcwd(), "log",f"analysis_results_{timestamp}.json")
-    with open(log, "w", encoding="utf-8") as f:
-        json.dump(analysis_results, f, ensure_ascii=False, indent=2)
-    Path("analysis_results.json").write_text(
+    log_dir = os.path.join(BASE_DIR, "log")
+    os.makedirs(log_dir, exist_ok=True)
+    # Save both old and new snapshots for traceability
+    log_old = os.path.join(log_dir, f"analysis_results_old_{timestamp}.json")
+    with open(log_old, "w", encoding="utf-8") as f:
+        json.dump(analysis_results_old, f, ensure_ascii=False, indent=2)
+    log_new = os.path.join(log_dir, f"analysis_results_new_{timestamp}.json")
+    with open(log_new, "w", encoding="utf-8") as f:
+        json.dump(analysis_results_new, f, ensure_ascii=False, indent=2)
+    (Path(BASE_DIR) / "analysis_results.json").write_text(
         json.dumps(analysis_results_new, ensure_ascii=False, indent=2),
         encoding="utf-8"
     )
+    # Keep in-memory cache consistent with the newly persisted baseline
+    refresh("analysis_results")
 
     for key in is_prompt_changed:
         is_prompt_changed[key] = 0 
-    with open("is_prompt_changed.json", "w", encoding="utf-8") as f:
+    with open(os.path.join(BASE_DIR, "is_prompt_changed.json"), "w", encoding="utf-8") as f:
         json.dump(is_prompt_changed, f, indent=2, ensure_ascii=False)
 
 # # Test

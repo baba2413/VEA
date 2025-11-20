@@ -119,7 +119,7 @@ body{
 
 .app {
   display: grid;
-  grid-template-columns: 320px 0.5fr 1fr;
+  grid-template-columns: 1fr 0.7fr 1.7fr;
   gap: 16px;
   padding: 10px;
   max-width: 100%;
@@ -260,3 +260,88 @@ table.eval-table > tbody > tr > td:nth-child(2) {
   border-radius: 8px;
 }
 
+/* 비디오 목록 */
+.video-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.video-table th,
+.video-table td {
+  border-bottom: 1px solid var(--border);
+  padding: 6px;
+  text-align: center;
+}
+
+.video-table th {
+  background: rgba(255,255,255,0.04);
+  font-weight: 600;
+}
+
+.video-table tr:hover {
+  background: #171d26;
+}
+
+.video-thumb-small {
+  width: 60px;
+  height: 36px;
+  border-radius: 6px;
+  background: #0e1117;
+  border: 1px solid var(--border);
+  object-fit: cover;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-btn:hover {
+  color: #ff4e4e;
+}
+
+.video-table tbody tr {
+  cursor: pointer;
+}
+
+/* 피드백 작성란 */
+.feedback-editor {
+  position: absolute;
+  background: #1d232c;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  width: 220px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  z-index: 100;
+}
+
+.feedback-editor textarea {
+  width: 100%;
+  height: 60px;
+  resize: none;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  padding: 6px;
+  font-size: 12px;
+}
+
+.feedback-editor .actions {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.feedback-editor button {
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
