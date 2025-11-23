@@ -200,7 +200,7 @@ async function analyzeVideo(file) {
   }
 
   //서버 캐시 확인
-  let cached = await fetch(`http://127.0.0.1:5001/api/results/${encodeURIComponent(filename)}`);
+  let cached = await fetch(`/api/results/${encodeURIComponent(filename)}`);
   if (cached.ok) {
     const data = await cached.json();
     summaryCache.set(cacheKey, data);
@@ -219,7 +219,7 @@ async function analyzeVideo(file) {
   const form = new FormData();
   form.append("video", file, filename);
 
-  const res = await fetch("http://127.0.0.1:5001/api/analyze/ox", {
+  const res = await fetch("/api/analyze/ox", {
     method: "POST",
     body: form
   });
@@ -457,7 +457,7 @@ function openFeedbackEditor(button, categoryKey) {
     confirmBtn.textContent = "전송 중...";
 
     try {
-      const response = await fetch("http://127.0.0.1:5001/api/feedback", {
+      const response = await fetch("/api/feedback", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -508,7 +508,7 @@ if (reanalyzeBtn) {
     reanalyzeBtn.textContent = "재심의 중...";
 
     try {
-      const response = await fetch("http://127.0.0.1:5001/api/reanalyze", {
+      const response = await fetch("/api/reanalyze", {
         method: "POST"
       });
 
@@ -591,10 +591,10 @@ window.addEventListener("DOMContentLoaded", async () => {
   try {
     // 동시 요청: 사용 가능한 파일 목록과 분석 결과
     const [videosRes, resultsRes, changesRes, consRes] = await Promise.all([
-      fetch("http://127.0.0.1:5001/api/videos"),
-      fetch("http://127.0.0.1:5001/api/results"),
-      fetch("http://127.0.0.1:5001/api/changes"),
-      fetch("http://127.0.0.1:5001/api/considerations")
+      fetch("/api/videos"),
+      fetch("/api/results"),
+      fetch("/api/changes"),
+      fetch("/api/considerations")
     ]);
 
     if (!videosRes.ok || !resultsRes.ok) {

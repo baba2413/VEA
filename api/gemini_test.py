@@ -308,13 +308,14 @@ def re_analyze():
         return file_name, c, new_ox, new_detail
 
     if tasks:
-        max_workers = min(8, len(tasks))
+        max_workers = 1  # Temporarily set to 1 for testing (avoid rate limits)
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             futures = {executor.submit(analyze_one, fn, c): (fn, c) for fn, c in tasks}
             for future in as_completed(futures):
                 file_name, c, new_ox, new_detail = future.result()
                 analysis_results[file_name]["ox"][c] = new_ox
                 analysis_results[file_name]["details"][c] = new_detail
+                time.sleep(6)  # Wait 6 seconds between requests (free tier: 10 req/min)
             
     output_path = Path(BASE_DIR) / "analysis_results_new.json"
     output_path.write_text(
