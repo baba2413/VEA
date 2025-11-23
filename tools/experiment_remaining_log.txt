@@ -1,0 +1,81 @@
+============================================================
+Experiment: Testing Remaining 13 Videos
+============================================================
+
+Found 13 remaining videos to test
+
+
+============================================================
+Trial 1 - Testing 13 videos
+============================================================
+
+Running text-based feedback tests...
+  ✓ Samuel L. Jackson's iconic ＂Pulp Fiction... (violence): 8.244s
+  ✓ Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshel... (sexuality): 9.452s
+  ✓ 발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9... (horror): 7.376s
+  ✓ ＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan ... (drugs): 9.309s
+  ✓ Joel's Death - Abby Kills Joel ｜ The Las... (language): 9.181s
+  ✓ where's my daughter scene ｜ prisoners (2... (violence): 7.622s
+  ✓ The Great Baba voss Best Fight Scene 4k ... (sexuality): 6.689s
+  ✓ ⚔️ The Bride vs Gogo Yubari! 😱 Epic Show... (horror): 7.795s
+  ✓ Hollywood actress hot scenes #carryminat... (drugs): 7.570s
+  ✓ first f bomb in marvel-5vl1dJPsFTo.mp4... (language): 8.999s
+  ✓ Scary Car scene in the movie Smile #scar... (violence): 6.596s
+  ✓ 클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9Jr... (sexuality): 8.551s
+  ✓ Woman recorded using racist slurs on a p... (horror): 7.832s
+
+Waiting 10 seconds before video-based tests...
+
+Running video-based feedback tests...
+  ✓ Samuel L. Jackson's iconic ＂Pulp Fiction... (violence): 30.985s
+  ✓ Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshel... (sexuality): 19.192s
+  ✓ 발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9... (horror): 34.161s
+  ✓ ＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan ... (drugs): 19.867s
+  ✓ Joel's Death - Abby Kills Joel ｜ The Las... (language): 18.521s
+  ✓ where's my daughter scene ｜ prisoners (2... (violence): 24.841s
+  ✓ The Great Baba voss Best Fight Scene 4k ... (sexuality): 32.247s
+  ✓ ⚔️ The Bride vs Gogo Yubari! 😱 Epic Show... (horror): 39.117s
+  ✓ Hollywood actress hot scenes #carryminat... (drugs): 14.349s
+  ✓ first f bomb in marvel-5vl1dJPsFTo.mp4... (language): 24.230s
+  ✓ Scary Car scene in the movie Smile #scar... (violence): 20.051s
+  ✓ 클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9Jr... (sexuality): 36.975s
+  ✓ Woman recorded using racist slurs on a p... (horror): 49.656s
+
+Trial 1 results saved to: /Users/yj/Documents/GitHub/VEA/tools/experiment_results/remaining_trial_20251123_171425.json
+
+============================================================
+Analyzing results...
+============================================================
+
+
+============================================================
+EXPERIMENT RESULTS SUMMARY - REMAINING 13 VIDEOS
+============================================================
+
+Text-based approach:
+  Tests completed: 13
+  Failures: 0
+  Rate limit errors: 0
+  Mean time: 8.093s
+  Median time: 7.832s
+  Std dev: 0.955s
+  Range: 6.596s - 9.452s
+
+Video-based approach:
+  Tests completed: 13
+  Failures: 0
+  Rate limit errors: 0
+  Mean time: 28.015s
+  Median time: 24.841s
+  Std dev: 10.187s
+  Range: 14.349s - 49.656s
+
+Comparison:
+  Speedup ratio: 3.46x
+  Time difference: 19.921s
+  Faster method: text_based
+
+============================================================
+Final results saved to: /Users/yj/Documents/GitHub/VEA/tools/experiment_results/experiment_remaining_20251123_171425.json
+============================================================
+

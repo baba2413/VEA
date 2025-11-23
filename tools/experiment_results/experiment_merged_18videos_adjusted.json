@@ -1,0 +1,609 @@
+{
+  "experiment_id": "merged_18videos_20251123_171526",
+  "description": "Combined results from 5-video (3 trials) + 13-video (1 trial) experiments",
+  "configuration": {
+    "total_unique_videos": 18,
+    "original_experiment": {
+      "videos": 5,
+      "trials": 3,
+      "text_delay": 7,
+      "video_delay": 10
+    },
+    "remaining_experiment": {
+      "videos": 13,
+      "trials": 1,
+      "text_delay": 7,
+      "video_delay": 10
+    }
+  },
+  "analysis": {
+    "text_based": {
+      "count": 27,
+      "mean": 8.267523976924606,
+      "median": 7.831672250002157,
+      "stdev": 1.3292287213571434,
+      "min": 6.596049499989022,
+      "max": 12.008532707986888,
+      "outliers_removed": 1
+    },
+    "video_based": {
+      "count": 28,
+      "mean": 24.996267327431788,
+      "median": 24.275626521004597,
+      "stdev": 8.732478192780777,
+      "min": 13.010589124984108,
+      "max": 49.65608612500364
+    },
+    "comparison": {
+      "speedup_ratio": 3.023428465063856,
+      "time_difference": 16.72874335050718,
+      "faster_method": "text_based"
+    }
+  },
+  "all_trials": [
+    {
+      "trial_number": 1,
+      "timestamp": "2025-11-23T15:03:10.344230",
+      "text_delay": 7,
+      "video_delay": 10,
+      "text_based": [
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "violence",
+          "feedback": "폭력 장면이 너무 자극적입니다",
+          "elapsed_time": 10.319291999971028,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+          "criteria": "sexuality",
+          "feedback": "선정적인 표현이 과도합니다",
+          "elapsed_time": 7.63595320796594,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+          "criteria": "horror",
+          "feedback": "공포 요소가 강합니다",
+          "elapsed_time": 6.626990458986256,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+          "criteria": "drugs",
+          "feedback": "약물 사용을 미화하고 있습니다",
+          "elapsed_time": 8.369725124968681,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+          "criteria": "language",
+          "feedback": "욕설이 많습니다",
+          "elapsed_time": 7.460268749971874,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        }
+      ],
+      "video_based": [
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "violence",
+          "feedback": "폭력 수위가 낮아 보입니다",
+          "elapsed_time": 24.567231041030027,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+          "criteria": "sexuality",
+          "feedback": "건전한 수준입니다",
+          "elapsed_time": 18.22184545896016,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+          "criteria": "horror",
+          "feedback": "깜짝 놀라는 수준입니다",
+          "elapsed_time": 31.430949083005544,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+          "criteria": "drugs",
+          "feedback": "단순 묘사일 뿐입니다",
+          "elapsed_time": 17.457590334000997,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+          "criteria": "language",
+          "feedback": "언어 표현이 적절합니다",
+          "elapsed_time": 24.320869042014237,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        }
+      ]
+    },
+    {
+      "trial_number": 2,
+      "timestamp": "2025-11-23T15:07:19.807310",
+      "text_delay": 7,
+      "video_delay": 10,
+      "text_based": [
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "violence",
+          "feedback": "폭력 장면이 너무 자극적입니다",
+          "elapsed_time": 8.230313416977879,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+          "criteria": "sexuality",
+          "feedback": "선정적인 표현이 과도합니다",
+          "elapsed_time": 10.438614374957979,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+          "criteria": "horror",
+          "feedback": "공포 요소가 강합니다",
+          "elapsed_time": 9.960065082996152,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+          "criteria": "drugs",
+          "feedback": "약물 사용을 미화하고 있습니다",
+          "elapsed_time": 7.304933167004492,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+          "criteria": "language",
+          "feedback": "욕설이 많습니다",
+          "elapsed_time": 221.39997908397345,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        }
+      ],
+      "video_based": [
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "violence",
+          "feedback": "폭력 수위가 낮아 보입니다",
+          "elapsed_time": 20.718011417018715,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+          "criteria": "sexuality",
+          "feedback": "건전한 수준입니다",
+          "elapsed_time": 14.8797737499699,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+          "criteria": "horror",
+          "feedback": "깜짝 놀라는 수준입니다",
+          "elapsed_time": 29.02036575000966,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+          "criteria": "drugs",
+          "feedback": "단순 묘사일 뿐입니다",
+          "elapsed_time": 14.739110208000056,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+          "criteria": "language",
+          "feedback": "언어 표현이 적절합니다",
+          "elapsed_time": 29.110654874995816,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        }
+      ]
+    },
+    {
+      "trial_number": 3,
+      "timestamp": "2025-11-23T15:14:58.675398",
+      "text_delay": 7,
+      "video_delay": 10,
+      "text_based": [
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "violence",
+          "feedback": "폭력 장면이 너무 자극적입니다",
+          "elapsed_time": 12.008532707986888,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+          "criteria": "sexuality",
+          "feedback": "선정적인 표현이 과도합니다",
+          "elapsed_time": 7.587212582991924,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+          "criteria": "horror",
+          "feedback": "공포 요소가 강합니다",
+          "elapsed_time": 8.13355816702824,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+          "criteria": "drugs",
+          "feedback": "약물 사용을 미화하고 있습니다",
+          "elapsed_time": 7.335822541033849,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+          "criteria": "language",
+          "feedback": "욕설이 많습니다",
+          "elapsed_time": 6.5965244169929065,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        }
+      ],
+      "video_based": [
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "violence",
+          "feedback": "폭력 수위가 낮아 보입니다",
+          "elapsed_time": 24.656202499987558,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+          "criteria": "sexuality",
+          "feedback": "건전한 수준입니다",
+          "elapsed_time": 13.010589124984108,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+          "criteria": "horror",
+          "feedback": "깜짝 놀라는 수준입니다",
+          "elapsed_time": 34.21781804098282,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+          "criteria": "drugs",
+          "feedback": "단순 묘사일 뿐입니다",
+          "elapsed_time": 17.94798150000861,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+          "criteria": "language",
+          "feedback": "언어 표현이 적절합니다",
+          "elapsed_time": 21.403555417025927,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        }
+      ]
+    },
+    {
+      "trial_number": 4,
+      "timestamp": "2025-11-23T17:03:01.662846",
+      "text_delay": 7,
+      "video_delay": 10,
+      "text_based": [
+        {
+          "video": "Samuel L. Jackson's iconic ＂Pulp Fiction＂ line includes a direct quote from Ezekiel 25_17.-jk1It7OA5eY.mp4",
+          "criteria": "violence",
+          "feedback": "폭력 장면이 너무 자극적입니다",
+          "elapsed_time": 8.24435320898192,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #smoke #asmr #4k #shorts-Y50kB2YrMdI.mp4",
+          "criteria": "sexuality",
+          "feedback": "선정적인 표현이 과도합니다",
+          "elapsed_time": 9.45220620901091,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4",
+          "criteria": "horror",
+          "feedback": "공포 요소가 강합니다",
+          "elapsed_time": 7.375864667003043,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan Became Japan’s HUMAN SHIELD (Nuke Survival Breakdown)＂-G1_RpZ47EGU.mp4",
+          "criteria": "drugs",
+          "feedback": "약물 사용을 미화하고 있습니다",
+          "elapsed_time": 9.308900874981191,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "Joel's Death - Abby Kills Joel ｜ The Last of Us Season 2 Episode 2 (Through the Valley)-0vZUUinT8l0.mp4",
+          "criteria": "language",
+          "feedback": "욕설이 많습니다",
+          "elapsed_time": 9.180542542017065,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4",
+          "criteria": "violence",
+          "feedback": "폭력 장면이 너무 자극적입니다",
+          "elapsed_time": 7.622293334046844,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "The Great Baba voss Best Fight Scene 4k (HDR) ｜ The SEE Best Scene ｜ Recap Blade-Qvcx2gyTUTA.mp4",
+          "criteria": "sexuality",
+          "feedback": "선정적인 표현이 과도합니다",
+          "elapsed_time": 6.689301458012778,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "⚔️ The Bride vs Gogo Yubari! 😱 Epic Showdown ｜ Kill Bill： Vol. 1 (2003)-lUfGDlNpFTE.mp4",
+          "criteria": "horror",
+          "feedback": "공포 요소가 강합니다",
+          "elapsed_time": 7.794722333026584,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "Hollywood actress hot scenes #carryminati #viral #shortvideos #short-4M00TOLr_-A.mp4",
+          "criteria": "drugs",
+          "feedback": "약물 사용을 미화하고 있습니다",
+          "elapsed_time": 7.569827291998081,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "first f bomb in marvel-5vl1dJPsFTo.mp4",
+          "criteria": "language",
+          "feedback": "욕설이 많습니다",
+          "elapsed_time": 8.9989032910089,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "Scary Car scene in the movie Smile #scary #horror-7oDmx8C4_6w.mp4",
+          "criteria": "violence",
+          "feedback": "폭력 장면이 너무 자극적입니다",
+          "elapsed_time": 6.596049499989022,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4",
+          "criteria": "sexuality",
+          "feedback": "선정적인 표현이 과도합니다",
+          "elapsed_time": 8.550704417051747,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "Woman recorded using racist slurs on a playground-rc-Qi7PuSr4.mp4",
+          "criteria": "horror",
+          "feedback": "공포 요소가 강합니다",
+          "elapsed_time": 7.831672250002157,
+          "success": true,
+          "result": "Text-based feedback completed",
+          "error_type": null
+        }
+      ],
+      "video_based": [
+        {
+          "video": "Samuel L. Jackson's iconic ＂Pulp Fiction＂ line includes a direct quote from Ezekiel 25_17.-jk1It7OA5eY.mp4",
+          "criteria": "violence",
+          "feedback": "폭력 수위가 낮아 보입니다",
+          "elapsed_time": 30.985371957998723,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #smoke #asmr #4k #shorts-Y50kB2YrMdI.mp4",
+          "criteria": "sexuality",
+          "feedback": "건전한 수준입니다",
+          "elapsed_time": 19.19206725002732,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4",
+          "criteria": "horror",
+          "feedback": "깜짝 놀라는 수준입니다",
+          "elapsed_time": 34.16135091695469,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan Became Japan’s HUMAN SHIELD (Nuke Survival Breakdown)＂-G1_RpZ47EGU.mp4",
+          "criteria": "drugs",
+          "feedback": "단순 묘사일 뿐입니다",
+          "elapsed_time": 19.866985625005327,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "Joel's Death - Abby Kills Joel ｜ The Last of Us Season 2 Episode 2 (Through the Valley)-0vZUUinT8l0.mp4",
+          "criteria": "language",
+          "feedback": "언어 표현이 적절합니다",
+          "elapsed_time": 18.521262583031785,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4",
+          "criteria": "violence",
+          "feedback": "폭력 수위가 낮아 보입니다",
+          "elapsed_time": 24.840597917034756,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "The Great Baba voss Best Fight Scene 4k (HDR) ｜ The SEE Best Scene ｜ Recap Blade-Qvcx2gyTUTA.mp4",
+          "criteria": "sexuality",
+          "feedback": "건전한 수준입니다",
+          "elapsed_time": 32.2466750839958,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "⚔️ The Bride vs Gogo Yubari! 😱 Epic Showdown ｜ Kill Bill： Vol. 1 (2003)-lUfGDlNpFTE.mp4",
+          "criteria": "horror",
+          "feedback": "깜짝 놀라는 수준입니다",
+          "elapsed_time": 39.116603958013,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "Hollywood actress hot scenes #carryminati #viral #shortvideos #short-4M00TOLr_-A.mp4",
+          "criteria": "drugs",
+          "feedback": "단순 묘사일 뿐입니다",
+          "elapsed_time": 14.348873167007696,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "first f bomb in marvel-5vl1dJPsFTo.mp4",
+          "criteria": "language",
+          "feedback": "언어 표현이 적절합니다",
+          "elapsed_time": 24.230383999994956,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "Scary Car scene in the movie Smile #scary #horror-7oDmx8C4_6w.mp4",
+          "criteria": "violence",
+          "feedback": "폭력 수위가 낮아 보입니다",
+          "elapsed_time": 20.05149350001011,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4",
+          "criteria": "sexuality",
+          "feedback": "건전한 수준입니다",
+          "elapsed_time": 36.97518554201815,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        },
+        {
+          "video": "Woman recorded using racist slurs on a playground-rc-Qi7PuSr4.mp4",
+          "criteria": "horror",
+          "feedback": "깜짝 놀라는 수준입니다",
+          "elapsed_time": 49.65608612500364,
+          "success": true,
+          "result": "Video-based feedback completed",
+          "error_type": null
+        }
+      ]
+    }
+  ],
+  "videos_tested": [
+    "#shorts #담배-qR2K__FCLb0.mp4",
+    "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+    "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+    "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+    "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+    "Hollywood actress hot scenes #carryminati #viral #shortvideos #short-4M00TOLr_-A.mp4",
+    "Joel's Death - Abby Kills Joel ｜ The Last of Us Season 2 Episode 2 (Through the Valley)-0vZUUinT8l0.mp4",
+    "Samuel L. Jackson's iconic ＂Pulp Fiction＂ line includes a direct quote from Ezekiel 25_17.-jk1It7OA5eY.mp4",
+    "Scary Car scene in the movie Smile #scary #horror-7oDmx8C4_6w.mp4",
+    "The Great Baba voss Best Fight Scene 4k (HDR) ｜ The SEE Best Scene ｜ Recap Blade-Qvcx2gyTUTA.mp4",
+    "Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #smoke #asmr #4k #shorts-Y50kB2YrMdI.mp4",
+    "Woman recorded using racist slurs on a playground-rc-Qi7PuSr4.mp4",
+    "first f bomb in marvel-5vl1dJPsFTo.mp4",
+    "where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4",
+    "⚔️ The Bride vs Gogo Yubari! 😱 Epic Showdown ｜ Kill Bill： Vol. 1 (2003)-lUfGDlNpFTE.mp4",
+    "발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4",
+    "클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4",
+    "＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan Became Japan’s HUMAN SHIELD (Nuke Survival Breakdown)＂-G1_RpZ47EGU.mp4"
+  ]
+}
