@@ -31,21 +31,20 @@ SAMPLE_VIDEOS_DIR = os.path.join(ROOT_DIR, 'tools', 'yt_shorts')
 
 
 def validate_filename(filename: str) -> str:
-    """Validate filename for safety without removing parentheses.
+    """Validate filename for safety while allowing Unicode characters.
 
-    Prevents path traversal but allows parentheses and other safe characters.
+    Prevents path traversal but allows Unicode (Korean, emojis, special chars).
     """
     if not filename:
         raise ValueError("Empty filename")
 
-    # Prevent path traversal
+    # Prevent path traversal - these are the only dangerous characters
     if '..' in filename or '/' in filename or '\\' in filename:
         raise ValueError("Invalid filename")
 
-    # Only allow safe characters: alphanumeric, dot, dash, underscore, parentheses, space
-    import re
-    if not re.match(r'^[a-zA-Z0-9._\-() ]+$', filename):
-        raise ValueError("Invalid filename characters")
+    # Prevent null bytes
+    if '\x00' in filename:
+        raise ValueError("Invalid filename")
 
     return filename
 
@@ -141,15 +140,19 @@ def list_videos() -> Response:
         if not os.path.exists(SAMPLE_VIDEOS_DIR):
             return jsonify([]), 200
 
+        from urllib.parse import quote
+
         files = []
         for filename in os.listdir(SAMPLE_VIDEOS_DIR):
             if filename.startswith('.'):
                 continue
             filepath = os.path.join(SAMPLE_VIDEOS_DIR, filename)
             if os.path.isfile(filepath) and filename.lower().endswith(('.mp4', '.mov', '.avi', '.webm')):
+                # URL-encode the filename to handle special characters like #, ?, etc.
+                encoded_filename = quote(filename, safe='')
                 files.append({
                     'filename': filename,
-                    'path': f'/api/videos/{filename}'
+                    'path': f'/api/videos/{encoded_filename}'
                 })
 
         # Sort by filename

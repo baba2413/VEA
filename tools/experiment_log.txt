@@ -1,0 +1,125 @@
+============================================================
+Feedback Generation Performance Experiment
+Text-based vs Video-based Comparison
+============================================================
+
+Found 20 video files
+Found 20 videos with analysis results
+
+============================================================
+Experiment Configuration
+============================================================
+
+Configuration:
+  Trials: 3
+  Tests per trial: 5
+  Text delay: 7s
+  Video delay: 10s
+
+Note: If rate limits are hit, delays will be automatically increased for that test.
+
+============================================================
+Trial 1
+============================================================
+
+Running text-based feedback tests...
+  ✓ #shorts #담배-qR2K__FCLb0.mp4... (violence): 10.319s
+  ✓ ''its okay'' WYM YOU JUST MADE ME JUMP #... (sexuality): 7.636s
+  ✓ BOOTED by Gordon Ramsay？! #shorts #gordo... (horror): 6.627s
+  ✓ Do you like leather bikinis？ 🖤 #beach #b... (drugs): 8.370s
+  ✓ HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad ... (language): 7.460s
+
+Waiting 10 seconds before video-based tests...
+
+Running video-based feedback tests...
+  ✓ #shorts #담배-qR2K__FCLb0.mp4... (violence): 24.567s
+  ✓ ''its okay'' WYM YOU JUST MADE ME JUMP #... (sexuality): 18.222s
+  ✓ BOOTED by Gordon Ramsay？! #shorts #gordo... (horror): 31.431s
+  ✓ Do you like leather bikinis？ 🖤 #beach #b... (drugs): 17.458s
+  ✓ HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad ... (language): 24.321s
+
+Trial 1 results saved to: /Users/yj/Documents/GitHub/VEA/tools/experiment_results/trial_1_20251123_150704.json
+
+Waiting 15 seconds before next trial...
+
+============================================================
+Trial 2
+============================================================
+
+Running text-based feedback tests...
+  ✓ #shorts #담배-qR2K__FCLb0.mp4... (violence): 8.230s
+  ✓ ''its okay'' WYM YOU JUST MADE ME JUMP #... (sexuality): 10.439s
+  ✓ BOOTED by Gordon Ramsay？! #shorts #gordo... (horror): 9.960s
+  ✓ Do you like leather bikinis？ 🖤 #beach #b... (drugs): 7.305s
+  ✓ HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad ... (language): 221.400s
+
+Waiting 10 seconds before video-based tests...
+
+Running video-based feedback tests...
+  ✓ #shorts #담배-qR2K__FCLb0.mp4... (violence): 20.718s
+  ✓ ''its okay'' WYM YOU JUST MADE ME JUMP #... (sexuality): 14.880s
+  ✓ BOOTED by Gordon Ramsay？! #shorts #gordo... (horror): 29.020s
+  ✓ Do you like leather bikinis？ 🖤 #beach #b... (drugs): 14.739s
+  ✓ HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad ... (language): 29.111s
+
+Trial 2 results saved to: /Users/yj/Documents/GitHub/VEA/tools/experiment_results/trial_2_20251123_151443.json
+
+Waiting 15 seconds before next trial...
+
+============================================================
+Trial 3
+============================================================
+
+Running text-based feedback tests...
+  ✓ #shorts #담배-qR2K__FCLb0.mp4... (violence): 12.009s
+  ✓ ''its okay'' WYM YOU JUST MADE ME JUMP #... (sexuality): 7.587s
+  ✓ BOOTED by Gordon Ramsay？! #shorts #gordo... (horror): 8.134s
+  ✓ Do you like leather bikinis？ 🖤 #beach #b... (drugs): 7.336s
+  ✓ HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad ... (language): 6.597s
+
+Waiting 10 seconds before video-based tests...
+
+Running video-based feedback tests...
+  ✓ #shorts #담배-qR2K__FCLb0.mp4... (violence): 24.656s
+  ✓ ''its okay'' WYM YOU JUST MADE ME JUMP #... (sexuality): 13.011s
+  ✓ BOOTED by Gordon Ramsay？! #shorts #gordo... (horror): 34.218s
+  ✓ Do you like leather bikinis？ 🖤 #beach #b... (drugs): 17.948s
+  ✓ HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad ... (language): 21.404s
+
+Trial 3 results saved to: /Users/yj/Documents/GitHub/VEA/tools/experiment_results/trial_3_20251123_151849.json
+
+============================================================
+Analyzing results...
+============================================================
+
+============================================================
+EXPERIMENT RESULTS SUMMARY
+============================================================
+
+Text-based approach:
+  Tests completed: 15
+  Failures: 0
+  Rate limit errors: 0
+  Mean time: 22.627s
+  Median time: 8.134s
+  Std dev: 55.011s
+  Range: 6.597s - 221.400s
+
+Video-based approach:
+  Tests completed: 15
+  Failures: 0
+  Rate limit errors: 0
+  Mean time: 22.380s
+  Median time: 21.404s
+  Std dev: 6.505s
+  Range: 13.011s - 34.218s
+
+Comparison:
+  Speedup ratio: 1.01x
+  Time difference: -0.247s
+  Faster method: video_based
+
+============================================================
+Final results saved to: /Users/yj/Documents/GitHub/VEA/tools/experiment_results/experiment_results_20251123_151849.json
+============================================================
+

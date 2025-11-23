@@ -1,0 +1,174 @@
+Videos to analyze: 20
+Total API calls needed: 100
+Rate limit: 10 requests/minute
+Strategy: 1 request every 7 seconds
+Estimated time: ~11 minutes
+
+
+Analyzing: Do you like leather bikinis？ 🖤 #beach #beachvibes #short #sh...
+  ✓ violence: 0
+  ✓ sexuality: 0
+  ✓ horror: 0
+  ✓ drugs: 0
+  ✓ language: 0
+
+Analyzing: Samuel L. Jackson's iconic ＂Pulp Fiction＂ line includes a di...
+  ✓ violence: 0
+  ✓ sexuality: 0
+  ✓ horror: 1
+  ✓ drugs: 0
+  ✓ language: 1
+
+  [10 requests in 147.0s] Waiting 10s for rate limit...
+
+Analyzing: Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #s...
+  ✓ violence: 0
+  ✓ sexuality: 0
+  ✓ horror: 0
+  ✓ drugs: 0
+  ✓ language: 0
+
+Analyzing: BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW...
+  ✓ violence: 0
+  ✓ sexuality: 0
+  ✓ horror: 0
+  ✓ drugs: 0
+  ✓ language: 1
+
+  [20 requests in 131.7s] Waiting 10s for rate limit...
+
+Analyzing: 발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4...
+  ✓ violence: 1
+  ✓ sexuality: 1
+  ✓ horror: 1
+  ✓ drugs: 0
+  ✓ language: 0
+
+Analyzing: ＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan Became Japan’s HUMAN...
+  ✓ violence: 1
+  ✓ sexuality: 0
+  ✓ horror: 1
+  ✓ drugs: 0
+  ✓ language: 0
+
+  [30 requests in 144.4s] Waiting 10s for rate limit...
+
+Analyzing: #shorts #담배-qR2K__FCLb0.mp4...
+  ✓ violence: 0
+  ✓ sexuality: 0
+  ✓ horror: 0
+  ✓ drugs: 0
+  ✓ language: 0
+
+Analyzing: Joel's Death - Abby Kills Joel ｜ The Last of Us Season 2 Epi...
+  ✓ violence: 1
+  ✓ sexuality: 0
+  ✓ horror: 1
+  ✓ drugs: 0
+  ✓ language: 0
+
+  [40 requests in 133.7s] Waiting 10s for rate limit...
+
+Analyzing: 역사상 가장 '소름' 끼치는 영상？-SH04s_kOKzg.mp4...
+  ✓ violence: -1
+  ✓ sexuality: -1
+  ✓ horror: -1
+  ✓ drugs: -1
+  ✓ language: -1
+
+Analyzing: where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4...
+  ✓ violence: 1
+  ✓ sexuality: 0
+  ✓ horror: 1
+  ✓ drugs: 0
+  ✓ language: 0
+
+  [50 requests in 106.2s] Waiting 10s for rate limit...
+
+Analyzing: The Great Baba voss Best Fight Scene 4k (HDR) ｜ The SEE Best...
+  ✓ violence: 1
+  ✓ sexuality: 0
+  ✓ horror: 1
+  ✓ drugs: 0
+  ✓ language: 0
+
+Analyzing: ⚔️ The Bride vs Gogo Yubari! 😱 Epic Showdown ｜ Kill Bill： Vo...
+  ✓ violence: 1
+  ✓ sexuality: 0
+  ✓ horror: 1
+  ✓ drugs: 0
+  ✓ language: 0
+
+  [60 requests in 153.2s] Waiting 10s for rate limit...
+
+Analyzing: Hollywood actress hot scenes #carryminati #viral #shortvideo...
+  ✓ violence: 0
+  ✓ sexuality: 1
+  ✓ horror: 0
+  ✓ drugs: 0
+  ✓ language: 0
+
+Analyzing: HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo....
+  ✓ violence: 0
+  ✓ sexuality: 0
+  ✓ horror: 0
+  ✓ drugs: 1
+  ✓ language: 0
+
+  [70 requests in 133.2s] Waiting 10s for rate limit...
+
+Analyzing: Most Disturbing Anime Moment #creepyanime #disturbing #trend...
+  ✓ violence: -1
+  ✓ sexuality: -1
+  ✓ horror: -1
+  ✓ drugs: -1
+  ✓ language: -1
+
+Analyzing: first f bomb in marvel-5vl1dJPsFTo.mp4...
+  ✓ violence: 0
+  ✓ sexuality: 0
+  ✓ horror: 0
+  ✓ drugs: 0
+  ✓ language: 0
+
+  [80 requests in 101.4s] Waiting 10s for rate limit...
+
+Analyzing: ''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #reside...
+  ✓ violence: 1
+  ✓ sexuality: 0
+  ✓ horror: 1
+  ✓ drugs: 0
+  ✓ language: 0
+
+Analyzing: Scary Car scene in the movie Smile #scary #horror-7oDmx8C4_6...
+  ✓ violence: 1
+  ✓ sexuality: 0
+  ✓ horror: 1
+  ✓ drugs: 0
+  ✓ language: 0
+
+  [90 requests in 140.2s] Waiting 10s for rate limit...
+
+Analyzing: 클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4...
+  ✓ violence: 0
+  ✓ sexuality: 0
+  ✓ horror: 1
+  ✓ drugs: 1
+  ✓ language: 0
+
+Analyzing: Woman recorded using racist slurs on a playground-rc-Qi7PuSr...
+  ✓ violence: 0
+  ✓ sexuality: 0
+  ✓ horror: 1
+  ✓ drugs: 0
+  ✓ language: 1
+
+  [100 requests in 139.2s] Waiting 10s for rate limit...
+
+============================================================
+✓ Analysis complete!
+Total videos processed: 20
+Total API calls: 100
+Results saved to: /Users/yj/Documents/GitHub/VEA/api/analysis_results.json
+============================================================
+

@@ -1,0 +1,100 @@
+{
+  "trial_number": 2,
+  "timestamp": "2025-11-23T15:07:19.807310",
+  "text_delay": 7,
+  "video_delay": 10,
+  "text_based": [
+    {
+      "video": "#shorts #담배-qR2K__FCLb0.mp4",
+      "criteria": "violence",
+      "feedback": "폭력 장면이 너무 자극적입니다",
+      "elapsed_time": 8.230313416977879,
+      "success": true,
+      "result": "Text-based feedback completed",
+      "error_type": null
+    },
+    {
+      "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+      "criteria": "sexuality",
+      "feedback": "선정적인 표현이 과도합니다",
+      "elapsed_time": 10.438614374957979,
+      "success": true,
+      "result": "Text-based feedback completed",
+      "error_type": null
+    },
+    {
+      "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+      "criteria": "horror",
+      "feedback": "공포 요소가 강합니다",
+      "elapsed_time": 9.960065082996152,
+      "success": true,
+      "result": "Text-based feedback completed",
+      "error_type": null
+    },
+    {
+      "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+      "criteria": "drugs",
+      "feedback": "약물 사용을 미화하고 있습니다",
+      "elapsed_time": 7.304933167004492,
+      "success": true,
+      "result": "Text-based feedback completed",
+      "error_type": null
+    },
+    {
+      "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+      "criteria": "language",
+      "feedback": "욕설이 많습니다",
+      "elapsed_time": 221.39997908397345,
+      "success": true,
+      "result": "Text-based feedback completed",
+      "error_type": null
+    }
+  ],
+  "video_based": [
+    {
+      "video": "#shorts #담배-qR2K__FCLb0.mp4",
+      "criteria": "violence",
+      "feedback": "폭력 수위가 낮아 보입니다",
+      "elapsed_time": 20.718011417018715,
+      "success": true,
+      "result": "Video-based feedback completed",
+      "error_type": null
+    },
+    {
+      "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+      "criteria": "sexuality",
+      "feedback": "건전한 수준입니다",
+      "elapsed_time": 14.8797737499699,
+      "success": true,
+      "result": "Video-based feedback completed",
+      "error_type": null
+    },
+    {
+      "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+      "criteria": "horror",
+      "feedback": "깜짝 놀라는 수준입니다",
+      "elapsed_time": 29.02036575000966,
+      "success": true,
+      "result": "Video-based feedback completed",
+      "error_type": null
+    },
+    {
+      "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+      "criteria": "drugs",
+      "feedback": "단순 묘사일 뿐입니다",
+      "elapsed_time": 14.739110208000056,
+      "success": true,
+      "result": "Video-based feedback completed",
+      "error_type": null
+    },
+    {
+      "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+      "criteria": "language",
+      "feedback": "언어 표현이 적절합니다",
+      "elapsed_time": 29.110654874995816,
+      "success": true,
+      "result": "Video-based feedback completed",
+      "error_type": null
+    }
+  ]
+}

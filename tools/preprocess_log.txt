@@ -1,0 +1,84 @@
+============================================================
+Video Preprocessing for Experiment
+============================================================
+
+Step 1: Generating text descriptions from videos...
+This may take 20-30 minutes depending on API speed.
+Processing videos in tools/yt_shorts/...
+video_text.json 없음. 새로 생성합니다.
+Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4 처리 완료.
+Samuel L. Jackson's iconic ＂Pulp Fiction＂ line includes a direct quote from Ezekiel 25_17.-jk1It7OA5eY.mp4 처리 완료.
+Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #smoke #asmr #4k #shorts-Y50kB2YrMdI.mp4 처리 완료.
+BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4 처리 완료.
+발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4 처리 완료.
+＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan Became Japan’s HUMAN SHIELD (Nuke Survival Breakdown)＂-G1_RpZ47EGU.mp4 처리 완료.
+#shorts #담배-qR2K__FCLb0.mp4 처리 완료.
+Joel's Death - Abby Kills Joel ｜ The Last of Us Season 2 Episode 2 (Through the Valley)-0vZUUinT8l0.mp4 처리 완료.
+역사상 가장 '소름' 끼치는 영상？-SH04s_kOKzg.mp4 처리 완료.
+where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4 처리 완료.
+The Great Baba voss Best Fight Scene 4k (HDR) ｜ The SEE Best Scene ｜ Recap Blade-Qvcx2gyTUTA.mp4 처리 완료.
+⚔️ The Bride vs Gogo Yubari! 😱 Epic Showdown ｜ Kill Bill： Vol. 1 (2003)-lUfGDlNpFTE.mp4 처리 완료.
+Hollywood actress hot scenes #carryminati #viral #shortvideos #short-4M00TOLr_-A.mp4 처리 완료.
+HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4 처리 완료.
+Most Disturbing Anime Moment #creepyanime #disturbing #trending-Mjx-2vXagSs.mp4 처리 완료.
+first f bomb in marvel-5vl1dJPsFTo.mp4 처리 완료.
+''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4 처리 완료.
+Scary Car scene in the movie Smile #scary #horror-7oDmx8C4_6w.mp4 처리 완료.
+클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4 처리 완료.
+Woman recorded using racist slurs on a playground-rc-Qi7PuSr4.mp4 처리 완료.
+분석 결과 JSON 저장 완료 → /Users/yj/Documents/GitHub/VEA/video_text.json (새로 처리: 20개)
+
+✓ Step 1 completed: Text descriptions generated
+
+============================================================
+Step 2: Analyzing videos with text descriptions...
+This may take 15-20 minutes (5 criteria × 20 videos).
+기존 analysis_results.json 로드 완료 (40개 항목)
+sample (1).mp4 이미 분석됨. 스킵.
+sample (10).mp4 이미 분석됨. 스킵.
+sample (11).mp4 이미 분석됨. 스킵.
+sample (12).mp4 이미 분석됨. 스킵.
+sample (13).mp4 이미 분석됨. 스킵.
+sample (14).mp4 이미 분석됨. 스킵.
+sample (15).mp4 이미 분석됨. 스킵.
+sample (16).mp4 이미 분석됨. 스킵.
+sample (18).mp4 이미 분석됨. 스킵.
+sample (19).mp4 이미 분석됨. 스킵.
+sample (2).mp4 이미 분석됨. 스킵.
+sample (20).mp4 이미 분석됨. 스킵.
+sample (21).mp4 이미 분석됨. 스킵.
+sample (22).mp4 이미 분석됨. 스킵.
+sample (23).mp4 이미 분석됨. 스킵.
+sample (24).mp4 이미 분석됨. 스킵.
+sample (25).mp4 이미 분석됨. 스킵.
+sample (26).mp4 이미 분석됨. 스킵.
+sample (27).mp4 이미 분석됨. 스킵.
+sample (28).mp4 이미 분석됨. 스킵.
+sample (29).mp4 이미 분석됨. 스킵.
+sample (3).mp4 이미 분석됨. 스킵.
+sample (30).mp4 이미 분석됨. 스킵.
+sample (31).mp4 이미 분석됨. 스킵.
+sample (32).mp4 이미 분석됨. 스킵.
+sample (33).mp4 이미 분석됨. 스킵.
+sample (34).mp4 이미 분석됨. 스킵.
+sample (35).mp4 이미 분석됨. 스킵.
+sample (36).mp4 이미 분석됨. 스킵.
+sample (37).mp4 이미 분석됨. 스킵.
+sample (38).mp4 이미 분석됨. 스킵.
+sample (39).mp4 이미 분석됨. 스킵.
+sample (4).mp4 이미 분석됨. 스킵.
+sample (5).mp4 이미 분석됨. 스킵.
+sample (6).mp4 이미 분석됨. 스킵.
+sample (7).mp4 이미 분석됨. 스킵.
+sample (8).mp4 이미 분석됨. 스킵.
+sample (9).mp4 이미 분석됨. 스킵.
+sample(2).mp4 이미 분석됨. 스킵.
+sample(1).mp4 이미 분석됨. 스킵.
+분석 완료 (새로 분석: 0개)
+
+✓ Step 2 completed: Analysis results generated
+
+============================================================
+✓ All preprocessing completed successfully!
+Ready to run experiment_runner.py
+============================================================

@@ -172,6 +172,71 @@ def feedback_with_llm(file_name:str, criteria:str, feedback:str):
         json.dump(is_prompt_changed, f, indent=2, ensure_ascii=False)
 
 
+def feedback_with_video(video_path: str, file_name: str, criteria: str, feedback: str):
+    """
+    Video-based feedback - uses actual video file instead of text description
+
+    Args:
+        video_path: Path to the video file
+        file_name: Name of the video file (for analysis_results lookup)
+        criteria: The criteria being evaluated
+        feedback: User's feedback text
+    """
+    analysis_results = DATA["analysis_results"]
+    feedbacks        = DATA["feedbacks"]
+    is_prompt_changed = DATA["is_prompt_changed"]
+
+    detail = analysis_results[file_name]["details"][criteria]
+    ox = analysis_results[file_name]["ox"][criteria]
+    msg = f"{criteria} 기준 위반함. " if ox==1 else f"{criteria} 기준 위반하지 않음. "
+    msg += detail
+
+    prompt = f"""
+        영상 심의 시스템의 유저가 영상을 보고 심의 내용에 대해 피드백을 작성하였다.\n
+        당신은 피드백의 내용을 영상의 맥락을 고려하여 재작성한다.\n\n
+        영상이 제공됩니다. 영상을 직접 확인하여 맥락을 파악하세요.\n\n
+        기존 심의 내용은 다음과 같다:\n
+        {msg}\n\n
+        이에 대한 유저의 피드백은 다음과 같다:\n
+        {feedback}\n\n
+        피드백의 의미를 유지하면서 영상의 맥락이 담길 수 있게끔 문장을 작성한다. 100자를 넘기지 않는다.
+    """
+
+    # Upload video to Gemini
+    client = genai.Client()
+    file = client.files.upload(file=video_path)
+
+    # Wait for processing to complete
+    while file.state.name == "PROCESSING":
+        time.sleep(0.5)
+        file = client.files.get(name=file.name)
+
+    if file.state.name != "ACTIVE":
+        raise RuntimeError(f"Gemini file upload failed: state={file.state.name}")
+
+    # Call Gemini API with video
+    resp = client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=[file, prompt],
+    )
+
+    if hasattr(resp, "text") and resp.text:
+        result = resp.text
+    else:
+        try:
+            result = "\n".join(p.text for p in resp.candidates[0].content.parts if getattr(p, "text", None))
+        except Exception:
+            result = str(resp)
+
+    feedbacks[criteria].append(result)
+    with open(JSON_PATHS["feedbacks"], "w", encoding="utf-8") as f:
+        json.dump(feedbacks, f, ensure_ascii=False, indent=2)
+
+    is_prompt_changed[criteria] = 1
+    with open(JSON_PATHS["is_prompt_changed"], "w", encoding="utf-8") as f:
+        json.dump(is_prompt_changed, f, indent=2, ensure_ascii=False)
+
+
 def feedback_to_consideration(criteria:str):
     """
     Summarize accumulated feedbacks for a given criteria into considerations.
