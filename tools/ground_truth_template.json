@@ -1,0 +1,145 @@
+{
+  "_README": {
+    "_comment": "Ground truth labels: 0 = X (pass/no violation), 1 = O (violation/flagged). Replace null with 0 or 1 for each criteria."
+  },
+  "⚔️ The Bride vs Gogo Yubari! 😱 Epic Showdown ｜ Kill Bill： Vol. 1 (2003)-lUfGDlNpFTE.mp4": {
+    "violence": 1,
+    "sexuality": 0,
+    "horror": 1,
+    "drugs": 0,
+    "language": 0
+  },
+  "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4": {
+    "violence": 0,
+    "sexuality": 0,
+    "horror": 1,
+    "drugs": 0,
+    "language": 0
+  },
+  "#shorts #담배-qR2K__FCLb0.mp4": {
+    "violence": 0,
+    "sexuality": 0,
+    "horror": 0,
+    "drugs": 1,
+    "language": 1
+  },
+  "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4": {
+    "violence": 0,
+    "sexuality": 0,
+    "horror": 0,
+    "drugs": 0,
+    "language": 1
+  },
+  "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4": {
+    "violence": 0,
+    "sexuality": 1,
+    "horror": 0,
+    "drugs": 0,
+    "language": 0
+  },
+  "first f bomb in marvel-5vl1dJPsFTo.mp4": {
+    "violence": 0,
+    "sexuality": 0,
+    "horror": 0,
+    "drugs": 0,
+    "language": 0
+  },
+  "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4": {
+    "violence": 0,
+    "sexuality": 0,
+    "horror": 0,
+    "drugs": 1,
+    "language": 0
+  },
+  "Hollywood actress hot scenes #carryminati #viral #shortvideos #short-4M00TOLr_-A.mp4": {
+    "violence": 0,
+    "sexuality": 1,
+    "horror": 0,
+    "drugs": 0,
+    "language": 0
+  },
+  "Joel's Death - Abby Kills Joel ｜ The Last of Us Season 2 Episode 2 (Through the Valley)-0vZUUinT8l0.mp4": {
+    "violence": 1,
+    "sexuality": 0,
+    "horror": 1,
+    "drugs": 0,
+    "language": 0
+  },
+  "Samuel L. Jackson's iconic ＂Pulp Fiction＂ line includes a direct quote from Ezekiel 25_17.-jk1It7OA5eY.mp4": {
+    "violence": 0,
+    "sexuality": 0,
+    "horror": 1,
+    "drugs": 0,
+    "language": 1
+  },
+  "Scary Car scene in the movie Smile #scary #horror-7oDmx8C4_6w.mp4": {
+    "violence": 0,
+    "sexuality": 0,
+    "horror": 1,
+    "drugs": 0,
+    "language": 0
+  },
+  "The Great Baba voss Best Fight Scene 4k (HDR) ｜ The SEE Best Scene ｜ Recap Blade-Qvcx2gyTUTA.mp4": {
+    "violence": 1,
+    "sexuality": 0,
+    "horror": 1,
+    "drugs": 0,
+    "language": 0
+  },
+  "This Looks TERRIFYING 🫣-ai8Xib84qqA.mp4": {
+    "violence": 0,
+    "sexuality": 0,
+    "horror": 0,
+    "drugs": 0,
+    "language": 0
+  },
+  "Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #smoke #asmr #4k #shorts-Y50kB2YrMdI.mp4": {
+    "violence": 0,
+    "sexuality": 0,
+    "horror": 0,
+    "drugs": 1,
+    "language": 0
+  },
+  "where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4": {
+    "violence": 1,
+    "sexuality": 0,
+    "horror": 1,
+    "drugs": 0,
+    "language": 0
+  },
+  "Woman recorded using racist slurs on a playground-rc-Qi7PuSr4.mp4": {
+    "violence": 0,
+    "sexuality": 0,
+    "horror": 0,
+    "drugs": 0,
+    "language": 1
+  },
+  "발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4": {
+    "violence": 0,
+    "sexuality": 1,
+    "horror": 0,
+    "drugs": 0,
+    "language": 0
+  },
+  "욕 시원하게 갈겨버리는 혜리 지예은-m3qwUvok1wI.mp4": {
+    "violence": 0,
+    "sexuality": 0,
+    "horror": 0,
+    "drugs": 0,
+    "language": 1
+  },
+  "클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4": {
+    "violence": 0,
+    "sexuality": 0,
+    "horror": 0,
+    "drugs": 1,
+    "language": 0
+  },
+  "＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan Became Japan’s HUMAN SHIELD (Nuke Survival Breakdown)＂-G1_RpZ47EGU.mp4": {
+    "violence": 1,
+    "sexuality": 0,
+    "horror": 1,
+    "drugs": 0,
+    "language": 0
+  }
+}

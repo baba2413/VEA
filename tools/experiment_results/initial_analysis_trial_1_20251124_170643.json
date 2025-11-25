@@ -1,0 +1,262 @@
+{
+  "trial_number": 1,
+  "timestamp": "2025-11-24T16:40:36.200468",
+  "text_delay": 3,
+  "video_delay": 5,
+  "text_based": [
+    {
+      "video": "#shorts #담배-qR2K__FCLb0.mp4",
+      "elapsed_time": 10.778376249996654,
+      "success": true,
+      "result": "내용 요약: 한 젊은 남성이 카메라 앞에서 20개의 담배를 한꺼번에 물고 불을 붙여 흡연을 시도한다. 담배가 잘 붙지 않자 집중하여 여러 차례 라이터로 불을 붙이고, 깊게 빨아들인 후 불편한 듯 기침하며 담배를 버린다. 이어서 다른 담배 뭉치를 들고 불평하며 욕설을 하는 순간 영상이 종료된다. 화면 하단에는 \"20대 한번에 피기\"라는 자막이 표시된다.\n\n1",
+      "error_type": null
+    },
+    {
+      "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+      "elapsed_time": 11.67243425000197,
+      "success": true,
+      "result": "내용 요약: 영상은 어둡고 황폐한 실내 복도에서 시작하여, 붉은 빛이 반짝이는 섬뜩한 분위기 속에서 카메라가 전진합니다. 00:02초경, 피투성이의 상처 입은 여인의 얼굴이 갑자기 튀어나와 비명을 지르며 \"Ethan!\"이라고 외친 후 \"It's OK. It's OK, it's me.\"라고 말합니다. 이후 화면은 일시정지 메뉴로 전환되지만, 메뉴 뒤편으로 보",
+      "error_type": null
+    },
+    {
+      "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+      "elapsed_time": 14.963479250000091,
+      "success": true,
+      "result": "내용 요약: 영상은 헬스 키친 주방에서 고든 램지가 요리사들의 형편없는 가리비 요리에 대해 극도로 분노하며 질책하는 과정을 담고 있다. 고든 램지는 소리를 지르고, 욕설을 사용하며, 물건을 던지고, 요리사들을 주방 밖으로 내쫓는 등 매우 공격적이고 위협적인 태도를 보인다. 요리사들은 그의 분노에 압도되어 두려움과 좌절감을 느낀다.\n\n1.  주제 및 내용: ",
+      "error_type": null
+    },
+    {
+      "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+      "elapsed_time": 9.634546084002068,
+      "success": true,
+      "result": "내용 요약: 밝고 화창한 해변에서 젊은 여성이 검은색 스트링 비키니를 입고 맨발로 카메라를 향해 걸어온다. 걸어오는 동안 비키니 상의를 조절하며 가슴 라인을 강조하는 듯한 동작을 하고, 카메라와 시선을 맞추며 자신감 있는 미소를 짓는다. 영상 후반부에는 상반신과 허리 부분이 클로즈업되어 타투와 비키니 디테일이 강조된다. 배경에는 잔잔한 바다, 하얀 모래사장",
+      "error_type": null
+    },
+    {
+      "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+      "elapsed_time": 0.4916321249984321,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 24.487198019s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '24s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "Hollywood actress hot scenes #carryminati #viral #shortvideos #short-4M00TOLr_-A.mp4",
+      "elapsed_time": 2.0221874589988147,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 49.456526511s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '49s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "Joel's Death - Abby Kills Joel ｜ The Last of Us Season 2 Episode 2 (Through the Valley)-0vZUUinT8l0.mp4",
+      "elapsed_time": 0.5279882919930969,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 15.914840273s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '15s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "Samuel L. Jackson's iconic ＂Pulp Fiction＂ line includes a direct quote from Ezekiel 25_17.-jk1It7OA5eY.mp4",
+      "elapsed_time": 0.6209613329992862,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 42.273918702s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '42s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "Scary Car scene in the movie Smile #scary #horror-7oDmx8C4_6w.mp4",
+      "elapsed_time": 0.48922049999964656,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 8.783809683s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '8s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "The Great Baba voss Best Fight Scene 4k (HDR) ｜ The SEE Best Scene ｜ Recap Blade-Qvcx2gyTUTA.mp4",
+      "elapsed_time": 0.733749250000983,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 35.03682946s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '35s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #smoke #asmr #4k #shorts-Y50kB2YrMdI.mp4",
+      "elapsed_time": 0.5013500830027624,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 1.542145079s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '1s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "Woman recorded using racist slurs on a playground-rc-Qi7PuSr4.mp4",
+      "elapsed_time": 0.48853308300022036,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 28.048344344s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '28s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "first f bomb in marvel-5vl1dJPsFTo.mp4",
+      "elapsed_time": 0.5653960839990759,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 54.466770966s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '54s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4",
+      "elapsed_time": 0.5595469160034554,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 20.886052797s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '20s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "⚔️ The Bride vs Gogo Yubari! 😱 Epic Showdown ｜ Kill Bill： Vol. 1 (2003)-lUfGDlNpFTE.mp4",
+      "elapsed_time": 0.6580670830007875,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 47.217169803s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '47s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4",
+      "elapsed_time": 0.5508013750004466,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 13.634112506s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '13s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4",
+      "elapsed_time": 0.6904903749964433,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 39.934076124s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '39s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan Became Japan’s HUMAN SHIELD (Nuke Survival Breakdown)＂-G1_RpZ47EGU.mp4",
+      "elapsed_time": 0.734682750000502,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 6.172216335s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '6s'}]}}",
+      "error_type": "rate_limit"
+    }
+  ],
+  "video_based": [
+    {
+      "video": "#shorts #담배-qR2K__FCLb0.mp4",
+      "elapsed_time": 12.667020500004583,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 13.491353233s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '13s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+      "elapsed_time": 12.17672550000134,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 56.30322012s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '56s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+      "elapsed_time": 17.573753292002948,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 33.700715384s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '33s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+      "elapsed_time": 9.437399041002209,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 19.281137889s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '19s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+      "elapsed_time": 17.978506208004546,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 56.279616562s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '56s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "Hollywood actress hot scenes #carryminati #viral #shortvideos #short-4M00TOLr_-A.mp4",
+      "elapsed_time": 10.326643667001917,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 40.938925733s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '40s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "Joel's Death - Abby Kills Joel ｜ The Last of Us Season 2 Episode 2 (Through the Valley)-0vZUUinT8l0.mp4",
+      "elapsed_time": 12.326639749997412,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 23.586922894s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '23s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "Samuel L. Jackson's iconic ＂Pulp Fiction＂ line includes a direct quote from Ezekiel 25_17.-jk1It7OA5eY.mp4",
+      "elapsed_time": 21.141941791996942,
+      "success": false,
+      "result": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash\\nPlease retry in 57.442393782s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '57s'}]}}",
+      "error_type": "rate_limit"
+    },
+    {
+      "video": "Scary Car scene in the movie Smile #scary #horror-7oDmx8C4_6w.mp4",
+      "elapsed_time": 22.703030333999777,
+      "success": true,
+      "result": "내용 요약: 한 여성이 차 안에 앉아 밖을 응시하고 있다. \"SMILE\"이라는 문구가 화면에 표시된다. 멀리서 금발의 다른 여성이 차 쪽으로 걸어오고, 이윽고 차창으로 다가온다. 갑자기 금발 여성이 얼굴을 창문에 대고 섬뜩하게 뒤집힌 채 기괴하고 광기 어린 미소를 지으며 강렬한 비명 소리와 함께 점프 스케어를 유발한다.\n\n1.  주제 및 내용: 0, 사회 ",
+      "error_type": null
+    },
+    {
+      "video": "The Great Baba voss Best Fight Scene 4k (HDR) ｜ The SEE Best Scene ｜ Recap Blade-Qvcx2gyTUTA.mp4",
+      "elapsed_time": 42.30658620799659,
+      "success": true,
+      "result": "내용 요약: 영상은 주인공 바바 보스(Baba Voss)가 여러 명의 적과 벌이는 잔혹한 근접 전투를 보여준다. 그는 날이 선 무기를 사용하여 적들에게 치명적인 상해를 입히며, 목, 가슴, 입 등을 찌르는 행위가 직접적이고 상세하게 묘사된다. 특히 한 적을 칼로 목을 꿰뚫고 다른 적의 입에 칼을 넣어 죽이는 장면은 매우 선명한 묘사와 함께 상당한 양의 피와",
+      "error_type": null
+    },
+    {
+      "video": "Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #smoke #asmr #4k #shorts-Y50kB2YrMdI.mp4",
+      "elapsed_time": 24.430217417000677,
+      "success": true,
+      "result": "내용 요약: 영상은 정장을 입은 한 남성이 등장하여 담배를 피우는 모습을 보여준다. 남성의 얼굴에는 경미한 상처가 있다.\n\n1.  주제 및 내용: 1, 담배 흡연 장면이 포함되어 있지만, 특정 불법, 차별, 비윤리적 행위를 직접적으로 미화하거나 조장하는 내용은 나타나지 않는다.\n2.  선정성: 0, 노출, 성행위 묘사, 성적 자극을 유발하는 대사나 장면은 ",
+      "error_type": null
+    },
+    {
+      "video": "Woman recorded using racist slurs on a playground-rc-Qi7PuSr4.mp4",
+      "elapsed_time": 46.158938874999876,
+      "success": true,
+      "result": "내용 요약: 영상은 한 여성이 아이를 안고 있는 플레이그라운드에서 한 남성과 언쟁을 벌이는 장면을 담고 있다. 남성은 여성이 자신의 아이에게 인종차별적 비하 발언(N-word)을 했다고 주장하며 추궁한다. 이에 여성은 욕설과 함께 인종차별적 비하 발언을 반복하며 대응하고, 모욕적인 제스처를 취한다.\n\n1. 주제 및 내용: 4, 사회 통념상 매우 부적절하며,",
+      "error_type": null
+    },
+    {
+      "video": "first f bomb in marvel-5vl1dJPsFTo.mp4",
+      "elapsed_time": 33.35041037499468,
+      "success": true,
+      "result": "내용 요약: 가디언즈 오브 갤럭시 멤버들이 누군가를 피해 차에 타려 하지만, 한 캐릭터(네뷸라)가 차 문을 여는 방법을 몰라 어려움을 겪고, 다른 캐릭터(피터 퀼)가 답답해하며 욕설을 하는 장면이 포함되어 있다.\n\n1.  주제 및 내용: 0, 특별히 부적절하거나 불법, 차별, 비윤리적 행위를 미화·조장하는 내용은 포함되어 있지 않다. 영화의 한 장면으로 긴",
+      "error_type": null
+    },
+    {
+      "video": "where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4",
+      "elapsed_time": 30.425265707999642,
+      "success": true,
+      "result": "내용 요약: 영상은 어두운 방(욕실)에서 세 남자가 있는 장면을 보여줍니다. 한 남성(피해자)은 이미 피범벅이 된 얼굴과 옷을 하고 싱크대에 기대어 있으며, 다른 남성(가해자)은 망치를 들고 \"말해라\", \"내 딸은 어디 있느냐\"고 다그치며 협박합니다. 가해자는 분노에 차 망치로 싱크대를 부수고 피해자의 얼굴과 몸을 여러 차례 가격합니다. 이 과정에서 피해자",
+      "error_type": null
+    },
+    {
+      "video": "⚔️ The Bride vs Gogo Yubari! 😱 Epic Showdown ｜ Kill Bill： Vol. 1 (2003)-lUfGDlNpFTE.mp4",
+      "elapsed_time": 38.20368504200451,
+      "success": true,
+      "result": "내용 요약: 영상은 영화 '킬 빌'의 액션 장면으로, 두 명의 여성이 일본도를 들고 싸우다가 한 명이 사망하고, 이어서 한 여성(주인공)이 어린 소녀와 격렬하게 싸우는 장면이 이어진다. 소녀는 메테오 해머(추가 달린 사슬)를 사용하여 주인공을 공격하고, 주인공은 심한 부상을 입는다. 최종적으로 소녀 또한 칼에 찔려 사망하고, 대사가 오고 간다. 이 과정에서",
+      "error_type": null
+    },
+    {
+      "video": "발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4",
+      "elapsed_time": 34.92830170800153,
+      "success": true,
+      "result": "내용 요약: 게임의 원본 영상과 모드(MOD)를 적용한 영상을 비교하는 내용이다. 원본 영상에서는 판타지 콘셉트의 몬스터와 캐릭터들이 등장하여 전투 및 액션을 보여주지만, 모드 영상에서는 이들이 과도하게 선정적인 여성 캐릭터(비키니 차림의 여성, 특정 신체 부위가 강조된 여성 등)로 대체되어 등장한다.\n\n1. 주제 및 내용: 3, 원본 영상의 게임 캐릭터와",
+      "error_type": null
+    },
+    {
+      "video": "클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4",
+      "elapsed_time": 50.936960000006366,
+      "success": true,
+      "result": "내용 요약: 영상은 고급스러운 공간에서 여러 인물이 모여 대화하는 장면으로 시작한다. 한 남성이 \"샘플\"이라며 두 가지를 소개하고, 이어서 한 여성이 거울 위에 흰색 가루를 덜어내어 정돈한 후 코로 흡입하는 모습이 구체적으로 묘사된다. 약물 흡입 후 여성과 이를 지켜보던 한 남성은 강렬한 쾌감에 휩싸인 듯한 표정과 신체 반응을 보이며, 마지막에는 '샘플이 ",
+      "error_type": null
+    },
+    {
+      "video": "＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan Became Japan’s HUMAN SHIELD (Nuke Survival Breakdown)＂-G1_RpZ47EGU.mp4",
+      "elapsed_time": 26.94765712499793,
+      "success": true,
+      "result": "내용 요약: 영상은 제2차 세계대전 중 원자폭탄 투하 상황을 배경으로 한다. 한 남성(울버린)이 폭발을 피해 구덩이에 숨지만, 폭발의 충격과 열기로 인해 심각한 부상을 입고 고통스럽게 신체를 재생하는 과정을 보여준다. 일본군 병사들 또한 폭발의 직접적인 영향을 받아 불에 타는 장면이 포함되어 있다.\n\n1.  주제 및 내용: 2, 제2차 세계대전의 원자폭탄 ",
+      "error_type": null
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
-  "violence": 1,
-  "sexuality": 1,
-  "horror": 1,
-  "drugs": 1,
-  "language": 1
+  "violence": 0,
+  "sexuality": 0,
+  "horror": 0,
+  "drugs": 0,
+  "language": 0
 }

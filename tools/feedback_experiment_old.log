@@ -1,0 +1,127 @@
+======================================================================
+FEEDBACK EXPERIMENT: Text-input vs Video-input
+======================================================================
+
+Loading data...
+✓ Parsed 9 unique feedback entries
+✓ Loaded 62 video descriptions
+✓ Loaded 21 ground truth entries
+
+Feedback distribution: violence: 3, language: 3, drugs: 1, sexuality: 1, horror: 1
+
+======================================================================
+TEXT-INPUT FEEDBACK WORKFLOW
+======================================================================
+
+(a) Processing 9 feedbacks with TEXT input...
+  [1/9] ''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #reside... | violence
+      → 7.1s
+  [2/9] HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.... | language
+      → 9.2s
+  [3/9] 발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4... | violence
+      → 9.5s
+  [4/9] BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW... | violence
+      → 7.1s
+  [5/9] Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #s... | drugs
+      → 8.4s
+  [6/9] first f bomb in marvel-5vl1dJPsFTo.mp4... | language
+      → 8.2s
+  [7/9] where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4... | language
+      → 7.5s
+  [8/9] 클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4... | sexuality
+      → 9.0s
+  [9/9] 클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4... | horror
+      → 10.4s
+  Total feedback processing time: 76.4s
+
+(b) Updating considerations with processed feedbacks...
+  → 0.000s
+
+(c) Re-analyzing all 20 videos for 5 changed criteria...
+    Criteria: violence, language, drugs, sexuality, horror
+      API error (attempt 1/3): 500 INTERNAL. {'error': {'code': 500, 'message': 'An internal error has occurred. Please retry or re
+      Waiting 5s before retry...
+      API error (attempt 1/3): 500 INTERNAL. {'error': {'code': 500, 'message': 'An internal error has occurred. Please retry or re
+      Waiting 5s before retry...
+      API error (attempt 1/3): 500 INTERNAL. {'error': {'code': 500, 'message': 'An internal error has occurred. Please retry or re
+      Waiting 5s before retry...
+      WARNING: result_text is None for criteria: violence
+      WARNING: result_text is None for criteria: language
+      WARNING: result_text is None for criteria: drugs
+      WARNING: result_text is None for criteria: sexuality
+      WARNING: result_text is None for criteria: horror
+      WARNING: result_text is None for criteria: sexuality
+      WARNING: result_text is None for criteria: horror
+  → 627.0s
+
+(d) TEXT-INPUT TOTAL TIME: 703.4s
+
+======================================================================
+VIDEO-INPUT FEEDBACK WORKFLOW
+======================================================================
+
+(a) Processing 9 feedbacks with VIDEO input...
+  [1/9] ''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #reside... | violence
+      → 22.3s
+  [2/9] HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.... | language
+      → 35.2s
+  [3/9] 발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4... | violence
+      → 32.6s
+  [4/9] BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW... | violence
+      → 32.7s
+  [5/9] Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #s... | drugs
+      → 18.4s
+  [6/9] first f bomb in marvel-5vl1dJPsFTo.mp4... | language
+      → 23.4s
+  [7/9] where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4... | language
+      → 36.9s
+  [8/9] 클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4... | sexuality
+      → 39.4s
+  [9/9] 클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4... | horror
+      → 40.7s
+  Total feedback processing time: 281.7s
+
+(b) Updating considerations with processed feedbacks...
+  → 0.000s
+
+(c) Re-analyzing all 20 videos for 5 changed criteria...
+    Criteria: violence, language, drugs, sexuality, horror
+  → 319.6s
+
+(d) VIDEO-INPUT TOTAL TIME: 601.3s
+
+======================================================================
+CALCULATING ACCURACY
+======================================================================
+
+Text-input accuracy:
+  Accuracy: 94.0% (94/100)
+  Precision: 82.8%
+  Recall: 96.0%
+  F1: 88.9%
+
+Video-input accuracy:
+  Accuracy: 95.8% (91/95)
+  Precision: 88.5%
+  Recall: 95.8%
+  F1: 92.0%
+
+Results saved to: experiment_results/feedback_experiment_20251125_200942.json
+
+======================================================================
+COMPARISON RESULTS
+======================================================================
+
+TIME COMPARISON:
+  Text-input total:  703.4s
+  Video-input total: 601.3s
+  → Text is 0.85x faster
+
+ACCURACY COMPARISON:
+  Text-input:  94.0% (94/100)
+  Video-input: 95.8% (91/95)
+
+
+======================================================================
+EXPERIMENT COMPLETE
+======================================================================

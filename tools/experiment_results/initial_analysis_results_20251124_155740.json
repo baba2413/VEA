@@ -1,0 +1,81 @@
+{
+  "experiment_id": "initial_analysis_20251124_155740",
+  "description": "Initial analysis performance comparison: text-based vs video-based",
+  "configuration": {
+    "num_trials": 1,
+    "num_tests_per_trial": 2,
+    "text_delay": 3,
+    "video_delay": 5
+  },
+  "analysis": {
+    "text_based": {
+      "count": 2,
+      "failures": 0,
+      "rate_limit_errors": 0,
+      "content_blocked": 0,
+      "mean": 11.478768041502917,
+      "median": 11.478768041502917,
+      "stdev": 0.35047081727172713,
+      "min": 11.230947750002088,
+      "max": 11.726588333003747,
+      "total": 22.957536083005834
+    },
+    "video_based": {
+      "count": 2,
+      "failures": 0,
+      "rate_limit_errors": 0,
+      "content_blocked": 0,
+      "mean": 22.634596312498616,
+      "median": 22.634596312498616,
+      "stdev": 5.3785178995393865,
+      "min": 18.83140983300109,
+      "max": 26.437782791996142,
+      "total": 45.26919262499723
+    },
+    "comparison": {
+      "speedup_ratio": 1.971866338849292,
+      "time_difference": 11.155828270995698,
+      "faster_method": "text_based"
+    }
+  },
+  "all_trials": [
+    {
+      "trial_number": 1,
+      "timestamp": "2025-11-24T15:56:14.078209",
+      "text_delay": 3,
+      "video_delay": 5,
+      "text_based": [
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "elapsed_time": 11.726588333003747,
+          "success": true,
+          "result": "내용 요약: 한 젊은 남성이 카메라를 향해 앉아 입에 20개 가량의 얇은 담배를 한꺼번에 물고 불을 붙이려 시도한다. \"20대 한번에 피기\"라는 자막이 화면 하단에 표시된다. 남성은 여러 차례 시도 끝에 담배에 불을 붙여 깊게 흡입하고, 이후 심하게 기침하며 불이 붙은 담배 뭉치를 던져버린다. 그는 다시 다른 담배 뭉치를 들고 불평하며 강한 비속어를 사용한",
+          "error_type": null
+        },
+        {
+          "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+          "elapsed_time": 11.230947750002088,
+          "success": true,
+          "result": "내용 요약: 영상은 어둡고 황폐한 복도에서 시작되며, 복도 안쪽 어둠 속에서 여러 개의 붉은 빛이 반짝인다. 카메라가 전진하는 중, 갑자기 피 묻은 얼굴의 여인이 나타나 공포에 질린 표정으로 'Ethan!'과 'It's OK. It's OK, it's me.'라고 말한다. 직후 화면은 일시정지 메뉴로 전환되고, 메뉴 뒤편으로는 섬뜩하게 미소 짓는 여인의 피",
+          "error_type": null
+        }
+      ],
+      "video_based": [
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "elapsed_time": 26.437782791996142,
+          "success": true,
+          "result": "내용 요약: 한 젊은 남성이 담배 한 갑(약 20개비) 가량을 한꺼번에 입에 물고 불을 붙여 피우는 모습을 보여준다. 남성은 여러 차례 담배를 피운 후 심하게 기침을 하며 담배를 카메라에 보여준다. 영상에는 \"20대 한 번에 피기\"라는 문구가 삽입되어 있다.\n\n1.  주제 및 내용: 3, 흡연과 같이 건강에 해로운 행위를 과도하게 연출하여 도전적인 모습으로",
+          "error_type": null
+        },
+        {
+          "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+          "elapsed_time": 18.83140983300109,
+          "success": true,
+          "result": "내용 요약: 어두운 복도에서 전방을 응시하다가 화면 왼쪽에서 피 묻은 얼굴의 여성이 갑자기 나타나 비명을 지르는 장면을 보여준다. 이 여성의 모습은 섬뜩하며, 화면은 잠시 게임의 일시정지 메뉴를 보여준 뒤 다시 여성을 비춘다.\n\n1.  주제 및 내용: 0, 사회 통념상 부적절하거나 불법, 차별, 비윤리적 행위를 미화·조장하는 내용은 포함되어 있지 않다.\n2",
+          "error_type": null
+        }
+      ]
+    }
+  ]
+}

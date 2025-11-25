@@ -1,0 +1,1866 @@
+{
+  "experiment_id": "initial_5crit_20251125_152732",
+  "description": "Initial analysis with 5 criteria (one at a time): text vs video",
+  "configuration": {
+    "num_trials": 1,
+    "num_tests_per_trial": 20,
+    "criteria_per_video": 5,
+    "total_api_calls_per_trial": 200,
+    "text_delay": 2,
+    "video_delay": 2
+  },
+  "analysis": {
+    "per_criteria": {
+      "text_based": {
+        "count": 100,
+        "failures": 0,
+        "rate_limit_errors": 0,
+        "content_blocked": 0,
+        "mean": 7.969272462939116,
+        "median": 6.993447125503735,
+        "stdev": 2.934856596509682,
+        "min": 3.626716833008686,
+        "max": 15.97215108400269,
+        "total": 796.9272462939116
+      },
+      "video_based": {
+        "count": 100,
+        "failures": 0,
+        "rate_limit_errors": 0,
+        "content_blocked": 0,
+        "mean": 22.832845779559577,
+        "median": 21.970192417000362,
+        "stdev": 7.26159720730838,
+        "min": 11.901671458006604,
+        "max": 40.8524056669994,
+        "total": 2283.2845779559575
+      },
+      "comparison": {
+        "speedup_ratio": 2.865110445871076,
+        "time_difference": 14.86357331662046,
+        "faster_method": "text_based"
+      }
+    },
+    "per_video_parallel": {
+      "text_based": {
+        "count": 20,
+        "mean": 12.081607941749098,
+        "median": 11.95804645899625,
+        "stdev": 2.0458641172746392,
+        "min": 7.493115499994019,
+        "max": 15.97215108400269,
+        "description": "Total time per video (max of 5 criteria, parallel execution)"
+      },
+      "video_based": {
+        "count": 20,
+        "mean": 26.81818116254872,
+        "median": 26.747681937493326,
+        "stdev": 7.844185650803974,
+        "min": 16.68108641699655,
+        "max": 40.8524056669994,
+        "description": "Total time per video (max of 5 criteria, parallel execution)"
+      },
+      "comparison": {
+        "speedup_ratio": 2.2197526431788974,
+        "time_difference": 14.73657322079962,
+        "faster_method": "text_based"
+      }
+    },
+    "accuracy": {
+      "text_based": {
+        "overall": {
+          "accuracy": 0.9578947368421052,
+          "precision": 0.8846153846153846,
+          "recall": 0.9583333333333334,
+          "f1": 0.9199999999999999,
+          "confusion_matrix": {
+            "true_positives": 23,
+            "true_negatives": 68,
+            "false_positives": 3,
+            "false_negatives": 1
+          },
+          "total_samples": 95,
+          "correct_predictions": 91
+        },
+        "per_criteria": {
+          "violence": {
+            "accuracy": 0.8421052631578947,
+            "precision": 0.6666666666666666,
+            "recall": 0.8,
+            "f1": 0.7272727272727272,
+            "confusion_matrix": {
+              "true_positives": 4,
+              "true_negatives": 12,
+              "false_positives": 2,
+              "false_negatives": 1
+            },
+            "total_samples": 19,
+            "correct_predictions": 16
+          },
+          "sexuality": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "confusion_matrix": {
+              "true_positives": 3,
+              "true_negatives": 16,
+              "false_positives": 0,
+              "false_negatives": 0
+            },
+            "total_samples": 19,
+            "correct_predictions": 19
+          },
+          "horror": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "confusion_matrix": {
+              "true_positives": 7,
+              "true_negatives": 12,
+              "false_positives": 0,
+              "false_negatives": 0
+            },
+            "total_samples": 19,
+            "correct_predictions": 19
+          },
+          "drugs": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "confusion_matrix": {
+              "true_positives": 4,
+              "true_negatives": 15,
+              "false_positives": 0,
+              "false_negatives": 0
+            },
+            "total_samples": 19,
+            "correct_predictions": 19
+          },
+          "language": {
+            "accuracy": 0.9473684210526315,
+            "precision": 0.8333333333333334,
+            "recall": 1.0,
+            "f1": 0.9090909090909091,
+            "confusion_matrix": {
+              "true_positives": 5,
+              "true_negatives": 13,
+              "false_positives": 1,
+              "false_negatives": 0
+            },
+            "total_samples": 19,
+            "correct_predictions": 18
+          }
+        }
+      },
+      "video_based": {
+        "overall": {
+          "accuracy": 0.8936170212765957,
+          "precision": 0.7241379310344828,
+          "recall": 0.9130434782608695,
+          "f1": 0.8076923076923076,
+          "confusion_matrix": {
+            "true_positives": 21,
+            "true_negatives": 63,
+            "false_positives": 8,
+            "false_negatives": 2
+          },
+          "total_samples": 94,
+          "correct_predictions": 84
+        },
+        "per_criteria": {
+          "violence": {
+            "accuracy": 0.7894736842105263,
+            "precision": 0.5714285714285714,
+            "recall": 0.8,
+            "f1": 0.6666666666666666,
+            "confusion_matrix": {
+              "true_positives": 4,
+              "true_negatives": 11,
+              "false_positives": 3,
+              "false_negatives": 1
+            },
+            "total_samples": 19,
+            "correct_predictions": 15
+          },
+          "sexuality": {
+            "accuracy": 0.9473684210526315,
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571,
+            "confusion_matrix": {
+              "true_positives": 3,
+              "true_negatives": 15,
+              "false_positives": 1,
+              "false_negatives": 0
+            },
+            "total_samples": 19,
+            "correct_predictions": 18
+          },
+          "horror": {
+            "accuracy": 0.9473684210526315,
+            "precision": 0.875,
+            "recall": 1.0,
+            "f1": 0.9333333333333333,
+            "confusion_matrix": {
+              "true_positives": 7,
+              "true_negatives": 11,
+              "false_positives": 1,
+              "false_negatives": 0
+            },
+            "total_samples": 19,
+            "correct_predictions": 18
+          },
+          "drugs": {
+            "accuracy": 0.9473684210526315,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571428571428571,
+            "confusion_matrix": {
+              "true_positives": 3,
+              "true_negatives": 15,
+              "false_positives": 0,
+              "false_negatives": 1
+            },
+            "total_samples": 19,
+            "correct_predictions": 18
+          },
+          "language": {
+            "accuracy": 0.8333333333333334,
+            "precision": 0.5714285714285714,
+            "recall": 1.0,
+            "f1": 0.7272727272727273,
+            "confusion_matrix": {
+              "true_positives": 4,
+              "true_negatives": 11,
+              "false_positives": 3,
+              "false_negatives": 0
+            },
+            "total_samples": 18,
+            "correct_predictions": 15
+          }
+        }
+      },
+      "comparison": {
+        "text_accuracy": 0.9578947368421052,
+        "video_accuracy": 0.8936170212765957,
+        "accuracy_difference": -0.06427771556550954,
+        "more_accurate_method": "text_based"
+      }
+    }
+  },
+  "all_trials": [
+    {
+      "trial_number": 1,
+      "timestamp": "2025-11-25T14:23:30.243273",
+      "text_delay": 2,
+      "video_delay": 2,
+      "text_based": [
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "violence",
+          "elapsed_time": 5.090726540991454,
+          "success": true,
+          "result": "violence : 0\n근거: 영상에서 직접적인 물리적 공격이나 위협, 상해 장면은 전혀 나타나지 않습니다. 남성이 많은 담배를 피우며 기침하거나 불편함을 표출하는 장면은 자기 위해 행위로 볼 수 있으나, 심의 기준에 따라 폭력성으로 간주되지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 4.772085749995313,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상에는 성적인 노출, 암시, 신체 접촉, 소리 또는 언어 등 선정성 관련 요소가 전혀 감지되지 않습니다. 영상의 내용은 오직 한 남성이 여러 개의 담배를 동시에 피우는 행위와 그에 따른 반응에 집중되어 있습니다.",
+          "error_type": null
+        },
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "horror",
+          "elapsed_time": 6.789918750000652,
+          "success": true,
+          "result": "horror : 0\n근거: 영상 전반에 걸쳐 공포감을 유발하는 시각적 또는 청각적 요소가 전혀 감지되지 않는다. 인물이 겪는 불편함과 놀람은 여러 개의 담배를 한 번에 피우는 행위에서 비롯된 것이며, 이는 극심한 위협이나 심리적 압박으로 인한 지속적인 공포와는 무관하다.",
+          "error_type": null
+        },
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 6.708534374993178,
+          "success": true,
+          "result": "drugs : 1\n근거: 한 젊은 남성이 약 20개에 달하는 담배 뭉치를 입에 물고 동시에 불을 붙여 피우려 시도하는 장면이 명확히 보인다. 이는 담배의 과도한 오남용 행위에 해당하며, 심한 기침과 불편함을 보이면서도 계속 시도하는 모습이 연출된다.",
+          "error_type": null
+        },
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "language",
+          "elapsed_time": 11.395689166994998,
+          "success": true,
+          "result": "language : 1\n근거: 남성은 00:24경 불이 제대로 붙지 않은 담배를 살펴보며 \"어, 씨발 이거 뭐 탄...\"이라고 말하며 거친 욕설을 사용한다. 비록 맥락상 개인적인 불만을 표현하는 것이고 한 번만 나타나지만, 해당 단어는 시청자에게 과격한 인상을 줄 수 있는 비속어에 해당한다.",
+          "error_type": null
+        },
+        {
+          "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+          "criteria": "violence",
+          "elapsed_time": 13.811674500000663,
+          "success": true,
+          "result": "violence : 1\n근거: 화면을 가득 채운 여인의 얼굴과 목, 옷에는 피가 묻어 있고, 얼굴에는 긁힌 자국과 상처들이 선명하게 묘사됩니다. 공포와 절박함이 뒤섞인 비명 지르는 듯한 표정과 정지된 화면 속 묘한 미소는 시청자에게 강한 불쾌감과 공포를 유발할 수 있는 폭력의 결과를 명확히 보여줍니다.",
+          "error_type": null
+        },
+        {
+          "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 6.413093375012977,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상 내에서는 성적인 신체 노출, 접촉, 소리, 이미지, 언어 등 어떠한 선정적인 요소도 감지되지 않았다. 다만 피 묻은 얼굴, 상처, 공포에 질린 표정 등 강한 공포 연출이 있었으나 이는 선정성 기준에 해당하지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+          "criteria": "horror",
+          "elapsed_time": 10.431902209005784,
+          "success": true,
+          "result": "horror : 1\n근거: 어둡고 황폐한 복도 안쪽의 섬뜩한 붉은 빛이 위협적인 분위기를 조성하며, 피 묻은 여인의 헝클어진 얼굴이 갑작스럽게 튀어나와 강한 시각적 충격과 급박한 공포를 유발합니다. 일시정지 메뉴 뒤편으로 보이는 여인의 피 묻은 얼굴과 묘하게 올라간 입꼬리의 섬뜩한 미소는 심리적 압박과 지속적인 불안감을 자아냅니다.",
+          "error_type": null
+        },
+        {
+          "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 7.025757208000869,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상 내에서 마약 관련 물질의 사용, 거래, 중독 등 어떠한 직간접적인 묘사나 언급도 확인되지 않습니다. 인물의 상태나 배경 분위기 역시 마약류와 연관될 만한 상징적 요소나 미화된 표현을 담고 있지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+          "criteria": "language",
+          "elapsed_time": 5.375077666991274,
+          "success": true,
+          "result": "language : 0\n근거: 영상에서 감지된 대사는 \"Ethan!\"과 \"It's OK. It's OK, it's me.\"로, 특정 인물을 부르거나 안심시키는 표현으로 이루어져 비속어, 욕설, 저속어 등 어떠한 비윤리적 표현도 사용되지 않았습니다. 해당 대화는 공포와 절박함이 뒤섞인 상황에서 나오지만, 언어적 표현 자체는 일반적이고 건전하여 시청자의 언어 습관에 부정적인 영향을 주거나 차별적 요소를 포함하지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+          "criteria": "violence",
+          "elapsed_time": 7.986901917000068,
+          "success": true,
+          "result": "violence : 0\n근거: 영상에서는 인물 간 직접적인 물리적 공격이나 신체적 위해가 묘사되지 않는다. 고든 램지가 분노를 표출하며 물건을 던지거나(천) 카운터를 치는 장면은 있으나, 이는 다른 사람에게 해를 가하는 행위가 아니며 언어적 폭력이나 심리적 압박에 해당한다.",
+          "error_type": null
+        },
+        {
+          "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 8.469403583992971,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상에는 성적인 노출이나 암시, 성적인 접촉, 소리, 이미지, 언어 등 선정적인 요소가 전혀 포함되어 있지 않습니다. 요리사 고든 램지의 분노에 찬 질책과 강도 높은 언어가 반복되지만, 이는 모두 요리 작업과 관련된 내용으로 성적인 맥락과 무관합니다.",
+          "error_type": null
+        },
+        {
+          "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+          "criteria": "horror",
+          "elapsed_time": 10.837682041004882,
+          "success": true,
+          "result": "horror : 0\n근거: 영상은 고든 램지의 극심한 분노와 요리사들에 대한 질책, 해고 과정을 담고 있어 긴장감과 심리적 압박이 매우 높다. 하지만 이는 경쟁 리얼리티 쇼의 특성이며, 직접적인 위협, 피, 괴기스러운 요소 등 공포 장르에서 기대하는 요소는 전혀 나타나지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 4.466572916004225,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상에는 마약, 흡입, 거래, 중독 등 어떠한 약물 관련 내용도 전혀 포함되어 있지 않습니다. 요리 과정과 고든 램지의 분노 표현이 주를 이루며, 약물을 연상시키는 분위기나 상징적 요소 또한 관찰되지 않았습니다.",
+          "error_type": null
+        },
+        {
+          "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+          "criteria": "language",
+          "elapsed_time": 7.650772084001801,
+          "success": true,
+          "result": "language : 1\n근거: 고든 램지가 격렬하게 분노하며 'f*cking', 'f*ck off' 등 강도 높은 비속어를 반복적으로 사용하고, 손가락질과 함께 'F*CK OFF OUT!', 'F*CKING wake up!'과 같은 직접적이고 모욕적인 표현을 소리친다. 이러한 언어는 시청자에게 정서적 모욕감이나 수치심을 유발할 수 있는 수준으로, 영상 전체에 걸쳐 언어적 폭력성이 과도하게 표출된다.",
+          "error_type": null
+        },
+        {
+          "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+          "criteria": "violence",
+          "elapsed_time": 5.141090292003355,
+          "success": true,
+          "result": "violence : 0\n근거: 영상 내에서 어떠한 물리적 폭력이나 위협, 상해 장면이 묘사되지 않는다. 등장인물은 평화로운 해변에서 여유롭게 걷고 미소 짓는 행동만을 보인다.",
+          "error_type": null
+        },
+        {
+          "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 10.98722079199797,
+          "success": true,
+          "result": "sexuality : 1\n근거: 여성이 비키니 상의 컵 부분을 위로 당겨 가슴 라인을 강조하는 듯한 동작을 취하며 카메라와 아이 컨택을 유지합니다. 이후 상반신 클로즈업을 통해 비키니와 몸의 디테일이 강조됩니다.",
+          "error_type": null
+        },
+        {
+          "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+          "criteria": "horror",
+          "elapsed_time": 7.5527397919940995,
+          "success": true,
+          "result": "horror : 0\n근거: 영상은 시종일관 밝고 화창한 해변을 배경으로 하며, 여성이 자신감 있고 편안한 미소로 걸어오는 평화로운 분위기를 조성합니다. 어떠한 위협, 긴장감, 놀람, 또는 괴기스러운 시각적·청각적 공포 유발 요소도 감지되지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 8.706283749997965,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상 내에서 어떠한 약물 사용, 거래, 또는 중독을 암시하는 직접적이거나 간접적인 묘사가 전혀 발견되지 않는다. 인물의 외모와 행동, 전반적인 해변의 밝고 평화로운 분위기 모두 약물과 무관한 자연스러운 모습을 보여준다.",
+          "error_type": null
+        },
+        {
+          "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+          "criteria": "language",
+          "elapsed_time": 5.1401597910007695,
+          "success": true,
+          "result": "language : 0\n근거: 영상에서 어떠한 언어적 표현(대사, 자막 등)도 감지되지 않아 비속어, 욕설, 저속어 등의 사용 여부를 판단할 수 없습니다. 따라서 언어 관련 기준에 저촉되는 요소가 없습니다.",
+          "error_type": null
+        },
+        {
+          "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+          "criteria": "violence",
+          "elapsed_time": 6.148515749999206,
+          "success": true,
+          "result": "violence : 0\n근거: 영상에는 직접적인 물리적 공격, 위해 또는 개인 간의 위협 장면이 전혀 묘사되지 않는다. 초반에 언짢은 언쟁과 마약 흡입 장면이 있었으나, 이는 '폭력성' 기준에 부합하는 직접적인 신체적 위해 행위로 간주되지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 4.890185458003543,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상 내에는 어떠한 성적 노출, 성적 행위, 암시 또는 신체 노출이 포함되어 있지 않습니다. 등장인물들의 대화와 행동은 마약 물질의 품질과 거래에 초점을 맞추고 있습니다.",
+          "error_type": null
+        },
+        {
+          "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+          "criteria": "horror",
+          "elapsed_time": 5.783412750010029,
+          "success": true,
+          "result": "horror : 0\n근거: 영상은 맑은 하늘 아래 폐차장에서 마약 거래가 성공적으로 이루어지고 제품에 대한 강한 만족감을 표현하는 내용으로 진행됩니다. 전체적으로 공포감, 긴장감, 위협적인 분위기나 어두운 연출은 전혀 감지되지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 12.1100812079967,
+          "success": true,
+          "result": "drugs : 1\n근거: 한 인물이 푸른색 물질이 담긴 비닐백을 코에 대고 여러 차례 흡입한 후 눈을 감고 황홀하게 감탄하는 약물 사용 장면이 명확하게 묘사됩니다. 이후 월터 화이트가 돈뭉치로 가득 찬 지퍼백을 건네는 거래 장면과 함께 해당 물질로 인해 큰돈을 벌 것이라는 대화가 이어져 약물 제조 및 거래가 구체적으로 나타납니다.",
+          "error_type": null
+        },
+        {
+          "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+          "criteria": "language",
+          "elapsed_time": 12.198227708999184,
+          "success": true,
+          "result": "language : 1\n근거: 영상에서 한 남성이 예상치 못한 제품의 색깔에 대해 \"WHAT IS THIS SHIT?\"이라는 거친 표현을 사용하며 분노를 표출합니다. 이 욕설은 맥락상 거친 감정 표현으로 수용 가능하나, 일반적인 비속어에 해당합니다.",
+          "error_type": null
+        },
+        {
+          "video": "Hollywood actress hot scenes #carryminati #viral #shortvideos #short-4M00TOLr_-A.mp4",
+          "criteria": "violence",
+          "elapsed_time": 6.953472791996319,
+          "success": true,
+          "result": "violence : 0\n근거: 영상 내에서 어떠한 직접적인 물리적 폭력이나 위협, 상해 장면도 나타나지 않았습니다. 남성의 얼굴에 희미한 상처 자국이 보이지만, 이는 영상 속에서 발생한 폭력 행위가 아닌 인물의 특징으로 묘사됩니다.",
+          "error_type": null
+        },
+        {
+          "video": "Hollywood actress hot scenes #carryminati #viral #shortvideos #short-4M00TOLr_-A.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 10.269222083006753,
+          "success": true,
+          "result": "sexuality : 1\n근거: 여성이 옅은 색 셔츠를 벗어 브래지어를 드러내고, 이어서 브래지어와 짙은 색 스커트까지 모두 벗어 밝은 색 하이컷 팬티만 입은 채 테이블 위에 앉아 남성을 응시한다. 이 과정은 약 10초간 지속되며 여성의 신체가 노출되는 과정과 최종적인 모습이 구체적으로 묘사되어 있다.",
+          "error_type": null
+        },
+        {
+          "video": "Hollywood actress hot scenes #carryminati #viral #shortvideos #short-4M00TOLr_-A.mp4",
+          "criteria": "horror",
+          "elapsed_time": 7.002025584006333,
+          "success": true,
+          "result": "horror : 0\n근거: 영상은 여성이 침착하게 옷을 벗고 남성이 이를 응시하는 장면으로, 잔잔한 팝 음악이 흐르며 차분한 분위기를 유지한다. 영상 내내 극심한 위협, 심리적 압박, 또는 공포감을 유발하는 시각적 요소나 연출은 전혀 감지되지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "Hollywood actress hot scenes #carryminati #viral #shortvideos #short-4M00TOLr_-A.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 5.134459749999223,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상에서 마약 관련 내용이나 약물 사용, 거래, 중독 등의 언급이나 장면이 전혀 감지되지 않았습니다. 전체 영상에서 약물과 관련된 시각적, 청각적 요소나 상징적 표현을 찾을 수 없었습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Hollywood actress hot scenes #carryminati #viral #shortvideos #short-4M00TOLr_-A.mp4",
+          "criteria": "language",
+          "elapsed_time": 3.626716833008686,
+          "success": true,
+          "result": "language : 0\n근거: 영상 내에 등장인물 간의 대화나 음성 언어가 전혀 감지되지 않으며, 어떠한 비속어나 차별적인 언어 사용도 나타나지 않는다. 오직 영상의 시각적 요소와 배경 음악만이 존재한다.",
+          "error_type": null
+        },
+        {
+          "video": "Joel's Death - Abby Kills Joel ｜ The Last of Us Season 2 Episode 2 (Through the Valley)-0vZUUinT8l0.mp4",
+          "criteria": "violence",
+          "elapsed_time": 15.391468249988975,
+          "success": true,
+          "result": "violence: 1\n근거: 영상에서 엘리가 두 인물에게 팔이 잡혀 바닥에 제압당한 모습과 얼굴에 피가 묻어 있는 장면이 명확하게 묘사된다. 이는 직접적인 물리적 제압과 그로 인한 신체적 상해를 포함하므로 폭력으로 감지된다.",
+          "error_type": null
+        },
+        {
+          "video": "Joel's Death - Abby Kills Joel ｜ The Last of Us Season 2 Episode 2 (Through the Valley)-0vZUUinT8l0.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 6.077569790999405,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상 내용 전반에서 성적 노출, 암시 또는 성적인 맥락의 신체 접촉이나 언어 등 선정적인 요소는 전혀 감지되지 않았다. 다만, 폭력적인 상황과 인물들의 극심한 고통, 절규, 절망감 등 비극적인 감정 표현이 주를 이루고 있다.",
+          "error_type": null
+        },
+        {
+          "video": "Joel's Death - Abby Kills Joel ｜ The Last of Us Season 2 Episode 2 (Through the Valley)-0vZUUinT8l0.mp4",
+          "criteria": "horror",
+          "elapsed_time": 11.27354004100198,
+          "success": true,
+          "result": "horror : 1\n근거: 바닥에 제압당한 엘리가 얼굴에 피를 흘리며 공포에 질려 비명을 지르는 장면과, 다른 인물이 골프 클럽을 들고 쓰러진 사람 옆에 있는 장면이 교차된다. 이는 극심한 폭력과 절망적인 인물들의 고통을 보여주며, 시청자에게 강한 심리적 압박과 지속적인 공포감을 유발한다.",
+          "error_type": null
+        },
+        {
+          "video": "Joel's Death - Abby Kills Joel ｜ The Last of Us Season 2 Episode 2 (Through the Valley)-0vZUUinT8l0.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 5.938479208998615,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상 내내 비극적이고 폭력적인 상황과 인물들의 극심한 슬픔 및 절망적인 반응이 주를 이루며, 약물 사용이나 거래와 관련된 어떠한 시각적, 청각적 묘사나 암시도 나타나지 않습니다. 담배나 기타 약물의 과도한 오남용 행위를 연상시키는 장면 또한 전혀 감지되지 않았습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Joel's Death - Abby Kills Joel ｜ The Last of Us Season 2 Episode 2 (Through the Valley)-0vZUUinT8l0.mp4",
+          "criteria": "language",
+          "elapsed_time": 6.157319999998435,
+          "success": true,
+          "result": "language : 0\n근거: 영상 내 모든 대사와 나레이션에서 욕설, 비속어, 저속어 등 어떠한 비속어도 감지되지 않았습니다. 인물들이 외치는 \"Nooo!\"와 흐느낌은 폭력적인 상황에서 오는 극심한 절망감을 나타내는 감정적 표현일 뿐 언어 폭력에 해당하지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Samuel L. Jackson's iconic ＂Pulp Fiction＂ line includes a direct quote from Ezekiel 25_17.-jk1It7OA5eY.mp4",
+          "criteria": "violence",
+          "elapsed_time": 4.8405219999986,
+          "success": true,
+          "result": "violence : 0\n근거: 비디오는 두 인물 간의 격렬한 언어적 교환과 심리적 위협을 담고 있으며, 표정과 목소리 톤을 통해 긴장감을 조성합니다. 영상 전반에 걸쳐 어떠한 직접적인 물리적 공격이나 위해 행위도 묘사되지 않았습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Samuel L. Jackson's iconic ＂Pulp Fiction＂ line includes a direct quote from Ezekiel 25_17.-jk1It7OA5eY.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 7.30091191700194,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상 내에서 성적인 노출이나 암시, 성적인 맥락의 대사나 소리, 이미지는 전혀 감지되지 않습니다. 두 인물의 클로즈업 샷들은 공포와 위협적인 분위기를 조성하며, 이는 선정성 요소와 무관한 연출입니다.",
+          "error_type": null
+        },
+        {
+          "video": "Samuel L. Jackson's iconic ＂Pulp Fiction＂ line includes a direct quote from Ezekiel 25_17.-jk1It7OA5eY.mp4",
+          "criteria": "horror",
+          "elapsed_time": 12.70194787500077,
+          "success": true,
+          "result": "horror : 1\n근거: 영상은 줄스의 위협적인 표정과 직접적인 언어적 위협을 극단적인 클로즈업으로 생생하게 담아내며, 링고의 점차 고조되고 얼어붙은 공포와 대비됩니다. 이러한 연출은 시청자에게 극심한 심리적 압박과 지속적인 위협감을 유발합니다.",
+          "error_type": null
+        },
+        {
+          "video": "Samuel L. Jackson's iconic ＂Pulp Fiction＂ line includes a direct quote from Ezekiel 25_17.-jk1It7OA5eY.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 4.646032584001659,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상은 두 인물 간의 대화에 집중하며, 약물 사용, 거래, 또는 관련 상징에 대한 어떤 시각적 또는 언어적 묘사도 포함하지 않습니다. 영상 내에서 담배나 다른 오남용 행위도 감지되지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Samuel L. Jackson's iconic ＂Pulp Fiction＂ line includes a direct quote from Ezekiel 25_17.-jk1It7OA5eY.mp4",
+          "criteria": "language",
+          "elapsed_time": 11.837410499996622,
+          "success": true,
+          "result": "language : 1\n근거: 줄스는 마지막 독백에서 'sh*t'과 'ass'와 같은 비속어를 사용하여 직접적이고 위협적인 의미를 전달합니다. 해당 단어들이 반복적으로 사용되거나 극도로 강한 수준은 아니나, 장면의 거칠고 위협적인 분위기를 조성하는 데 기여합니다.",
+          "error_type": null
+        },
+        {
+          "video": "Scary Car scene in the movie Smile #scary #horror-7oDmx8C4_6w.mp4",
+          "criteria": "violence",
+          "elapsed_time": 10.485097540993593,
+          "success": true,
+          "result": "violence : 0\n근거: 외부 여성이 위협적이고 공포스러운 미소를 지은 채 차량 안의 여성을 노려보고 '쿵' 하는 소리가 들리지만, 직접적인 물리적 공격이나 신체적 상해 장면은 묘사되지 않는다. 차량 안의 여성은 이에 공포에 질려 비명을 지르지만, 이는 심리적 압박에 해당한다.",
+          "error_type": null
+        },
+        {
+          "video": "Scary Car scene in the movie Smile #scary #horror-7oDmx8C4_6w.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 6.384617999996408,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상 속 두 여성은 평범한 옷차림을 하고 있으며, 어떠한 신체 노출이나 성적 행위, 암시가 표현되지 않는다. 차량 밖 여성의 기괴한 미소와 차량 안 여성의 공포에 질린 비명 등 전체적인 연출은 공포 장면에 집중되어 있다.",
+          "error_type": null
+        },
+        {
+          "video": "Scary Car scene in the movie Smile #scary #horror-7oDmx8C4_6w.mp4",
+          "criteria": "horror",
+          "elapsed_time": 11.598484832997201,
+          "success": true,
+          "result": "horror : 1\n근거: 차량 창문 밖의 여성이 입꼬리가 찢어질 듯한 기괴하고 섬뜩한 미소로 차량 안 여성을 노려보는 모습에서 강한 위협과 심리적 압박이 느껴집니다. 이에 공포에 질려 극도로 크게 뜨여진 눈과 소름 끼치는 비명 소리는 시청자에게 직접적인 공포감을 유발합니다.",
+          "error_type": null
+        },
+        {
+          "video": "Scary Car scene in the movie Smile #scary #horror-7oDmx8C4_6w.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 6.094055624998873,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상 내에서 마약 관련 내용이나 묘사는 전혀 나타나지 않습니다. 등장인물의 침울한 표정이나 공포에 질린 반응은 약물 사용이나 환각으로 해석될 여지가 없습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Scary Car scene in the movie Smile #scary #horror-7oDmx8C4_6w.mp4",
+          "criteria": "language",
+          "elapsed_time": 6.676142124997568,
+          "success": true,
+          "result": "language : 0\n근거: 영상 내내 등장인물들의 대사는 전혀 들리지 않았습니다. 마지막에 들리는 여성의 비명 소리는 공포심을 표현하는 외마디 소리일 뿐, 비속어는 포함하고 있지 않았습니다.",
+          "error_type": null
+        },
+        {
+          "video": "The Great Baba voss Best Fight Scene 4k (HDR) ｜ The SEE Best Scene ｜ Recap Blade-Qvcx2gyTUTA.mp4",
+          "criteria": "violence",
+          "elapsed_time": 12.558324750003521,
+          "success": true,
+          "result": "violence : 1\n근거: 영상은 무기로 상대를 반복적으로 가격하고, 목을 조르며 깊숙이 찌르는 등 직접적이고 잔혹한 물리적 폭력 장면을 상세하게 묘사합니다. 특히 뼈가 부러지는 끔찍한 소리, 피가 터져 나오는 모습, 그리고 무기를 입안에 꽂아 넣는 극심한 고통 묘사는 시청자에게 강한 불쾌감과 충격을 유발할 수 있습니다.",
+          "error_type": null
+        },
+        {
+          "video": "The Great Baba voss Best Fight Scene 4k (HDR) ｜ The SEE Best Scene ｜ Recap Blade-Qvcx2gyTUTA.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 7.824674624993349,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상 내에서 성적인 노출, 암시, 접촉, 소리, 이미지, 언어 등 선정적인 요소가 전혀 감지되지 않습니다. 영상은 잔혹하고 폭력적인 전투 장면과 등장인물들의 고통과 공포를 주로 다루고 있습니다.",
+          "error_type": null
+        },
+        {
+          "video": "The Great Baba voss Best Fight Scene 4k (HDR) ｜ The SEE Best Scene ｜ Recap Blade-Qvcx2gyTUTA.mp4",
+          "criteria": "horror",
+          "elapsed_time": 12.596608666994143,
+          "success": true,
+          "result": "horror : 1\n근거: 영상은 남자의 목에 무기를 깊숙이 찔러 넣고, 다른 남자의 입속으로 무기를 밀어 넣어 죽이는 등 잔혹하고 직접적인 살해 장면들을 상세히 묘사하며 시각적 충격을 유발한다. 또한 피로 물든 바닥과 수많은 시체들, 공포에 질려 눈을 가리는 인물의 모습이 극심하고 지속적인 위협감과 불안감을 조성한다.",
+          "error_type": null
+        },
+        {
+          "video": "The Great Baba voss Best Fight Scene 4k (HDR) ｜ The SEE Best Scene ｜ Recap Blade-Qvcx2gyTUTA.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 4.435100041999249,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상 전반에 걸쳐 약물 사용, 거래, 중독에 대한 직접적인 묘사나 간접적인 암시가 전혀 나타나지 않습니다. 잔혹한 전투 장면 외에 약물을 연상시키거나 미화하는 어떤 시각적, 청각적 요소도 감지되지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "The Great Baba voss Best Fight Scene 4k (HDR) ｜ The SEE Best Scene ｜ Recap Blade-Qvcx2gyTUTA.mp4",
+          "criteria": "language",
+          "elapsed_time": 9.363989374993253,
+          "success": true,
+          "result": "language : 0\n근거: 영상 내 모든 대사는 \"눈을 감아\"와 \"위대한 바바 보스에게는 안 돼!\" 두 구절뿐이며, 해당 대사는 욕설, 비속어, 또는 모욕적이거나 차별적인 언어를 전혀 포함하고 있지 않습니다. 전반적인 소리 연출은 비언어적인 격투 효과음과 등장인물의 신음, 비명 등으로 이루어져 있습니다.",
+          "error_type": null
+        },
+        {
+          "video": "This Looks TERRIFYING 🫣-ai8Xib84qqA.mp4",
+          "criteria": "violence",
+          "elapsed_time": 5.3091576250008075,
+          "success": true,
+          "result": "violence : 0\n근거: 영상에서는 어떠한 물리적 공격이나 위해 행위가 직접적으로 묘사되지 않으며, 인물 간의 충돌이나 상해 장면 또한 나타나지 않습니다. 선수가 익스트림 스포츠를 수행하는 모습만이 담겨 있어 폭력성 관련 요소는 감지되지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "This Looks TERRIFYING 🫣-ai8Xib84qqA.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 6.326837750006234,
+          "success": true,
+          "result": "sexuality : 0\n근거: 해당 영상은 극단적인 스포츠 활동을 1인칭 시점으로 담고 있으며, 성적인 노출이나 암시, 또는 성적인 맥락으로 해석될 수 있는 어떠한 신체 표현이나 요소도 감지되지 않았다.",
+          "error_type": null
+        },
+        {
+          "video": "This Looks TERRIFYING 🫣-ai8Xib84qqA.mp4",
+          "criteria": "horror",
+          "elapsed_time": 7.493115499994019,
+          "success": true,
+          "result": "horror : 0\n근거: 영상은 익스트림 스포츠 선수의 1인칭 시점으로, 고도감과 빠른 속도감, 순간적인 소음(점프, 착지 소리)이 느껴지지만, 이는 스포츠 자체의 박진감을 위한 연출이며 공포나 위협적인 분위기를 조성하지 않는다. 밝고 화창한 날씨와 환호하는 군중의 소리는 오히려 긍정적이고 스릴 넘치는 경험을 강조한다.",
+          "error_type": null
+        },
+        {
+          "video": "This Looks TERRIFYING 🫣-ai8Xib84qqA.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 5.676160792005248,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상에는 마약이나 관련 행위에 대한 어떠한 묘사나 언급도 감지되지 않습니다. 익스트림 스포츠 선수의 활강과 점프 과정을 다루며, 약물 사용을 연상시키거나 미화하는 상징적 요소 또한 전혀 나타나지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "This Looks TERRIFYING 🫣-ai8Xib84qqA.mp4",
+          "criteria": "language",
+          "elapsed_time": 5.669099374994403,
+          "success": true,
+          "result": "language : 0\n근거: 영상 내에서 어떠한 형태의 욕설이나 비속어, 저속어가 감지되지 않았습니다. 출발 시의 격려하는 외침('Go! Go! Go!')과 성공적인 점프에 대한 관중들의 환호성만이 명확하게 들렸습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #smoke #asmr #4k #shorts-Y50kB2YrMdI.mp4",
+          "criteria": "violence",
+          "elapsed_time": 11.717865208993317,
+          "success": true,
+          "result": "violence : 0\n근거: 영상은 남성의 얼굴에 붉은색의 길쭉한 상처 자국을 명확히 보여주지만, 영상 내에서 어떠한 직접적인 물리적 공격이나 위해 행위가 묘사되지 않습니다. 해당 상처는 과거에 발생한 결과물로 추정될 뿐, 폭력적인 행위 자체가 화면에 담기지 않았습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #smoke #asmr #4k #shorts-Y50kB2YrMdI.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 5.212674541995511,
+          "success": true,
+          "result": "sexuality: 0\n근거: 영상은 어두운 공간에서 정장 차림의 남성이 담배를 피우며 고뇌하는 모습을 보여주며, 신체 노출이나 성적인 암시, 행동 등 선정적인 요소는 전혀 감지되지 않는다. 그의 상처는 고뇌를 표현하는 맥락에서 나타날 뿐 선정성과 무관하다.",
+          "error_type": null
+        },
+        {
+          "video": "Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #smoke #asmr #4k #shorts-Y50kB2YrMdI.mp4",
+          "criteria": "horror",
+          "elapsed_time": 8.244706291996408,
+          "success": true,
+          "result": "horror : 0\n근거: 영상은 어둡고 그림자가 드리워진 공간과 남성 얼굴의 붉은 상처를 보여주지만, 이는 극심한 위협이나 심리적 압박을 유발하지 않아 시청자에게 지속적인 공포감을 조성하지 않습니다. 남성의 고뇌에 찬 표정과 긴장감은 캐릭터의 내면을 나타낼 뿐, 직접적인 공포 요소로 작용하지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #smoke #asmr #4k #shorts-Y50kB2YrMdI.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 7.961941916990327,
+          "success": true,
+          "result": "drugs : 1\n근거: 영상은 남성이 담배를 깊이, 그리고 반복적으로 들이마시는 모습을 어둡고 긴장감 있는 분위기 속에서 길게 보여준다. 이러한 과도한 흡연 행위는 인물의 고뇌하는 표정과 맞물려 심의 기준의 '과도한 오남용 행위'로 해석될 여지가 있다.",
+          "error_type": null
+        },
+        {
+          "video": "Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #smoke #asmr #4k #shorts-Y50kB2YrMdI.mp4",
+          "criteria": "language",
+          "elapsed_time": 4.258870749996277,
+          "success": true,
+          "result": "language : 0\n근거: 영상 내에서 어떠한 대화나 음성, 혹은 자막 등 언어적 표현이 감지되지 않았다. 따라서 욕설, 비속어, 저속어 등 아동의 언어습관에 부정적 영향을 미 줄 수 있는 요소가 전혀 존재하지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "Woman recorded using racist slurs on a playground-rc-Qi7PuSr4.mp4",
+          "criteria": "violence",
+          "elapsed_time": 6.9848686670011375,
+          "success": true,
+          "result": "violence : 0\n근거: 영상에는 직접적인 물리적 공격이나 신체적 위해를 가하는 장면이 전혀 묘사되지 않습니다. 비록 매우 격렬한 언어적 대립과 위협적인 태도가 나타나지만, 이는 'violence' 심의 기준인 직접적인 물리적 공격에 해당하지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Woman recorded using racist slurs on a playground-rc-Qi7PuSr4.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 7.357074040992302,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상 내에서 성적인 노출이나 암시는 전혀 감지되지 않습니다. 등장인물들의 행동과 표정, 그리고 사용된 언어는 갈등과 분노를 나타낼 뿐 성적인 맥락과는 무관합니다.",
+          "error_type": null
+        },
+        {
+          "video": "Woman recorded using racist slurs on a playground-rc-Qi7PuSr4.mp4",
+          "criteria": "horror",
+          "elapsed_time": 15.97215108400269,
+          "success": true,
+          "result": "horror : 0\n근거: 영상은 격렬한 언어적 대립과 인종차별적 비방으로 인해 강한 긴장감과 불쾌감을 유발하지만, 공포 장르에서 통상적으로 사용되는 위협, 괴기스러운 장면, 초자연적 요소 등 직접적인 공포 유발 요소는 감지되지 않습니다. 영상의 심리적 압박감은 주로 인간의 분노와 사회적 갈등에서 비롯됩니다.",
+          "error_type": null
+        },
+        {
+          "video": "Woman recorded using racist slurs on a playground-rc-Qi7PuSr4.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 9.200004916012404,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상에는 마약, 흡입, 거래, 중독 등 약물 관련 내용이 직접적으로 묘사되거나 언급되지 않습니다. 여성이 들고 있는 흰색 물체는 전자담배로 추정될 수 있으나, 그 사용이 명확하지 않고 다른 물건으로도 보일 수 있어 약물 관련으로 판단하기 어렵습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Woman recorded using racist slurs on a playground-rc-Qi7PuSr4.mp4",
+          "criteria": "language",
+          "elapsed_time": 6.434863874994335,
+          "success": true,
+          "result": "language : 1\n근거: 영상 속 여성은 분노에 찬 목소리로 반복적인 욕설과 심각한 인종차별적 비속어를 사용하며 상대방을 모욕합니다. 이는 정서적·인격적 모욕감을 유발하는 매우 공격적인 언어 사용에 해당합니다.",
+          "error_type": null
+        },
+        {
+          "video": "first f bomb in marvel-5vl1dJPsFTo.mp4",
+          "criteria": "violence",
+          "elapsed_time": 5.754849165998166,
+          "success": true,
+          "result": "violence : 0\n근거: 영상에는 직접적인 물리적 공격이나 위해 행위가 전혀 묘사되지 않습니다. 캐릭터 간의 언쟁과 물건 사용에 대한 어려움이 표현될 뿐 어떠한 물리적 충돌이나 폭력적인 장면도 나타나지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "first f bomb in marvel-5vl1dJPsFTo.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 6.620776166993892,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상 내 성적인 내용이나 신체 노출, 암시, 자극적인 언어 등 선정적인 요소는 전혀 감지되지 않았다. 등장인물들의 외형적 특징이나 대화, 행동 모두 급박한 상황에서 차에 탑승하는 과정을 묘사하고 있다.",
+          "error_type": null
+        },
+        {
+          "video": "first f bomb in marvel-5vl1dJPsFTo.mp4",
+          "criteria": "horror",
+          "elapsed_time": 11.41712495801039,
+          "success": true,
+          "result": "horror : 0\n근거: 영상은 \"기괴한 가면\"과 \"외계인 같은 모습\"의 인물들을 보여주지만, 이는 해당 영화의 특징적인 캐릭터 디자인으로 공포를 유발하는 요소가 아닙니다. 위협적인 분위기나 불안한 연출 없이, 인물들이 차 문을 열기 위해 소통하는 과정이 유머러스하게 그려져 공포감이나 긴장감을 전혀 느낄 수 없습니다.",
+          "error_type": null
+        },
+        {
+          "video": "first f bomb in marvel-5vl1dJPsFTo.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 5.291671667000628,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상 내에서 마약, 흡입, 거래, 중독 등 약물과 관련된 직접적인 언급이나 장면은 전혀 감지되지 않습니다. 등장인물들이 약물을 사용하거나 거래하는 상황, 혹은 약물로 인한 환각이나 중독 상태를 묘사하는 장면은 존재하지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "first f bomb in marvel-5vl1dJPsFTo.mp4",
+          "criteria": "language",
+          "elapsed_time": 11.03421383400564,
+          "success": true,
+          "result": "language : 0\n근거: 퀼이 네뷸라의 느리고 답답한 행동에 좌절하며 차 문을 향해 \"젠장할 문을 열어!\"라고 외치는 장면에서 해당 비속어가 한 차례 사용된다. 이 표현은 인물의 강한 답답함과 짜증을 유머러스하게 표현하는 맥락으로, 자극적이거나 모욕적인 의도가 아니며 반복적이지 않다.",
+          "error_type": null
+        },
+        {
+          "video": "where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4",
+          "criteria": "violence",
+          "elapsed_time": 13.757664125005249,
+          "success": true,
+          "result": "violence : 1\n근거: 영상은 이미 심한 출혈과 얼굴 전체에 피가 묻은 피해자가 공범에게 목덜미를 잡힌 채 고정되어 있는 장면으로 시작된다. 가해자는 피 묻은 망치로 세면대를 수차례 강타하여 박살 내고, 최종적으로 망치 끝을 피해자의 이마에 밀어붙이는 직접적이고 반복적인 신체적 위해 묘사를 포함한다.",
+          "error_type": null
+        },
+        {
+          "video": "where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 6.386416332999943,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상은 잔혹한 폭력과 고문, 심각한 신체 상해를 묘사하며 피와 세면대가 부서지는 장면을 포함한다. 하지만 영상 내에서 성적인 내용이나 신체 노출, 성적 암시는 전혀 감지되지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4",
+          "criteria": "horror",
+          "elapsed_time": 10.94761654100148,
+          "success": true,
+          "result": "horror : 1\n근거: 영상은 피범벅이 된 가해자가 망치로 세면대를 반복적으로 부수며 부상당한 피해자를 위협하는 잔혹하고 폭력적인 장면을 지속적으로 보여줍니다. 피해자의 얼굴에 피가 흥건하고 가해자가 망치를 피해자의 이마에 밀어붙이는 등 극심한 신체적, 심리적 압박으로 강하고 지속적인 공포감을 유발합니다.",
+          "error_type": null
+        },
+        {
+          "video": "where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 5.183298999996623,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상 내에서 마약 관련 물질이나 행위가 전혀 묘사되지 않습니다. 인물들의 대화나 행동에서도 마약 사용, 거래, 또는 중독을 암시하는 어떠한 내용도 감지되지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4",
+          "criteria": "language",
+          "elapsed_time": 6.085117166992859,
+          "success": true,
+          "result": "language : 0\n근거: 영상 내 대사에는 구체적인 욕설, 비속어, 저속어 또는 차별적인 언어가 사용되지 않았다. 가해자의 대사는 절박한 질문과 강압적인 명령으로 이루어져 있으며, 언어 자체는 비속어로 볼 수 없다.",
+          "error_type": null
+        },
+        {
+          "video": "⚔️ The Bride vs Gogo Yubari! 😱 Epic Showdown ｜ Kill Bill： Vol. 1 (2003)-lUfGDlNpFTE.mp4",
+          "criteria": "violence",
+          "elapsed_time": 12.01190958400548,
+          "success": true,
+          "result": "violence : 1\n근거: 영상에는 칼과 사슬을 이용한 격렬한 물리적 공격이 반복적으로 등장하며, 인물의 손, 발목, 머리 등에서 다량의 피가 흘러내리고 다리가 절단되는 등 극심한 신체 훼손이 사실적으로 묘사됩니다. 목이 졸려 고통스러워하고 숨을 쉬기 힘들어하는 장면과 함께 잔혹한 부상 표현이 강한 불쾌감을 유발합니다.",
+          "error_type": null
+        },
+        {
+          "video": "⚔️ The Bride vs Gogo Yubari! 😱 Epic Showdown ｜ Kill Bill： Vol. 1 (2003)-lUfGDlNpFTE.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 7.92220487499435,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상 내 성적인 내용이나 신체 노출, 암시가 전혀 나타나지 않는다. 폭력적인 격투 장면과 유혈 묘사가 주를 이루지만, 이는 선정성과는 무관한 요소이다.",
+          "error_type": null
+        },
+        {
+          "video": "⚔️ The Bride vs Gogo Yubari! 😱 Epic Showdown ｜ Kill Bill： Vol. 1 (2003)-lUfGDlNpFTE.mp4",
+          "criteria": "horror",
+          "elapsed_time": 14.931932209001388,
+          "success": true,
+          "result": "horror : 1\n근거: 한 캐릭터가 온몸에 피를 흘리고 머리와 발목에서 피가 많이 흐르는 심각한 부상을 입은 채 쇠사슬에 묶여 목이 졸리고 다리가 절단되며 바닥에 피가 흥건한 장면이 묘사된다. 이는 극심한 위협과 더불어 신체 훼손 및 다량의 피 묘사를 통해 강한 공포와 시각적 충격을 지속적으로 유발한다.",
+          "error_type": null
+        },
+        {
+          "video": "⚔️ The Bride vs Gogo Yubari! 😱 Epic Showdown ｜ Kill Bill： Vol. 1 (2003)-lUfGDlNpFTE.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 4.950225291002425,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상에서 약물 사용, 거래, 중독에 대한 직접적인 묘사나 언급이 전혀 발견되지 않았습니다. 전체 영상은 격렬한 액션 장면과 대결 위주로 구성되어 있으며, 약물을 연상시키는 분위기나 상징 요소도 존재하지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "⚔️ The Bride vs Gogo Yubari! 😱 Epic Showdown ｜ Kill Bill： Vol. 1 (2003)-lUfGDlNpFTE.mp4",
+          "criteria": "language",
+          "elapsed_time": 6.838244333004695,
+          "success": true,
+          "result": "language: 0\n근거: 등장인물이 상대방을 조롱하며 \"Silly rabbit\"과 \"Trix are for...\"와 같은 대사를 사용하지만, 이 표현들은 비속어나 욕설, 저속어에 해당하지 않으며, 언어적으로 강한 모욕감을 주지 않는다. 전반적인 대화 내용에서 욕설이나 차별적인 언어는 감지되지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4",
+          "criteria": "violence",
+          "elapsed_time": 7.743080083004315,
+          "success": true,
+          "result": "violence : 1\n근거: 원본 영상 00:12-00:15 구간에서 흙먼지가 피어오르는 가운데 등장인물들이 외부의 충격으로 인해 뒤로 강하게 날아가는 모습이 직접적으로 묘사됩니다. 이는 물리적 힘에 의한 신체적 위해가 가해지는 상황을 보여줍니다.",
+          "error_type": null
+        },
+        {
+          "video": "발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 12.636973999993643,
+          "success": true,
+          "result": "sexuality : 1\n근거: 모드 영상에는 끈 비키니와 가슴이 과도하게 노출된 갑옷을 입은 여성 캐릭터가 등장하며, 과장된 몸매와 함께 가슴과 엉덩이를 강조하는 여러 포즈를 취하고 해당 부위의 클로즈업이 반복됩니다. 이러한 선정적인 시각적 요소들은 과장된 신음소리 및 숨소리와 결합되어 전반적으로 노골적인 성적 암시를 지속적으로 전달합니다.",
+          "error_type": null
+        },
+        {
+          "video": "발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4",
+          "criteria": "horror",
+          "elapsed_time": 9.782356208001147,
+          "success": true,
+          "result": "horror : 0\n근거: 영상 속 괴물들의 기괴한 소리와 거대한 몬스터의 험악한 모습 및 포효는 긴장감을 유발할 수 있으나, 이는 극심한 위협이나 심리적 압박으로 이어지는 지속적인 공포를 조성하지 않습니다. 피, 사체, 괴기한 존재 등의 직접적인 공포 묘사는 나타나지 않으며, 전반적인 분위기가 공포를 주된 요소로 삼고 있지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 5.822573541998281,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상에서 약물 사용이나 거래, 중독에 대한 직접적인 묘사나 언급은 전혀 감지되지 않습니다. 어떠한 등장인물도 약물 관련 행위를 하거나 약물로 인한 상태를 나타내지 않으며, 약물을 연상시키는 분위기나 상징적 요소도 존재하지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4",
+          "criteria": "language",
+          "elapsed_time": 5.9077382079995004,
+          "success": true,
+          "result": "language : 0\n근거: 영상 내에서 대사나 언어가 전혀 들리지 않았습니다. 화면에 표시된 텍스트 또한 비속어, 욕설, 저속어 등 문제가 될 만한 언어적 표현을 포함하고 있지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "욕 시원하게 갈겨버리는 혜리 지예은-m3qwUvok1wI.mp4",
+          "criteria": "violence",
+          "elapsed_time": 4.5924740839982405,
+          "success": true,
+          "result": "violence : 0\n근거: 영상 내에서 물리적인 공격이나 신체적 위해를 가하는 장면은 전혀 묘사되지 않는다. 출연진의 언어적 표현이나 감정적인 반응은 있으나, 이는 '폭력성' 심의 기준의 직접적 물리 공격/위해 묘사에 해당하지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "욕 시원하게 갈겨버리는 혜리 지예은-m3qwUvok1wI.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 5.271999124990543,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상 내 성적인 노출, 암시, 신체 접촉 또는 성적인 맥락의 언어나 표현이 전혀 감지되지 않습니다. 영상의 주된 내용은 욕설 연기와 그에 대한 출연진들의 반응으로, 선정성 기준에 해당하지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "욕 시원하게 갈겨버리는 혜리 지예은-m3qwUvok1wI.mp4",
+          "criteria": "horror",
+          "elapsed_time": 7.464882458007196,
+          "success": true,
+          "result": "horror : 0\n근거: 여성 출연자의 갑작스럽고 격렬한 고함은 순간적인 놀람을 유발하나, 이는 주변 출연진의 폭소와 어우러져 코믹한 상황으로 연출됩니다. 영상 전체에 걸쳐 공포감, 지속적인 긴장감, 심리적 위협을 주는 요소는 전혀 감지되지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "욕 시원하게 갈겨버리는 혜리 지예은-m3qwUvok1wI.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 5.007933417000459,
+          "success": true,
+          "result": "drugs : 0\n근거: 해당 영상에서는 출연자들이 욕설을 주제로 대화하고 연기하는 장면이 주를 이루며, 약물 사용, 거래, 중독에 대한 어떠한 언급이나 시각적인 묘사가 전혀 감지되지 않습니다. 전반적인 분위기와 내용은 약물 관련 주제와 무관합니다.",
+          "error_type": null
+        },
+        {
+          "video": "욕 시원하게 갈겨버리는 혜리 지예은-m3qwUvok1wI.mp4",
+          "criteria": "language",
+          "elapsed_time": 12.231776083004661,
+          "success": true,
+          "result": "language : 1\n근거: 영상에서는 연기 상황에서 \"우리가 당했어 X발!\"이라는 거친 욕설이 사용되었으며, 이후 갑작스럽고 강렬하게 \"닥쳐 이 씨발새끼야!\"라는 매우 심한 비속어가 터져 나와 출연진들에게 큰 충격을 줍니다. 이러한 비속어들은 맥락상 코미디를 위해 사용되었음에도 불구하고 그 표현 자체의 수위가 매우 높고 모욕적이거나 과격한 인상을 주기에 중대한 비속어로 판단됩니다.",
+          "error_type": null
+        },
+        {
+          "video": "클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4",
+          "criteria": "violence",
+          "elapsed_time": 4.394663832994411,
+          "success": true,
+          "result": "violence : 0\n근거: 영상에는 어떠한 물리적 공격이나 위해 행위가 묘사되지 않는다. 마약 흡입 장면은 자기 위해 행위에 해당하므로, 심의 기준에 따라 폭력성으로 간주하지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 7.132847082990338,
+          "success": true,
+          "result": "sexuality : 0\n근거: 여자가 테이블 위의 백색 가루를 코로 흡입한 후, 남녀 모두 쾌락에 찬 숨소리와 신음을 흘리며 극심한 신체적 반응을 보인다. 이는 약물 복용으로 인한 심리적, 생리적 변화를 묘사하는 장면으로, 성적인 노출이나 행위를 직접적으로 포함하지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4",
+          "criteria": "horror",
+          "elapsed_time": 6.753633082989836,
+          "success": true,
+          "result": "horror : 0\n근거: 영상은 약물 사용으로 인한 쾌락과 황홀감에 젖은 인물들의 강렬한 표정과 반응을 묘사하지만, 어떠한 공포감이나 위협적인 분위기, 혹은 직접적인 공포 유발 요소는 감지되지 않습니다. 어두운 실내와 극적인 연출은 긴장감을 조성할 수 있으나, 이는 공포가 아닌 약물의 영향으로 인한 것으로 판단됩니다.",
+          "error_type": null
+        },
+        {
+          "video": "클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 9.592310416992404,
+          "success": true,
+          "result": "drugs : 1\n근거: 테이블 위의 백색 가루를 카드로 정리하여 코로 흡입하는 장면과, 이를 통해 쾌락에 찬 신음, 땀범벅, 떨림 등 약물 중독으로 인한 신체적 반응이 매우 구체적이고 명확하게 묘사됩니다. 이는 단순히 암시를 넘어선 직접적인 약물 사용 및 그로 인한 반응의 묘사에 해당합니다.",
+          "error_type": null
+        },
+        {
+          "video": "클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4",
+          "criteria": "language",
+          "elapsed_time": 5.798145292006666,
+          "success": true,
+          "result": "language: 0\n근거: 영상 내 모든 대사는 비속어나 욕설, 저속어 없이 정중하고 전문적인 어조로 구성되어 있습니다. 인물들의 강렬한 감정 표현은 비언어적인 소리(\"으아아아아아아아아아!\", 숨소리, 신음)를 통해 전달될 뿐, 언어적으로는 문제 되는 부분이 없습니다.",
+          "error_type": null
+        },
+        {
+          "video": "＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan Became Japan’s HUMAN SHIELD (Nuke Survival Breakdown)＂-G1_RpZ47EGU.mp4",
+          "criteria": "violence",
+          "elapsed_time": 9.851997999998275,
+          "success": true,
+          "result": "violence : 1\n근거: 거대한 콘크리트 슬래브가 로건의 팔을 짓누르는 장면과, 원자폭탄 폭발로 일본 병사들이 순식간에 불타는 해골이 되어 재로 사라지는 모습이 명확하고 충격적으로 묘사됩니다. 로건의 피부가 끔찍하게 불타 벗겨지고 피와 새로운 조직이 경련하며 재생되는 과정은 극심한 고통과 함께 생생하게 표현되어 시청자에게 강한 불쾌감을 유발합니다.",
+          "error_type": null
+        },
+        {
+          "video": "＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan Became Japan’s HUMAN SHIELD (Nuke Survival Breakdown)＂-G1_RpZ47EGU.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 10.093019332998665,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상에는 성적인 맥락의 노출이나 암시가 전혀 나타나지 않습니다. 일본 병사가 상의를 탈의한 장면과 주인공의 피부가 끔찍하게 불타 벗겨지고 재생되는 장면은 있으나, 이는 각각 극한의 상황과 고통스러운 재생 능력을 묘사하는 것으로 선정성과 무관합니다.",
+          "error_type": null
+        },
+        {
+          "video": "＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan Became Japan’s HUMAN SHIELD (Nuke Survival Breakdown)＂-G1_RpZ47EGU.mp4",
+          "criteria": "horror",
+          "elapsed_time": 9.625063125000452,
+          "success": true,
+          "result": "horror : 1\n근거: 강렬한 섬광 이후 일본 병사들이 불길에 휩싸여 끔찍하게 타들어가는 해골로 변모하고 이내 재가 되어 사라지는 장면이 시각적으로 충격적입니다. 또한, 주인공의 피부가 불타 벗겨지고 그 아래에서 붉은 근육과 살점이 흉측하게 재생되는 상세한 묘사는 강한 신체 훼손 공포를 유발합니다.",
+          "error_type": null
+        },
+        {
+          "video": "＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan Became Japan’s HUMAN SHIELD (Nuke Survival Breakdown)＂-G1_RpZ47EGU.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 5.8167772500019055,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상은 울버린(로건)이 나가사키 원자폭탄 투하에서 생존하고 재생하는 과정을 강렬하게 묘사하며, 어떠한 마약 관련 내용도 포함하고 있지 않습니다. 마약 사용, 거래, 중독 또는 이를 암시하는 상징적 요소나 분위기가 전혀 감지되지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan Became Japan’s HUMAN SHIELD (Nuke Survival Breakdown)＂-G1_RpZ47EGU.mp4",
+          "criteria": "language",
+          "elapsed_time": 5.402439916986623,
+          "success": true,
+          "result": "language: 0\n근거: 영상 내 모든 대사는 긴급한 지시나 상황 설명을 담고 있으며, \"bub\"과 같은 비격식적인 호칭 또한 비하나 욕설의 의도 없이 사용되었습니다. 영상에서 어떠한 욕설, 비속어, 저속어 또는 차별적이거나 인권 침해적인 언어 표현은 감지되지 않았습니다.",
+          "error_type": null
+        }
+      ],
+      "video_based": [
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "violence",
+          "elapsed_time": 21.747735541997827,
+          "success": true,
+          "result": "violence : 0\n근거: 영상은 한 사람이 여러 담배를 동시에 피우려 시도하는 모습을 담고 있습니다. 물리적 충돌, 위협, 상해 등 직접적인 폭력 행위는 전혀 나타나지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 18.976861000002827,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상에는 성적인 노출이나 암시, 또는 성적인 행위를 연상시키는 어떠한 내용도 포함되어 있지 않다. 영상의 내용은 오직 여러 개의 담배를 한 번에 피우는 행위에 대한 것이다.",
+          "error_type": null
+        },
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "horror",
+          "elapsed_time": 19.901805540997884,
+          "success": true,
+          "result": "horror : 0\n근거: 영상은 여러 개의 담배를 한 번에 피우려는 인물을 보여주며, 공포를 유발하는 어떠한 시각적, 청각적 요소나 위협적인 분위기가 감지되지 않는다. 이 영상은 공포감, 긴장감, 위협적 분위기를 전혀 포함하지 않으므로, 공포 요소 없음으로 판단된다.",
+          "error_type": null
+        },
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 21.37596908400883,
+          "success": true,
+          "result": "drugs : 1\n근거: 영상은 과도하게 많은 담배를 한 번에 피우는 행위를 명확하게 묘사합니다. 이는 '담배 등 과도한 오남용 행위도 고려'라는 심의 고려사항에 해당합니다.",
+          "error_type": null
+        },
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "language",
+          "elapsed_time": 20.380023333986173,
+          "success": true,
+          "result": "language : 1\n근거: 영상 내 0분 18초 경 강한 비속어(\"씨발\")가 한 차례 감지되었습니다. 비록 맥락상 특정 대상을 향한 모욕은 아니지만, 사회 통념상 용인되는 수준의 일반적 비속어로 판단됩니다.",
+          "error_type": null
+        },
+        {
+          "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+          "criteria": "violence",
+          "elapsed_time": 22.103268083999865,
+          "success": true,
+          "result": "violence : 1\n근거: 영상에는 피가 묻은 인물이 갑자기 튀어나와 공격적으로 달려드는 물리적 폭력 장면이 포함되어 있습니다. 직접적인 구타나 무기 사용 묘사는 없으나, 위협적인 행동과 모습이 현실적인 공포감을 유발합니다.",
+          "error_type": null
+        },
+        {
+          "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 18.10770062499796,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상 내 성적 노출, 암시, 또는 성적인 맥락의 신체 접촉이나 언어가 전혀 감지되지 않았다. 등장인물의 피 묻은 모습과 놀라는 연출은 공포 요소에 해당한다.",
+          "error_type": null
+        },
+        {
+          "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+          "criteria": "horror",
+          "elapsed_time": 17.853150833005202,
+          "success": true,
+          "result": "horror : 1\n근거: 영상은 어두운 분위기에서 괴기하고 피범벅이 된 존재가 갑작스럽게 등장하여 시청자를 향해 돌진하는 장면을 포함한다. 이는 강한 시각적 충격과 위협적인 분위기를 조성하며 중대한 공포를 유발한다.",
+          "error_type": null
+        },
+        {
+          "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 20.361856874995283,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상 내 마약 관련 대사, 이미지, 상황, 언급 등 어떠한 약물 관련 내용도 감지되지 않았다. 배경과 캐릭터의 모습은 공포 게임 맥락에 부합하며 약물 오남용을 연상시키지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4",
+          "criteria": "language",
+          "elapsed_time": 15.563882791990181,
+          "success": true,
+          "result": "language : 0\n근거: 영상 내 대사 \"Ethan! It's OK. It's OK, it's me.\"에는 어떠한 비속어, 욕설, 저속어 또는 차별적 표현도 포함되어 있지 않습니다. 사용된 언어는 정중하고 평이한 수준입니다.",
+          "error_type": null
+        },
+        {
+          "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+          "criteria": "violence",
+          "elapsed_time": 31.265013040989288,
+          "success": true,
+          "result": "violence: 1\n근거: 고든 램지가 두 명의 셰프를 손으로 밀치는 장면이 0:37초경과 0:41초경에 나타난다. 이는 직접적인 물리적 충돌에 해당한다.",
+          "error_type": null
+        },
+        {
+          "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 23.350105042001815,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상 내에서 성적인 노출, 암시, 언어, 소리, 이미지 등 선정적인 요소가 전혀 감지되지 않는다. 해당 영상은 요리 프로그램에서 셰프가 소리치며 지시하는 장면을 담고 있다.",
+          "error_type": null
+        },
+        {
+          "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+          "criteria": "horror",
+          "elapsed_time": 26.989043916997616,
+          "success": true,
+          "result": "horror : 0\n근거: 영상은 요리 경쟁 프로그램의 고강도 긴장 상황을 보여주며, 강한 질책과 분노 표출이 주를 이룬다. 하지만 이는 공포 장르에서 정의하는 위협적인 분위기, 괴기 요소, 또는 극심한 심리적 압박으로 인한 지속적인 공포감을 유발하지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 27.671575542000937,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상에는 요리사와 주방 상황만 묘사되어 있으며, 약물과 관련된 내용, 언급, 또는 묘사가 전혀 감지되지 않는다. 해당 영상은 '약물 없음' 기준에 부합한다.",
+          "error_type": null
+        },
+        {
+          "video": "BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4",
+          "criteria": "language",
+          "elapsed_time": 25.616234750006697,
+          "success": true,
+          "result": "```json\n{\n  \"language\": 1,\n  \"근거\": \"영상에는 'F*cking hell!', 'F*cking overcooked', 'What in the f*ck is going on here?', 'F*CK OFF OUT!', 'F*CKING wake up!' 등 반복적이고 강도가 높은 비속어 및 욕설이 지속적으로 사용됩니다. 이는 정서적·인격적 모욕감을 유발할 수 있는 수준으로 판단됩니다.\"\n}\n```",
+          "error_type": null
+        },
+        {
+          "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+          "criteria": "violence",
+          "elapsed_time": 15.480346249998547,
+          "success": true,
+          "result": "violence : 0\n근거: 영상 내에서 직접적인 물리적 공격, 위해, 위협 또는 상해 장면이 전혀 감지되지 않습니다. 폭력적인 상황이나 암시 또한 존재하지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 17.07352804200491,
+          "success": true,
+          "result": "sexuality : 1\n근거: 영상에 비키니를 착용한 여성이 등장하여 신체 노출이 있으며, 몸매가 부각되어 일반적인 선정성으로 분류됩니다. 하지만 해변이라는 맥락에 적합한 의상이며 과도하게 선정적인 행위나 묘사는 없습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+          "criteria": "horror",
+          "elapsed_time": 14.050844957993831,
+          "success": true,
+          "result": "horror : 0\n근거: 영상은 밝은 해변을 배경으로 한 여성이 걷는 모습을 담고 있으며, 어떠한 공포, 긴장감, 위협적인 분위기나 시각적 충격 요소도 존재하지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 14.514721665997058,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상에서 마약, 흡입, 거래, 중독 등 약물과 관련된 내용이나 장면이 전혀 감지되지 않았다. 어떠한 분위기나 상징적 요소도 약물과 연관되지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "Do you like leather bikinis？ 🖤 #beach #beachvibes #short #shorts #shortvideo #shortsfeed-WUGUXTcEUfo.mp4",
+          "criteria": "language",
+          "elapsed_time": 14.49814100000367,
+          "success": true,
+          "result": "language : 0\n근거: 영상 내에 어떠한 형태의 언어(음성, 자막 등)도 감지되지 않습니다. 따라서 비속어, 욕설, 저속어 등 언어 관련 민감 요소가 존재하지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+          "criteria": "violence",
+          "elapsed_time": 24.428093665992492,
+          "success": true,
+          "result": "violence : 0\n근거: 영상에는 직접적인 물리적 공격이나 위협, 상해 장면이 전혀 묘사되지 않는다. 마약 거래와 복용을 암시하는 장면이 있으나, 이는 폭력성 기준에 해당하지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 26.76123537500098,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상에는 성적인 노출, 암시, 또는 맥락과 관련된 어떠한 내용도 포함되어 있지 않다. 인물들이 마약을 확인하는 장면이 주를 이룬다.",
+          "error_type": null
+        },
+        {
+          "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+          "criteria": "horror",
+          "elapsed_time": 28.705071874996065,
+          "success": true,
+          "result": "horror : 0\n근거: 영상은 마약 거래 현장을 보여주며, 캐릭터 간의 긴장감은 있지만, 공포감이나 위협적인 분위기를 조성하는 장면은 없습니다. 시청자에게 심리적 압박이나 지속적인 공포감을 유발하는 요소는 전혀 감지되지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 25.84853329100588,
+          "success": true,
+          "result": "drugs : 1\n근거: 영상에서 한 인물이 푸른색 물질을 코로 흡입하며 강한 만족감을 표현하는 장면이 명확히 묘사됩니다. 또한, 해당 물질의 순도, 제조 과정 및 금전 거래가 직접적으로 이루어지는 마약 거래 장면이 포함되어 있습니다.",
+          "error_type": null
+        },
+        {
+          "video": "HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4",
+          "criteria": "language",
+          "elapsed_time": 29.812316084004124,
+          "success": true,
+          "result": "language : 1\n근거: 영상에서 \"shit\"이라는 경미한 비속어가 1회 사용되었다. 이는 맥락상 놀라움이나 불만을 표현하는 것으로 보이며, 반복적이거나 자극적인 수준은 아니다.",
+          "error_type": null
+        },
+        {
+          "video": "Hollywood actress hot scenes #carryminati #viral #shortvideos #short-4M00TOLr_-A.mp4",
+          "criteria": "violence",
+          "elapsed_time": 14.815697083991836,
+          "success": true,
+          "result": "violence : 0\n근거: 영상 내에서 물리적 공격이나 위협, 상해 장면이 전혀 나타나지 않는다. 폭력적 상황이나 암시 또한 감지되지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "Hollywood actress hot scenes #carryminati #viral #shortvideos #short-4M00TOLr_-A.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 17.495979167011683,
+          "success": true,
+          "result": "sexuality : 1\n근거: 여성이 브래지어와 팬티만 남긴 채 상의와 하의를 벗는 장면이 포함되어 있으며, 등과 엉덩이 부위가 노출된다. 이는 일반 사회 윤리에 어긋나지 않는 수준의 선정적인 요소에 해당한다.",
+          "error_type": null
+        },
+        {
+          "video": "Hollywood actress hot scenes #carryminati #viral #shortvideos #short-4M00TOLr_-A.mp4",
+          "criteria": "horror",
+          "elapsed_time": 16.389845375000732,
+          "success": true,
+          "result": "horror: 0\n근거: 영상에는 공포를 유발하는 시각적 또는 청각적 요소가 전혀 없습니다. 등장인물들의 행동이나 배경 분위기에서 어떠한 위협감이나 긴장감도 감지되지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Hollywood actress hot scenes #carryminati #viral #shortvideos #short-4M00TOLr_-A.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 15.88456579198828,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상에는 마약 관련 내용이나 흡연 등 약물 오남용 행위가 전혀 나타나지 않습니다. 마약 관련 대사나 장면 묘사가 없어 '약물 없음'으로 판단됩니다.",
+          "error_type": null
+        },
+        {
+          "video": "Hollywood actress hot scenes #carryminati #viral #shortvideos #short-4M00TOLr_-A.mp4",
+          "criteria": "language",
+          "elapsed_time": 14.911808917007875,
+          "success": true,
+          "result": "language : 0\n근거: 영상의 배경 음악 가사 및 등장인물의 대사에서 욕설, 비속어, 차별적 언어 등 어떠한 비속어도 감지되지 않았다. 아동의 언어 습관에 부정적인 영향을 줄 만한 요소가 없다.",
+          "error_type": null
+        },
+        {
+          "video": "Joel's Death - Abby Kills Joel ｜ The Last of Us Season 2 Episode 2 (Through the Valley)-0vZUUinT8l0.mp4",
+          "criteria": "violence",
+          "elapsed_time": 20.286464125005296,
+          "success": true,
+          "result": "violence : 1\n근거: 영상에는 한 인물이 골프채로 쓰러진 다른 인물을 반복적으로 가격하는 직접적인 물리적 공격 장면이 묘사되어 있습니다. 이 장면은 피가 튀고 비명 소리가 동반되며 폭력적인 위해 행위를 명확하게 보여줍니다.",
+          "error_type": null
+        },
+        {
+          "video": "Joel's Death - Abby Kills Joel ｜ The Last of Us Season 2 Episode 2 (Through the Valley)-0vZUUinT8l0.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 15.391606334000244,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상에는 성적인 노출이나 암시가 전혀 없으며, 성적인 내용으로 해석될 만한 요소가 감지되지 않는다. 해당 영상은 폭력적인 장면을 묘사하고 있으나 선정성과는 무관하다.",
+          "error_type": null
+        },
+        {
+          "video": "Joel's Death - Abby Kills Joel ｜ The Last of Us Season 2 Episode 2 (Through the Valley)-0vZUUinT8l0.mp4",
+          "criteria": "horror",
+          "elapsed_time": 20.409859208011767,
+          "success": true,
+          "result": "horror : 1\n근거: 영상은 무력화된 인물에게 골프채로 폭력을 가하는 잔혹한 장면을 포함하고 있으며, 이를 목격한 인물들의 절규와 오열은 극심한 공포와 심리적 압박을 유발한다.",
+          "error_type": null
+        },
+        {
+          "video": "Joel's Death - Abby Kills Joel ｜ The Last of Us Season 2 Episode 2 (Through the Valley)-0vZUUinT8l0.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 14.599423040999682,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상 내 약물 사용, 거래, 또는 관련 내용의 직접적인 묘사나 간접적인 암시가 전혀 없습니다. 폭력적인 상황과 인물의 고통을 보여줄 뿐, 약물과 관련된 어떤 요소도 발견되지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Joel's Death - Abby Kills Joel ｜ The Last of Us Season 2 Episode 2 (Through the Valley)-0vZUUinT8l0.mp4",
+          "criteria": "language",
+          "elapsed_time": 14.944101999994018,
+          "success": true,
+          "result": "language : 0\n근거: 영상 내에서 욕설, 비속어, 저속어 등 어떠한 형태의 비속어나 차별적 언어가 감지되지 않았다. 등장인물의 대사는 공포와 슬픔을 나타내는 간결한 표현들로 구성되어 있다.",
+          "error_type": null
+        },
+        {
+          "video": "Samuel L. Jackson's iconic ＂Pulp Fiction＂ line includes a direct quote from Ezekiel 25_17.-jk1It7OA5eY.mp4",
+          "criteria": "violence",
+          "elapsed_time": 31.220085832988843,
+          "success": true,
+          "result": "violence : 0\n근거: 영상에는 직접적인 물리적 공격이나 위해 행위 묘사가 전혀 없습니다. 등장인물의 대사는 위협적이지만 언어 폭력 및 심리적 압박은 'violence' 기준에 해당하지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Samuel L. Jackson's iconic ＂Pulp Fiction＂ line includes a direct quote from Ezekiel 25_17.-jk1It7OA5eY.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 27.062242041996797,
+          "success": true,
+          "result": "sexuality: 0\n근거: 영상에 성적 내용이나 신체 노출, 성적 암시 또는 성적인 언어가 감지되지 않았다. 영상 속 대화 내용은 위협적이고 폭력적인 맥락에 해당하지만 선정성과는 관련이 없다.",
+          "error_type": null
+        },
+        {
+          "video": "Samuel L. Jackson's iconic ＂Pulp Fiction＂ line includes a direct quote from Ezekiel 25_17.-jk1It7OA5eY.mp4",
+          "criteria": "horror",
+          "elapsed_time": 29.164300333010033,
+          "success": true,
+          "result": "horror : 1\n근거: 강렬한 대사와 위협적인 연기로 인해 심리적 압박과 불안감이 조성된다. 비록 직접적인 시각적 공포 요소는 없으나, 지속적인 위협적 분위기가 연출되어 일반적인 공포감을 유발한다.",
+          "error_type": null
+        },
+        {
+          "video": "Samuel L. Jackson's iconic ＂Pulp Fiction＂ line includes a direct quote from Ezekiel 25_17.-jk1It7OA5eY.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 24.751667082993663,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상 내 대화와 시각적 요소 모두 마약, 약물 관련 내용을 전혀 포함하고 있지 않다. 약물 사용이나 거래에 대한 어떠한 언급이나 묘사도 감지되지 않았다.",
+          "error_type": null
+        },
+        {
+          "video": "Samuel L. Jackson's iconic ＂Pulp Fiction＂ line includes a direct quote from Ezekiel 25_17.-jk1It7OA5eY.mp4",
+          "criteria": "language",
+          "elapsed_time": 28.709987209003884,
+          "success": true,
+          "result": "language: 1\n근거: 영상에는 \"sh*t\"과 \"ass\"와 같은 일반적인 비속어가 포함되어 있으며, 이는 공격적이고 위협적인 맥락에서 사용되어 거친 인상을 준다.",
+          "error_type": null
+        },
+        {
+          "video": "Scary Car scene in the movie Smile #scary #horror-7oDmx8C4_6w.mp4",
+          "criteria": "violence",
+          "elapsed_time": 17.260987083005602,
+          "success": true,
+          "result": "violence : 0\n근거: 영상에는 직접적인 물리적 공격이나 위해가 묘사되지 않습니다. 갑작스럽고 섬뜩한 얼굴의 등장은 심리적인 압박감을 주지만, 물리적 폭력에 해당하지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Scary Car scene in the movie Smile #scary #horror-7oDmx8C4_6w.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 15.345046374990488,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상 내 성적인 내용이나 신체 노출이 없으며, 등장인물의 모습은 공포 연출을 위한 것으로 선정성으로 볼 수 있는 요소가 감지되지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "Scary Car scene in the movie Smile #scary #horror-7oDmx8C4_6w.mp4",
+          "criteria": "horror",
+          "elapsed_time": 23.721099082991714,
+          "success": true,
+          "result": "horror : 1\n근거: 영상은 얼굴이 뒤집힌 채 섬뜩하게 웃는 모습이 창문에 갑자기 나타나는 강력한 점프스케어를 포함하며, 이는 시청자에게 순간적인 놀람과 불쾌감을 유발합니다. 이는 경미한 공포에 해당하는 요소로 볼 수 있습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Scary Car scene in the movie Smile #scary #horror-7oDmx8C4_6w.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 15.830094541001017,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상 내 마약 관련 내용, 묘사, 언급이 전혀 없습니다. 특정 분위기나 상징적 요소 또한 약물과 관련되어 보이지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Scary Car scene in the movie Smile #scary #horror-7oDmx8C4_6w.mp4",
+          "criteria": "language",
+          "elapsed_time": 15.337984249999863,
+          "success": true,
+          "result": "language: 0\n근거: 영상 내에서 어떠한 언어(대화, 음성, 자막 등)도 감지되지 않았다. 따라서 비속어나 욕설과 관련된 내용은 포함되어 있지 않다.",
+          "error_type": null
+        },
+        {
+          "video": "The Great Baba voss Best Fight Scene 4k (HDR) ｜ The SEE Best Scene ｜ Recap Blade-Qvcx2gyTUTA.mp4",
+          "criteria": "violence",
+          "elapsed_time": 33.16142708300322,
+          "success": true,
+          "result": "violence : 1\n근거: 영상에는 무기를 사용한 여러 차례의 직접적이고 격렬한 물리적 공격 장면이 포함되어 있으며, 피와 심한 상처, 사망이 명확하게 묘사됩니다. 특히 한 캐릭터가 다른 캐릭터의 입을 통해 칼로 찔리는 잔혹한 살해 장면이 구체적으로 표현됩니다.",
+          "error_type": null
+        },
+        {
+          "video": "The Great Baba voss Best Fight Scene 4k (HDR) ｜ The SEE Best Scene ｜ Recap Blade-Qvcx2gyTUTA.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 28.393017999987933,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상 내 성적 노출이나 암시, 또는 성적인 맥락의 신체 접촉이 전혀 감지되지 않았다. 폭력적인 장면이 주를 이루나, 이는 선정성 요소와 관련이 없다.",
+          "error_type": null
+        },
+        {
+          "video": "The Great Baba voss Best Fight Scene 4k (HDR) ｜ The SEE Best Scene ｜ Recap Blade-Qvcx2gyTUTA.mp4",
+          "criteria": "horror",
+          "elapsed_time": 31.589914500000305,
+          "success": true,
+          "result": "horror : 1\n근거: 영상은 잔혹한 전투를 직접적이고 시각적으로 충격적인 방식으로 묘사한다. 특히 검으로 상대방의 입을 꿰뚫는 장면과 피, 시체가 다수 등장하여 강한 긴장감과 불쾌감을 유발한다.",
+          "error_type": null
+        },
+        {
+          "video": "The Great Baba voss Best Fight Scene 4k (HDR) ｜ The SEE Best Scene ｜ Recap Blade-Qvcx2gyTUTA.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 24.436946792004164,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상 내에 마약 관련 내용이나 약물 사용, 거래, 중독 등을 암시하거나 묘사하는 장면이 전혀 감지되지 않습니다. 폭력적인 장면이 주를 이루지만, 약물과는 무관합니다.",
+          "error_type": null
+        },
+        {
+          "video": "The Great Baba voss Best Fight Scene 4k (HDR) ｜ The SEE Best Scene ｜ Recap Blade-Qvcx2gyTUTA.mp4",
+          "criteria": "language",
+          "elapsed_time": 24.411843166002654,
+          "success": true,
+          "result": "language : 0\n근거: 영상 내에 어떠한 대사나 음성 언어도 감지되지 않았습니다. 따라서 비속어 사용 여부를 판단할 수 없습니다.",
+          "error_type": null
+        },
+        {
+          "video": "This Looks TERRIFYING 🫣-ai8Xib84qqA.mp4",
+          "criteria": "violence",
+          "elapsed_time": 16.68108641699655,
+          "success": true,
+          "result": "violence : 0\n근거: 영상은 1인칭 시점으로 스케이트보드를 타고 경사면을 내려가는 익스트림 스포츠 장면을 보여줍니다. 물리적 공격, 위협, 상해 등 폭력적인 요소나 그 암시가 전혀 나타나지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "This Looks TERRIFYING 🫣-ai8Xib84qqA.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 15.15439687500475,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상은 익스트림 스포츠 활동을 1인칭 시점으로 담고 있으며, 성적인 내용이나 신체 노출, 암시가 전혀 나타나지 않습니다. 해당 영상물은 선정성 요소가 없습니다.",
+          "error_type": null
+        },
+        {
+          "video": "This Looks TERRIFYING 🫣-ai8Xib84qqA.mp4",
+          "criteria": "horror",
+          "elapsed_time": 16.67272808299458,
+          "success": true,
+          "result": "horror : 0\n근거: 해당 영상은 익스트림 스포츠 활동을 1인칭 시점으로 담고 있으며, 어떠한 공포 요소나 심리적 압박을 유발하는 장면도 포함되어 있지 않습니다. 영상은 밝은 분위기에서 스릴과 흥분을 전달할 뿐, 공포감을 조성하지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "This Looks TERRIFYING 🫣-ai8Xib84qqA.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 13.248364582992508,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상은 1인칭 시점으로 스키 점프와 같은 램프를 내려가는 스포츠 활동을 보여줍니다. 마약과 관련된 어떠한 내용이나 장면도 포함되어 있지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "This Looks TERRIFYING 🫣-ai8Xib84qqA.mp4",
+          "criteria": "language",
+          "elapsed_time": 12.669244749995414,
+          "success": true,
+          "result": "language : 0\n근거: 영상 내에 어떠한 형태의 언어(대화, 음성 등)도 감지되지 않습니다. 따라서 비속어 사용이 전혀 없어 아동의 언어습관에 부정적 영향을 줄 우려가 없습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #smoke #asmr #4k #shorts-Y50kB2YrMdI.mp4",
+          "criteria": "violence",
+          "elapsed_time": 18.535724459012272,
+          "success": true,
+          "result": "violence : 0\n근거: 영상에는 직접적인 물리적 공격이나 위해를 가하는 장면이 전혀 묘사되지 않습니다. 캐릭터가 담배를 피우는 모습만 나타나며, 얼굴의 상처는 폭력 행위의 직접적인 묘사에 해당하지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #smoke #asmr #4k #shorts-Y50kB2YrMdI.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 15.540611958000227,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상에 성적인 내용이나 신체 노출, 또는 성적인 암시가 전혀 나타나지 않습니다. 이는 선정성 없음 기준에 해당합니다.",
+          "error_type": null
+        },
+        {
+          "video": "Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #smoke #asmr #4k #shorts-Y50kB2YrMdI.mp4",
+          "criteria": "horror",
+          "elapsed_time": 14.882723082992015,
+          "success": true,
+          "result": "horror : 0\n근거: 영상에는 공포를 유발하는 요소, 위협적인 분위기, 또는 불안감을 조성하는 연출이 전혀 감지되지 않습니다. 흡연하는 인물의 모습을 담은 영상으로, 공포 관련 민감 요소가 포함되어 있지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #smoke #asmr #4k #shorts-Y50kB2YrMdI.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 19.27425887499703,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상에는 담배를 피우는 장면만 등장하며, 마약류 약물에 대한 언급이나 사용 묘사가 전혀 없습니다. 담배 사용이 과도한 오남용 행위로 미화되거나 연상되지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #smoke #asmr #4k #shorts-Y50kB2YrMdI.mp4",
+          "criteria": "language",
+          "elapsed_time": 14.051235250008176,
+          "success": true,
+          "result": "language : 0\n근거: 영상 내에 어떠한 음성 대사나 비속어에 해당하는 텍스트도 감지되지 않았습니다. 아동의 언어 습관에 부정적인 영향을 줄 만한 요소가 없습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Woman recorded using racist slurs on a playground-rc-Qi7PuSr4.mp4",
+          "criteria": "violence",
+          "elapsed_time": 39.353741541999625,
+          "success": true,
+          "result": "violence: 0\n근거: 영상에는 언어적 폭력 및 위협적인 언행이 포함되어 있으나, 물리적 폭력이나 직접적인 신체적 위해를 가하는 장면은 묘사되지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "Woman recorded using racist slurs on a playground-rc-Qi7PuSr4.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 40.8524056669994,
+          "success": true,
+          "result": "sexuality: 0\n근거: 영상에는 성적인 내용이나 신체 노출이 전혀 포함되어 있지 않다. 인종차별적 욕설 및 언쟁이 주된 내용이므로 선정성 기준을 위반하지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "Woman recorded using racist slurs on a playground-rc-Qi7PuSr4.mp4",
+          "criteria": "horror",
+          "elapsed_time": 36.09466249999241,
+          "success": true,
+          "result": "horror : 0\n근거: 해당 영상은 언쟁과 인종차별적 발언을 담고 있으며, 이는 사회적 이슈를 다루는 영상에 해당한다. 공포감을 유발하는 시각적 또는 청각적 요소가 전혀 없어 ‘공포’ 기준에 부합하지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "Woman recorded using racist slurs on a playground-rc-Qi7PuSr4.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 28.594013916008407,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상 내용 중 마약 관련 언급이나 직접적인 사용, 거래 묘사가 전혀 없습니다. 특정 분위기나 상징적 요소로 약물이 연상되지도 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "Woman recorded using racist slurs on a playground-rc-Qi7PuSr4.mp4",
+          "criteria": "language",
+          "elapsed_time": 38.57381895800063,
+          "success": true,
+          "result": "language : 1\n근거: 영상에는 아동에게 가해지는 인종차별적 욕설이 반복적으로 사용되며, 그 외에도 매우 모욕적이고 강한 비속어(예: \"f***\", \"s***\")가 여러 차례 등장합니다. 이는 심각한 인권 침해 및 정서적 모욕감을 유발할 수 있습니다.",
+          "error_type": null
+        },
+        {
+          "video": "first f bomb in marvel-5vl1dJPsFTo.mp4",
+          "criteria": "violence",
+          "elapsed_time": 22.992325458995765,
+          "success": true,
+          "result": "violence: 0\n근거: 영상에는 캐릭터 간의 직접적인 물리적 공격이나 위해 장면이 없으며, 폭력적 상황이나 암시도 포함되지 않는다. 문을 여는 과정에서 발생하는 캐릭터들의 대화와 행동은 언어적 격앙과 소소한 신체적 어려움을 보여주지만, 이는 폭력성으로 간주되지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "first f bomb in marvel-5vl1dJPsFTo.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 22.40742566699919,
+          "success": true,
+          "result": "sexuality: 0\n근거: 영상에는 성적 내용, 신체 노출, 암시 또는 성적인 언어가 전혀 포함되어 있지 않다. 외계인 캐릭터들이 지구의 자동차 문을 여는 방법을 익히는 코믹한 장면이 연출된다.",
+          "error_type": null
+        },
+        {
+          "video": "first f bomb in marvel-5vl1dJPsFTo.mp4",
+          "criteria": "horror",
+          "elapsed_time": 27.084202624988393,
+          "success": true,
+          "result": "horror : 0\n근거: 해당 영상은 등장인물들이 차에서 문을 여는 과정에서 벌어지는 코믹한 상황을 담고 있으며, 공포감이나 위협적인 분위기를 조성하는 요소는 없습니다.",
+          "error_type": null
+        },
+        {
+          "video": "first f bomb in marvel-5vl1dJPsFTo.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 23.921225540994783,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상 내에서 마약 관련 내용이나 약물 사용, 거래, 중독 등에 대한 어떠한 언급이나 장면도 감지되지 않았습니다. 담배 등 오남용 행위를 연상시키는 요소 또한 없습니다.",
+          "error_type": null
+        },
+        {
+          "video": "first f bomb in marvel-5vl1dJPsFTo.mp4",
+          "criteria": "language",
+          "elapsed_time": 26.627342625011806,
+          "success": true,
+          "result": "language : 1\n근거: 영상에서 등장인물이 'fucking'이라는 욕설을 한 차례 사용한다. 이는 경미한 수준을 넘어서는 비속어에 해당하며, 맥락상 과도한 언어 폭력으로 보이지는 않으나 비속어 사용이 명확하게 감지되었다.",
+          "error_type": null
+        },
+        {
+          "video": "where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4",
+          "criteria": "violence",
+          "elapsed_time": 25.437302250007633,
+          "success": true,
+          "result": "violence : 1\n근거: 한 인물이 다른 인물을 망치로 여러 차례 직접 가격하며 물리적인 폭력을 행사한다. 피해자는 이미 피를 흘리고 있으며, 망치 가격으로 추가적인 상해가 발생한다.",
+          "error_type": null
+        },
+        {
+          "video": "where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 21.83711675000086,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상에는 성적인 노출, 접촉, 소리, 이미지, 언어 등 어떠한 선정적인 요소도 포함되어 있지 않습니다. 이 영상은 고어와 폭력적인 내용에 해당합니다.",
+          "error_type": null
+        },
+        {
+          "video": "where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4",
+          "criteria": "horror",
+          "elapsed_time": 18.632541625003796,
+          "success": true,
+          "result": "horror: 1\n근거: 영상은 남성이 피를 흘리며 폭력적으로 심문당하는 장면을 포함하며, 강한 위협과 심리적 압박이 지속적으로 나타난다. 망치로 세면대를 부수는 행위와 피 묻은 얼굴 등은 강한 시각적 충격과 긴장감을 유발한다.",
+          "error_type": null
+        },
+        {
+          "video": "where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 19.535643041002913,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상 내에 마약 관련 내용, 언급, 장면이 전혀 포함되어 있지 않다. 인물들의 대화나 행동에서 약물과 연관된 어떠한 요소도 발견되지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4",
+          "criteria": "language",
+          "elapsed_time": 28.350816999998642,
+          "success": true,
+          "result": "language : 1\n근거: 영상에서 직접적인 욕설이나 비속어는 사용되지 않았으나, 고문 상황에서 가해자가 피해자에게 반복적이고 격렬하게 소리치는 언어(예: \"Tell me!\", \"Where's my daughter?\")는 극도의 공격성과 위협을 담고 있다. 이는 심각한 언어 폭력의 요소로 작용하며 시청자에게 매우 과격한 인상을 준다.",
+          "error_type": null
+        },
+        {
+          "video": "⚔️ The Bride vs Gogo Yubari! 😱 Epic Showdown ｜ Kill Bill： Vol. 1 (2003)-lUfGDlNpFTE.mp4",
+          "criteria": "violence",
+          "elapsed_time": 40.79457875000662,
+          "success": true,
+          "result": "violence : 1\n근거: 영상에는 무기를 사용한 격렬한 물리적 공격(칼싸움, 쇠사슬 공격)이 반복적으로 묘사되며, 피 흘리는 상처와 눈에서 피가 흐르는 등 명확하고 사실적인 위해 장면이 포함되어 시청자에게 강한 불쾌감을 유발할 수 있습니다.",
+          "error_type": null
+        },
+        {
+          "video": "⚔️ The Bride vs Gogo Yubari! 😱 Epic Showdown ｜ Kill Bill： Vol. 1 (2003)-lUfGDlNpFTE.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 30.161889707989758,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상 내 성적 노출이나 암시, 성적 행위 묘사가 없으며, 대사에도 선정적인 내용이 포함되어 있지 않다. 폭력적인 장면만 연출된다.",
+          "error_type": null
+        },
+        {
+          "video": "⚔️ The Bride vs Gogo Yubari! 😱 Epic Showdown ｜ Kill Bill： Vol. 1 (2003)-lUfGDlNpFTE.mp4",
+          "criteria": "horror",
+          "elapsed_time": 24.01106712500041,
+          "success": true,
+          "result": "horror : 1\n근거: 영상에는 피와 신체 훼손을 동반한 극심하고 잔혹한 폭력 장면이 여러 차례 묘사됩니다. 특히 눈에서 피가 흐르는 장면과 발바닥이 칼에 찔리는 장면은 강한 시각적 충격을 유발하며 공포감을 조성합니다.",
+          "error_type": null
+        },
+        {
+          "video": "⚔️ The Bride vs Gogo Yubari! 😱 Epic Showdown ｜ Kill Bill： Vol. 1 (2003)-lUfGDlNpFTE.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 28.935832499992102,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상에서 마약 관련 내용이나 약물 사용, 거래, 중독 등의 언급이나 묘사가 전혀 감지되지 않습니다. 폭력적인 액션 장면만 존재합니다.",
+          "error_type": null
+        },
+        {
+          "video": "⚔️ The Bride vs Gogo Yubari! 😱 Epic Showdown ｜ Kill Bill： Vol. 1 (2003)-lUfGDlNpFTE.mp4",
+          "criteria": "language",
+          "elapsed_time": 27.354721208001138,
+          "success": true,
+          "result": "language : 0\n근거: 영상 내 대사에서 욕설, 비속어, 저속어 등이 감지되지 않았습니다. 아동의 언어습관에 부정적인 영향을 미 미치거나 차별적, 인권침해적 언어 사용은 없습니다.",
+          "error_type": null
+        },
+        {
+          "video": "발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4",
+          "criteria": "violence",
+          "elapsed_time": 29.093217457993887,
+          "success": true,
+          "result": "violence : 1\n근거: 영상에는 괴물이 캐릭터들을 공격하여 날려버리거나 넘어뜨리는 등 직접적인 물리적 폭력 장면이 묘사됩니다. 해당 장면들은 잔혹하게 표현되거나 피, 상처 등 시각적으로 불쾌감을 유발하는 요소는 제한적입니다.",
+          "error_type": null
+        },
+        {
+          "video": "발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 34.319324291995144,
+          "success": true,
+          "result": "sexuality : 1\n근거: 해당 영상은 본래 게임 내 몬스터를 과도하게 성적으로 부각된 여성 캐릭터로 대체하여 노출과 신체 부위가 직접적이고 노골적으로 강조되었습니다. 이는 원본 맥락과 무관하게 자극적인 시각적 요소를 포함하고 있습니다.",
+          "error_type": null
+        },
+        {
+          "video": "발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4",
+          "criteria": "horror",
+          "elapsed_time": 30.118021292000776,
+          "success": true,
+          "result": "horror : 0\n근거: 영상에 등장하는 캐릭터와 생명체는 판타지 게임의 요소로 보이며, 공포감을 유발하는 장면이나 심리적 압박, 극심한 위협을 지속적으로 연출하지 않는다. 개조된 영상 또한 공포 요소를 포함하지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 30.15965800000413,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상에는 마약, 흡입, 거래, 중독과 관련된 어떠한 언급이나 장면도 포함되어 있지 않습니다. 약물을 연상시키거나 미화하는 상징적 요소 또한 발견되지 않았습니다.",
+          "error_type": null
+        },
+        {
+          "video": "발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4",
+          "criteria": "language",
+          "elapsed_time": 23.185204749999684,
+          "success": true,
+          "result": "language : 0\n근거: 영상 내에 어떠한 형태의 언어적 표현(음성, 자막, 텍스트 등)도 감지되지 않았다. 따라서 비속어 관련 기준에 저촉되는 요소가 없다.",
+          "error_type": null
+        },
+        {
+          "video": "욕 시원하게 갈겨버리는 혜리 지예은-m3qwUvok1wI.mp4",
+          "criteria": "violence",
+          "elapsed_time": 17.57143670799269,
+          "success": true,
+          "result": "violence: 0\n근거: 영상은 출연자들이 욕설을 하는 연기를 보여주며 코믹한 상황을 연출하지만, 직접적인 물리적 폭력이나 상해를 묘사하는 장면은 포함되어 있지 않습니다. 언어적 폭력은 심의 기준의 폭력성에 해당하지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "욕 시원하게 갈겨버리는 혜리 지예은-m3qwUvok1wI.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 12.408282707998296,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상 내 성적인 노출이나 암시, 또는 성적인 의미를 내포하는 언어가 전혀 감지되지 않습니다. 과도한 욕설이 포함되어 있으나, 이는 분노를 표현하는 맥락이며 선정성과는 관련이 없습니다.",
+          "error_type": null
+        },
+        {
+          "video": "욕 시원하게 갈겨버리는 혜리 지예은-m3qwUvok1wI.mp4",
+          "criteria": "horror",
+          "elapsed_time": 13.865714333005599,
+          "success": true,
+          "result": "horror : 0\n근거: 영상은 연예인들이 욕 연기를 선보이는 코믹한 상황을 담고 있으며, 공포감이나 위협적인 분위기를 전혀 유발하지 않습니다. 어두운 분위기나 놀람 요소 등 공포와 관련된 어떠한 시각적, 청각적 자극도 없습니다.",
+          "error_type": null
+        },
+        {
+          "video": "욕 시원하게 갈겨버리는 혜리 지예은-m3qwUvok1wI.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 11.901671458006604,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상 내에 마약 관련 언급이나 묘사가 전혀 없으며, 담배 등 다른 약물 오남용 행위도 등장하지 않는다. 출연자들이 욕설 연기에 대해 이야기하고 이를 시연하는 장면만 있다.",
+          "error_type": null
+        },
+        {
+          "video": "욕 시원하게 갈겨버리는 혜리 지예은-m3qwUvok1wI.mp4",
+          "criteria": "language",
+          "elapsed_time": 16.39954954200948,
+          "success": true,
+          "result": "language: 1\n근거: 영상 내에 강하고 모욕적인 욕설인 '씨발X끼야'가 직접적으로 사용되었습니다. 이러한 표현은 청각적으로 자극적이며 정서적, 인격적 불쾌감을 유발할 수 있습니다.",
+          "error_type": null
+        },
+        {
+          "video": "클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4",
+          "criteria": "violence",
+          "elapsed_time": 35.23304150000331,
+          "success": true,
+          "result": "violence : 0\n근거: 물리적 공격이나 상해 장면이 존재하지 않습니다. 약물 사용 장면은 자기 위해 행위로, 심의 기준에 따라 폭력성으로 간주하지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 37.01404049999837,
+          "success": true,
+          "result": "sexuality: 1\n근거: 여성 캐릭터의 깊게 파인 의상과 남성 캐릭터의 상의 탈의가 연출되어 신체 노출이 있으며, 약물 사용 후의 반응과 분위기가 성적으로 암시되는 요소를 포함하고 있다.",
+          "error_type": null
+        },
+        {
+          "video": "클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4",
+          "criteria": "horror",
+          "elapsed_time": 36.41536116700445,
+          "success": true,
+          "result": "horror : 1\n근거: 마약 사용으로 인한 인물의 극심한 심리적 압박과 환각, 통제 불능 상태를 직접적이고 지속적으로 묘사하여 불안감과 불쾌감을 유발한다. 특히 왜곡된 얼굴 표정과 소리 연출은 시청자에게 강한 정신적 충격을 줄 수 있다.",
+          "error_type": null
+        },
+        {
+          "video": "클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 28.503090582991717,
+          "success": true,
+          "result": "drugs : 1\n근거: 영상에서 인물들이 마약으로 추정되는 흰색 가루를 거울 위에 놓고 흡입하는 장면이 명확하게 묘사됩니다. 이 과정에서 약물 준비, 흡입 및 그로 인한 신체적, 심리적 반응이 구체적으로 표현되었습니다.",
+          "error_type": null
+        },
+        {
+          "video": "클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4",
+          "criteria": "language",
+          "elapsed_time": 25.463650124991545,
+          "success": true,
+          "result": "language: 0\n근거: 영상 내 모든 대화는 비속어나 욕설, 차별적 언어 없이 진행됩니다. 약물 복용 후 발생하는 신음 소리나 거친 숨소리는 언어적 비속어에 해당하지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan Became Japan’s HUMAN SHIELD (Nuke Survival Breakdown)＂-G1_RpZ47EGU.mp4",
+          "criteria": "violence",
+          "elapsed_time": 26.41116124999826,
+          "success": true,
+          "result": "violence : 1\n근거: 원자폭탄 폭발 장면과 함께 신체가 심하게 손상되고 고통스럽게 재생되는 장면이 직접적이고 지속적으로 묘사된다. 이 과정에서 뼈와 근육이 노출되는 등 매우 사실적이고 잔혹하게 표현되어 시청자에게 강한 불쾌감을 유발할 수 있다.",
+          "error_type": null
+        },
+        {
+          "video": "＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan Became Japan’s HUMAN SHIELD (Nuke Survival Breakdown)＂-G1_RpZ47EGU.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 19.016614291002043,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상에는 성적 노출이나 암시가 전혀 없으며, 인물의 신체는 잔인하게 손상되고 재생되는 공포스러운 장면으로 연출되었다. 과도한 폭력과 공포 묘사가 선정성으로 오인될 수 있으나, 본 영상의 의도와 표현은 선정성과 관련이 없다.",
+          "error_type": null
+        },
+        {
+          "video": "＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan Became Japan’s HUMAN SHIELD (Nuke Survival Breakdown)＂-G1_RpZ47EGU.mp4",
+          "criteria": "horror",
+          "elapsed_time": 15.155963917000918,
+          "success": true,
+          "result": "horror : 1\n근거: 원자폭탄 폭발 이후 신체가 심하게 불타고 재생하는 과정이 적나라하게 묘사되어 강한 시각적 충격과 고통을 유발한다. 이는 극심한 위협과 잔혹한 묘사를 포함하여 중대한 공포로 판단된다.",
+          "error_type": null
+        },
+        {
+          "video": "＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan Became Japan’s HUMAN SHIELD (Nuke Survival Breakdown)＂-G1_RpZ47EGU.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 16.506675334007014,
+          "success": true,
+          "result": "drugs : 0\n근거: 영상 내 마약 관련 내용, 사용, 거래, 중독 등의 직접적인 묘사나 간접적인 언급이 전혀 없습니다. 약물을 연상시키는 분위기나 상징적 요소도 존재하지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "＂WOLVERINE vs ATOMIC BOMB! ☢️ How Logan Became Japan’s HUMAN SHIELD (Nuke Survival Breakdown)＂-G1_RpZ47EGU.mp4",
+          "criteria": "language",
+          "elapsed_time": 18.31679733299825,
+          "success": true,
+          "result": "language : 0\n근거: 영상에서 사용된 언어는 'Get out!', 'Go!', 'That was a B-29, bub.', 'There's no outrunning what's coming.', 'I'll go over now.', 'I'd hurry if I were you.', 'Stay down!' 등으로, 비속어나 욕설이 포함되어 있지 않다. 긴박한 상황에서 사용된 지시나 설명으로, 모욕적이거나 과격한 인상을 주지 않는다.",
+          "error_type": null
+        }
+      ]
+    }
+  ]
+}

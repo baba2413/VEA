@@ -1,0 +1,162 @@
+{
+  "experiment_id": "initial_5crit_20251125_065022",
+  "description": "Initial analysis with 5 criteria (one at a time): text vs video",
+  "configuration": {
+    "num_trials": 1,
+    "num_tests_per_trial": 1,
+    "criteria_per_video": 5,
+    "total_api_calls_per_trial": 10,
+    "text_delay": 2,
+    "video_delay": 2
+  },
+  "analysis": {
+    "per_criteria": {
+      "text_based": {
+        "count": 5,
+        "failures": 0,
+        "rate_limit_errors": 0,
+        "content_blocked": 0,
+        "mean": 6.688444650202291,
+        "median": 5.227484417002415,
+        "stdev": 2.3474776716881007,
+        "min": 5.014540125004714,
+        "max": 10.336154542004806,
+        "total": 33.442223251011455
+      },
+      "video_based": {
+        "count": 5,
+        "failures": 0,
+        "rate_limit_errors": 0,
+        "content_blocked": 0,
+        "mean": 24.022039708396186,
+        "median": 22.907998249997036,
+        "stdev": 3.5080606776315406,
+        "min": 21.330681999999797,
+        "max": 30.02297108298808,
+        "total": 120.11019854198094
+      },
+      "comparison": {
+        "speedup_ratio": 3.591573372393781,
+        "time_difference": 17.333595058193893,
+        "faster_method": "text_based"
+      }
+    },
+    "per_video_parallel": {
+      "text_based": {
+        "count": 1,
+        "mean": 10.336154542004806,
+        "median": 10.336154542004806,
+        "stdev": 0,
+        "min": 10.336154542004806,
+        "max": 10.336154542004806,
+        "description": "Total time per video (max of 5 criteria, parallel execution)"
+      },
+      "video_based": {
+        "count": 1,
+        "mean": 30.02297108298808,
+        "median": 30.02297108298808,
+        "stdev": 0,
+        "min": 30.02297108298808,
+        "max": 30.02297108298808,
+        "description": "Total time per video (max of 5 criteria, parallel execution)"
+      },
+      "comparison": {
+        "speedup_ratio": 2.9046557847968097,
+        "time_difference": 19.686816540983273,
+        "faster_method": "text_based"
+      }
+    }
+  },
+  "all_trials": [
+    {
+      "trial_number": 1,
+      "timestamp": "2025-11-25T06:47:18.924011",
+      "text_delay": 2,
+      "video_delay": 2,
+      "text_based": [
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "violence",
+          "elapsed_time": 5.014540125004714,
+          "success": true,
+          "result": "violence : 0\n근거: 영상에서 직접적인 물리적 공격이나 위해 장면은 묘사되지 않는다. 주인공이 담배 뭉치를 내던지는 행위는 분노 표출의 일환으로 보이나, 타인이나 사물에 대한 명확한 물리적 위해로 볼 수 없으며, 언어 폭력(욕설)은 'violence' 기준에 해당하지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 5.07759379199706,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상은 한 남성이 여러 개의 담배를 동시에 피우는 과정을 보여줄 뿐, 성적인 노출이나 암시, 성적 행위와 관련된 어떤 시각적 또는 청각적 요소도 포함하고 있지 않다.",
+          "error_type": null
+        },
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "horror",
+          "elapsed_time": 5.227484417002415,
+          "success": true,
+          "result": "horror : 0\n근거: 영상은 남성이 많은 담배를 한꺼번에 피우다 콜록거리고 불편해하는 모습을 보여준다. 영상 내내 공포감을 유발하는 위협, 심리적 압박, 괴기스러운 요소는 전혀 감지되지 않는다.",
+          "error_type": null
+        },
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 7.78645037500246,
+          "success": true,
+          "result": "drugs : 1\n근거: 한 남성이 약 20개비의 담배를 한꺼번에 입에 물고 불을 붙여 피우는 과도한 담배 오남용 행위가 명확하게 묘사됩니다. 이는 담배와 관련된 비정상적이고 유해할 수 있는 행위를 직접적으로 보여줍니다.",
+          "error_type": null
+        },
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "language",
+          "elapsed_time": 10.336154542004806,
+          "success": true,
+          "result": "language : 1\n근거: 영상 마지막 부분에서 남성이 불이 잘 붙지 않는 담배 뭉치를 살펴보며 강한 욕설(\"씨발\")을 내뱉는 장면이 감지되었습니다. 해당 비속어는 개인적인 불만을 표현하는 맥락에서 사용되었으나, 시청자에게 불쾌감을 줄 수 있습니다.",
+          "error_type": null
+        }
+      ],
+      "video_based": [
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "violence",
+          "elapsed_time": 30.02297108298808,
+          "success": true,
+          "result": "violence : 0\n근거: 영상에는 직접적인 물리적 공격이나 위협, 타인에 대한 신체적 위해 묘사가 없습니다. 흡연으로 인한 기침 등 개인의 불편함은 자기 위해 행위에 해당하며, 이는 폭력성 기준에 포함되지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "sexuality",
+          "elapsed_time": 21.330681999999797,
+          "success": true,
+          "result": "sexuality : 0\n근거: 영상은 여러 개비의 담배를 한꺼번에 피우려는 사람을 보여준다. 성적인 노출, 암시, 또는 성적인 맥락의 어떠한 내용도 포함되어 있지 않다.",
+          "error_type": null
+        },
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "horror",
+          "elapsed_time": 22.907998249997036,
+          "success": true,
+          "result": "horror : 0\n근거: 영상은 한 번에 여러 개비의 담배를 피우는 행위를 보여주지만, 이는 공포감, 긴장감, 또는 위협적인 분위기를 유발하는 요소와는 관련이 없습니다. 극심한 위협이나 심리적 압박으로 인한 지속적인 공포 유발이 감지되지 않습니다.",
+          "error_type": null
+        },
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "drugs",
+          "elapsed_time": 24.001331167004537,
+          "success": true,
+          "result": "drugs : 1\n근거: 영상에서 인물이 담배 약 20개를 한 번에 피우는 과도한 오남용 행위가 명확하게 묘사됩니다. 이는 ‘약물’ 관련 심의 고려사항에 명시된 \"담배 등 과도한 오남용 행위도 고려\" 기준에 해당합니다.",
+          "error_type": null
+        },
+        {
+          "video": "#shorts #담배-qR2K__FCLb0.mp4",
+          "criteria": "language",
+          "elapsed_time": 21.847216041991487,
+          "success": true,
+          "result": "language : 1\n근거: 영상에서 '씨발'이라는 비속어가 두 차례 감지되었습니다. 이는 맥락상 개인을 향한 모욕은 아니지만, 일반적인 비속어 사용에 해당합니다.",
+          "error_type": null
+        }
+      ]
+    }
+  ]
+}

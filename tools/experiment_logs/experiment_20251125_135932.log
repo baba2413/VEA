@@ -1,0 +1,41 @@
+2025-11-25 13:59:32,984 - INFO - Starting experiment - Log file: /Users/yj/Documents/GitHub/VEA/tools/experiment_logs/experiment_20251125_135932.log
+2025-11-25 13:59:32,984 - INFO - Environment loaded successfully
+2025-11-25 13:59:32,988 - INFO - Starting trial 1
+2025-11-25 13:59:32,988 - INFO - Starting text-based analysis for 20 videos
+2025-11-25 13:59:32,988 - INFO - Processing text-based video 1/20: #shorts #담배-qR2K__FCLb0.mp4
+2025-11-25 13:59:32,988 - DEBUG - Starting text-based analysis for criteria: violence
+2025-11-25 13:59:33,014 - INFO - AFC is enabled with max remote calls: 10.
+2025-11-25 13:59:33,015 - DEBUG - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2025-11-25 13:59:33,101 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11f0f74c0>
+2025-11-25 13:59:33,101 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x107ce1ac0> server_hostname='generativelanguage.googleapis.com' timeout=None
+2025-11-25 13:59:33,198 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11f0f7490>
+2025-11-25 13:59:33,198 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-25 13:59:33,199 - DEBUG - send_request_headers.complete
+2025-11-25 13:59:33,199 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-25 13:59:33,199 - DEBUG - send_request_body.complete
+2025-11-25 13:59:33,199 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-25 13:59:33,696 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Type', b'application/json; charset=UTF-8'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 25 Nov 2025 04:59:33 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=416'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2025-11-25 13:59:33,698 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 429 Too Many Requests"
+2025-11-25 13:59:33,698 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-25 13:59:33,699 - DEBUG - receive_response_body.complete
+2025-11-25 13:59:33,699 - DEBUG - response_closed.started
+2025-11-25 13:59:33,699 - DEBUG - response_closed.complete
+2025-11-25 13:59:33,700 - ERROR - Text-based analysis failed for violence: rate_limit - 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.
+2025-11-25 14:00:06,708 - DEBUG - Starting text-based analysis for criteria: sexuality
+2025-11-25 14:00:06,721 - INFO - AFC is enabled with max remote calls: 10.
+2025-11-25 14:00:06,722 - DEBUG - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2025-11-25 14:00:06,784 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11f1418a0>
+2025-11-25 14:00:06,784 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x11f0e4e40> server_hostname='generativelanguage.googleapis.com' timeout=None
+2025-11-25 14:00:06,857 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11f141870>
+2025-11-25 14:00:06,857 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-25 14:00:06,858 - DEBUG - send_request_headers.complete
+2025-11-25 14:00:06,858 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-25 14:00:06,858 - DEBUG - send_request_body.complete
+2025-11-25 14:00:06,858 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-25 14:00:07,154 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Type', b'application/json; charset=UTF-8'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 25 Nov 2025 05:00:07 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=235'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2025-11-25 14:00:07,154 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 429 Too Many Requests"
+2025-11-25 14:00:07,154 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-25 14:00:07,155 - DEBUG - receive_response_body.complete
+2025-11-25 14:00:07,155 - DEBUG - response_closed.started
+2025-11-25 14:00:07,155 - DEBUG - response_closed.complete
+2025-11-25 14:00:07,155 - ERROR - Text-based analysis failed for sexuality: rate_limit - 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.

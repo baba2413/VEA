@@ -1,0 +1,93 @@
+======================================================================
+INCORRECT RESULTS - FEEDBACK TEMPLATE
+======================================================================
+
+This file contains all incorrect predictions from the initial analysis.
+Please provide feedback for each case to improve the system.
+
+Total incorrect results:
+  - Text-based: 4 errors
+  - Video-based: 10 errors
+
+======================================================================
+TEXT-BASED INCORRECT RESULTS (4 cases)
+======================================================================
+
+[1] False Positive
+Video: ''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4
+Criteria: violence
+Predicted: 1 (should be 0)
+Feedback: 직접적인 폭력이 등장하지 않고, 상처가 경미한 수준입니다. 또한, 여성이 비명을 지르고 있는 장면도 아닙니다. 따라서 폭력성이 매우 심각하다고 볼 정도는 아닙니다.
+
+[2] False Positive
+Video: HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4
+Criteria: language
+Predicted: 1 (should be 0)
+Feedback: "shit" 이라는 비속어가 한 번만 등장했고, 반복적인 사용이 아니었습니다. 직접적인 모욕이나 언어 폭력이라고 보기도 어렵습니다. 심의를 고려할 수 있지만, 심각한 수준이라고 보기는 어렵습니다.
+
+[4] False Positive
+Video: 발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4
+Criteria: violence
+Predicted: 1 (should be 0)
+Feedback: 영상에서는 게임 속 몬스터의 방귀의 풍압에 뒤로 밀려나는 캐릭터들을 묘사하고 있습니다. 이는 직접 타격이 발생했다고 보기는 어려운, 모험가들의 가벼운 위기 정도라고 볼 수 있습니다. 이를 심각한 정도의 폭력성이라고 판단할 수는 없습니다.
+
+
+======================================================================
+VIDEO-BASED INCORRECT RESULTS (10 cases)
+======================================================================
+
+[1] False Positive
+Video: ''its okay'' WYM YOU JUST MADE ME JUMP #ethanwinters #residentevil7-pxNvqepEYOY.mp4
+Criteria: violence
+Predicted: 1 (should be 0)
+Feedback: 직접적인 폭력이 등장하지 않고, 상처가 경미한 수준입니다. 또한, 여성이 비명을 지르고 있는 장면도 아닙니다. 따라서 폭력성이 매우 심각하다고 볼 정도는 아닙니다.
+
+[2] False Positive
+Video: BOOTED by Gordon Ramsay？! #shorts #gordonramsay #fyp-gT-ZPJW1j1c.mp4
+Criteria: violence
+Predicted: 1 (should be 0)
+Feedback: 공격적인 언행과 행동을 하기는 하지만, 직접적인 물리적 폭력이 등장하지는 않습니다. 심각한 수준의 폭력성이라고 보기 어렵습니다.
+
+[3] False Positive
+Video: HEISENBERG'S FIRST DEAL!🤑｜ Breaking Bad #shorts-Ix3XLxar5Uo.mp4
+Criteria: language
+Predicted: 1 (should be 0)
+Feedback: "shit" 이라는 비속어가 한 번만 등장했고, 반복적인 사용이 아니었습니다. 직접적인 모욕이나 언어 폭력이라고 보기도 어렵습니다. 심의를 고려할 수 있지만, 심각한 수준이라고 보기는 어렵습니다.
+
+
+[5] False Negative
+Video: Thomas Shelby Smoking 4k 🚬 ⧸⧸#thomasshelby #peakyblinders #smoke #asmr #4k #shorts-Y50kB2YrMdI.mp4
+Criteria: drugs
+Predicted: 0 (should be 1)
+Feedback: 담배를 멋있게 피는 장면이 직접적으로 클로즈업 되어서 나타나 미화의 가능성이 있고, 19세 미만의 청소년이 보는 컨텐츠에서는 검열이 필요할 수 있으므로 감지해야 합니다.
+
+[6] False Positive
+Video: first f bomb in marvel-5vl1dJPsFTo.mp4
+Criteria: language
+Predicted: 1 (should be 0)
+Feedback: 불만을 표시하기 위해서, 유쾌하게 한번의 비속어가 등장했습니다. 비속어가 반복적이지 않고, 직접적인 모욕이나 언어폭력이 아니므로 심각성이 낮습니다.
+
+[7] False Positive
+Video: where's my daughter scene ｜ prisoners (2013)-nY3Nsri3NOA.mp4
+Criteria: language
+Predicted: 1 (should be 0)
+Feedback: 분위기가 격하기는 하지만 욕설, 비속어, 저속한 표현, 인종차별 혹은 인권침해적인 언어 모두 전혀 감지되지 않았으므로 언어 항목에 문제는 없습니다.
+
+[8] False Positive
+Video: 발매한지 한 달도 안 돼서 특이점이 와버린 게임 모드-jo13504_u9A.mp4
+Criteria: violence
+Predicted: 1 (should be 0)
+Feedback: 영상에서는 게임 속 몬스터의 방귀의 풍압에 뒤로 밀려나는 캐릭터들을 묘사하고 있습니다. 이는 직접 타격이 발생했다고 보기는 어려운, 모험가들의 가벼운 위기 정도라고 볼 수 있습니다. 이를 심각한 정도의 폭력성이라고 판단할 수는 없습니다.
+
+[9] False Positive
+Video: 클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4
+Criteria: sexuality
+Predicted: 1 (should be 0)
+Feedback: 검열이 필요할 정도의 노골적인 신체노출, 혹은 성적인 묘사라고 보기 어렵습니다. 선정성이 심각하다고 보기는 어렵습니다.
+
+[10] False Positive
+Video: 클래식하고 묵직합니다 #독전 #김주혁 #진서연 #조진웅-W3pQ3Z9JrI0.mp4
+Criteria: horror
+Predicted: 1 (should be 0)
+Feedback: 긴장감 있는 분위기가 연출되기는 하지만, 심각한 공포를 유발하는 장면은 아닙니다.
+
