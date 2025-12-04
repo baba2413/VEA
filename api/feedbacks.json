@@ -1,7 +1,5 @@
 {
-  "violence": [
-    "폭력성은 매우 고어한 정도가 아니므로 'violence'는 0으로 처리합니다."
-  ],
+  "violence": [],
   "sexuality": [],
   "horror": [],
   "drugs": [],
