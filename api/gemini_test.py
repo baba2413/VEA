@@ -160,7 +160,7 @@ def feedback_with_llm(file_name:str, criteria:str, feedback:str):
         {msg}\n\n
         이에 대한 유저의 피드백은 다음과 같다:\n
         {feedback}\n\n
-        피드백의 의미를 유지하면서 영상의 맥락이 담길 수 있게끔 문장을 작성한다. 100자를 넘기지 않는다.
+        유저의 피드백을 최대한 그대로 출력한다. 단, 영상 맥락이 필요할 경우에만 맥락이 담길 수 있게끔 문장을 작성한다. 100자를 넘기지 않는다.
     """
     result = analyze_with_gemini(prompt=prompt)
     feedbacks[criteria].append(result)
